@@ -1,0 +1,68 @@
+---
+title: "Chapter 3: Covariance, regression, and correlation"
+output:
+  pdf_document: default
+  word_document:
+    fig_caption: no
+---
+
+## Covariance
+Covariance is a measure of association and the covariance between x and y would be denoted by $\sigma(x, y)$. If x and y are independent then $\sigma(x, y) = 0$, BUT if $\sigma(x, y) = 0$, x and y aren’t necessarily independent. 
+
+### Useful identities for cov
+
+Covariance of x with itself = variance of x:
+$$\sigma(x, x) = \sigma^2(x, x)$$
+
+For constants (here represented by a):
+$$\sigma(a, x) = 0$$
+$$\sigma(ax, y) = a\sigma(x, y)$$
+$$\sigma^2(a, x) = a^2\sigma^2(x)$$
+$$\sigma[(a + x), y] = \sigma(x, y)$$
+
+The covariance of 2 sums can be written as the sum of covariances, i.e. just multiply out the brackets (I've left this blank, do it yourself or check book):
+$$\sigma[(x + y),(w + z)] = ...$$
+
+Variance of a sum is sum of variances and covariances (figure this out):
+$$\sigma^2(x + y) = ...$$
+
+## Least squares linear regression
+
+Linear model:
+$$y = \alpha + \beta{x} + e$$
+
+Continuing on, $\alpha$ and $\beta$ will be the true population values and a and b will be the intercept and slope for the line of best fit derived from observed data. The derivation of a and b using the least-squares model can be found on pages 39-41. Buuut, who cares about that, here are the results:
+$$a = \bar{y} - b\bar{x}$$
+$$b = \frac{Cov(x, y)} {Var(x)}$$
+
+### Properties of least squares
+
+6 in the book, just writing down important/not obvious ones.
+
+* The mean residual ($\bar{e}$) is 0
+* Residual errors are uncorrelated with predictor variable x (see book for why)
+	- BUT e and x may not be independent if the relationship between x and y is non-linear. If it is truly non-linear $E(e|x) != 0$
+* Variance of e can vary with x, in this situation the the regression is said to display heteroscedasticity (see Figure 3.4 for great illustration)
+* The regression of y on x is different to the regression of x on y! 
+
+## Correlation
+
+Correlation coefficient between x and y:
+$$r(x, y) = \frac{Cov(x, y)} {\sqrt{Var(x) Var(y)}}$$
+
+The correlation coefficient is a dimensionless measure of association and it is symmetrical (i.e. $r(x, y) = r(y, x)$).
+
+Scaling x or y by constants does not change the correlation coefficient, but it does affect variances and covariances.
+
+The correlation coefficient is a standardised regression coefficient -> the regression coefficient resulting from rescaling x and y such that each has unit variance). 
+
+$r^2$ assumes $E(y|x)$ is linear!
+
+
+
+
+
+
+
+
+

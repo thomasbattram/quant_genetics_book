@@ -1,0 +1,108 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Chapter 3: Covariance, regression, and correlation},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Chapter 3: Covariance, regression, and correlation}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{covariance}{%
+\subsection{Covariance}\label{covariance}}
+
+Covariance is a measure of association and the covariance between x and
+y would be denoted by \(\sigma(x, y)\). If x and y are independent then
+\(\sigma(x, y) = 0\), BUT if \(\sigma(x, y) = 0\), x and y aren't
+necessarily independent.
+
+\hypertarget{useful-identities-for-cov}{%
+\subsubsection{Useful identities for
+cov}\label{useful-identities-for-cov}}
+
+Covariance of x with itself = variance of x:
+\[\sigma(x, x) = \sigma^2(x, x)\]
+
+For constants (here represented by a): \[\sigma(a, x) = 0\]
+\[\sigma(ax, y) = a\sigma(x, y)\] \[\sigma^2(a, x) = a^2\sigma^2(x)\]
+\[\sigma[(a + x), y] = \sigma(x, y)\]
+
+The covariance of 2 sums can be written as the sum of covariances,
+i.e.~just multiply out the brackets (I've left this blank, do it
+yourself or check book): \[\sigma[(x + y),(w + z)] = ...\]
+
+Variance of a sum is sum of variances and covariances (figure this out):
+\[\sigma^2(x + y) = ...\]
+
+\hypertarget{least-squares-linear-regression}{%
+\subsection{Least squares linear
+regression}\label{least-squares-linear-regression}}
+
+Linear model: \[y = \alpha + \beta{x} + e\]
+
+Continuing on, \(\alpha\) and \(\beta\) will be the true population
+values and a and b will be the intercept and slope for the line of best
+fit derived from observed data. The derivation of a and b using the
+least-squares model can be found on pages 39-41. Buuut, who cares about
+that, here are the results: \[a = \bar{y} - b\bar{x}\]
+\[b = \frac{Cov(x, y)} {Var(x)}\]
+
+\end{document}
