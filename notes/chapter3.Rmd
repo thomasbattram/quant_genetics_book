@@ -12,7 +12,7 @@ Covariance is a measure of association and the covariance between x and y would 
 ### Useful identities for cov
 
 Covariance of x with itself = variance of x:
-$$\sigma(x, x) = \sigma^2(x, x)$$
+$$\sigma(x, x) = \sigma^2(x)$$
 
 For constants (here represented by a):
 $$\sigma(a, x) = 0$$
