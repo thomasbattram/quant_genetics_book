@@ -39,7 +39,7 @@ Assuming assumptions are met, 2 important points from H-W:
 
 ### Sex-linked loci
 
-Alleles on sex chromosomes in diploid organisms are obviously different. Sons can only receive and X chromosome from their mother so the frequency of X linked loci in the sons is equal to that of their mothers. Daughters receive both an X chromosome from Mum + from Dad. 
+Alleles on sex chromosomes in diploid organisms are obviously different. Sons can only receive an X chromosome from their mother so the frequency of X linked loci in the sons is equal to that of their mothers. Daughters receive both an X chromosome from Mum + from Dad. 
 
 Overall this means allele frequencies oscilate around an equilibrium state, but continually get closer to that state over the generations (see Figure 4.2 and page 56 for equation).
 
@@ -79,7 +79,7 @@ Recalling that the phenotypic value can be partitioned like so:
 
 $$ z = G + E $$
 
-where z is the phenotype, G is the genotypic value and E is the environmental value. 
+where $z$ is the phenotype, $G$ is the genotypic value and $E$ is the environmental value. 
 
 The genotypic value of a specific locus can be partitioned into it's "expected" values based on there being only additive effects ($\hat{G}$) and the deviations from the expected values or dominance effects ($\delta$). So for genotype $B_iB_J$:
 
@@ -91,7 +91,7 @@ $$ G_ij = \hat{G_ij} + \delta_ij = \mu_G + \alpha_1N_1 + \alpha_2N_2 $$
 
 $\mu_G$ = the mean genotypic value in the population, $\alpha_1$ and $\alpha_2$ are the slopes of the regression, $N_1$ and $N_2$ are the number of $B_1$ and $B_2$ alleles. So the regression is:
 
-$$ G_ij ~ N_2 + N_1
+$$ G_ij ~ N_2 + N_1 $$
 
 By noting that for any individual, $N_1 = 2 - N_2$ you can reduce the multiple regression model into an easier to work with univariate model. Give it a go: 
 
