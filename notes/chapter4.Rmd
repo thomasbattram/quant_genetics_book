@@ -107,6 +107,115 @@ where $a$ = genotypic value of $B_2$ (see above), $k$ is the dominance coefficie
 
 ## Partioning the genetic variance.
 
+Deriving variance of $G$: 
 
+$$ G = \hat{G} + \delta $$
+$$ \sigma^2_G = \sigma^2(\hat{G} + \delta) $$
+$$ \sigma^2_G = \sigma^2(\hat{G}) + \sigma(\hat{G} + \delta) + \sigma^2(\delta) $$
 
+The top equation is just like a regression, with $\delta$ being the residual error and we know that for least-squares there is no correlation between the residual error and the predictor. So there is no correlation between $\hat{G}$ and $\delta$. Therefore:
+
+$$ \sigma^2_G = \sigma^2(\hat{G}) + \sigma^2(\delta) $$
+OR more commonly
+$$ \sigma^2_G = \sigma^2_A + \sigma^2_D $$
+
+$\sigma^2_A$ is the variance of G explained by regression on $N_2$ (or $N_1$), and $\sigma^2_D$ is the residual variance of that regression. The variance of the additive and dominance effects!
+
+For a diallelic locus we can do some rearranging of equations in Table 4.1 of the book and get these equations:
+
+$$ \sigma^2_A = 2p_1p_2\alpha^2 $$
+$$ \sigma^2_D = (2p_1p_2ak)^2 $$
+
+From these we can clearly see that both components depend on allele frequencies, the dominance coefficient and the homozygous effect (remember $\alpha$ is just the slope of the $G ~ N_2$ regression!).
+
+By plotting how genetic variance changes with gene frequency under different scenarios (__DEFINITELY DO THIS__). You see some interesting patterns. Firstly, at a single diallelic locus, you see that $\sigma^2_A$ reaches it's peak when $p_1 = p_2 = 0.5$. Secondly, it's clear that, even in the case of overdominance (which is rare!), additive genetic variance will almost always be much higher than genetic variance from dominance effects, even when the frequency of the dominant allele is high. (btw I think the scale on the top left graph is wrong...).
+
+## Additive effects, average excesses and breeding values
+
+The dominance deviation of a parent, which is a function of the interaction between the two parental alleles, is eliminated when gametes are produced. Thus, one can think of $\hat{G}$ and $\delta$ as the heritable and nonheritable components of an individual's genotypic value.
+
+Fisher proposed two different measures of the effect of an allele: one being the additive effect ($\alpha_i$) and then the average excess $\alpha^x_i$. The average excess $\alpha^x_2$ of allele $B_2$ is the difference between the mean genotypic value of individuals carrying at least one copy of $B_2$ and the mean genotypic value of a random individual from the entire population:
+
+$$ \alpha^x_2 = (G_{12}P_{12|2} + G_{22}P_{22|2}) - \mu_G $$ 
+
+where $P_{ij}$ is the conditional probability of a $B_iB_j$ genotype given that one allele is $B_i$. Under random mating $P_{ij|i} = p_j$ ($p_j$ = frequency of allele $B_j$). THINK ABOUT HARDY-WEINBERG AND IT MAKES SENSE!
+
+So under random mating,
+
+$$ \alpha^x_2 = G_{12}p_1 + G_{22}p_2 - \mu_G $$
+
+$G_{12} = a(1+k)$ and $G_{22} = 2a$. By substituting these into the equation above for $\alpha^x_1$ and $\alpha^x_2$ and then calculating $\alpha_1$ and $\alpha_2$ (additive effects) by the method previously mentioned (regressing genotypic value $G$ on the number of $B_2$ alleles $N_2$), we will see they're equivalent (shown on page 72): 
+
+$$ \alpha_2 = p_1\alpha $$
+$$ \alpha_1 = -p_2\alpha $$
+
+The breeding value of an individual ($A$) is the sum of the additive effects of its genes. So the breeding value of a $B_1B_1$ homozygote is just $2\alpha_1$. In randomly mating populations the breeding value of a genotype is equivalent to twice the expected deviation of its offspring mean phenotype from the population mean. Soooo, no genotype information is needed to calculate the breeding value. All we have to do is mate an individual to many randomly chosen individuals from the population and taking twice the deviation of its offspring mean from the population mean. EASY IN HUMANS!!!
+
+In Chapter 13 this will be discussed wrt candidate gene studies.
+
+## Extensions for multiple alleles and non random mating
+
+So this section seems mostly unrelevant as we're unlikely to deal with situations with more than 2 alleles. Non-random mating could be encountered if we're interested in some phenotypes (e.g. alcohol intake). Buuuut, it's still good to note some of the generalised equations for what we've been discussing so far in the chapter.
+
+### Average excess
+
+When $n$ alleles are present, the average excess, $\alpha^x_i$, for any allele $B_i$ is given by
+
+$$ \alpha^x_i = \sum_{j=1}^{n} P_{ij|i}G_{ij} - \mu_G $$
+
+Remember, under random mating $P_{ij|i} == p_j$
+
+### Additive effects
+
+The genotypic value can also be obtained using regression as before, but in it's generalised form is a multivariate regression. For $n$ alleles 
+
+$$ G = \mu_G + \sum_{i=1}^{n} \alpha_{i}N_{i} + \delta $$
+
+After some re-arranging can derive the regression coefficients and finally end with
+
+$$ \alpha_i = \sum_{j=1}^{n} p_jG_{ij} - \mu_G $$ 
+
+i.e. under random mating, the average effects ($\alpha_i$) are equal to the conditional mean deviations from the mean genotypic value of the population ($\mu_G$).
+
+For non-random mating we need the inbreeding coefficient, $f$ to define our genotype frequencies:
+
+$$ P_{ii} = (1 - f)p^2_i + fp_i $$
+$$ P_{ij} = 2(1 -f)p_ip_j $$
+
+Unsure of why, but this means
+
+$$ \alpha_i = \frac{\alpha^x_i} {1 + f} $$
+
+so $f$ is the fractional reduction of heterozygote frequencies relative to those expected under random mating. This means you can kind of do a test for random mating by checking heterozygote and homozygote frequencies in a population!
+
+### Additive genetic variance
+
+The additive genetic variance across $n$ alleles is
+
+$$ \sigma^2_A = 2 \sum_{i=1}^{n} p_i\alpha_i\alpha^x_i $$
+
+In general inbreeding inflates the additive genetic variance by causing correlations among the effects of alleles within the same individuals.
+
+The broad sense heritability, even under scenarios of non-random mating can be given by
+
+$$ \sigma^2_G = \sigma^{2}(\alpha_i + \alpha_j) + \sigma^{2}(\delta_{ij}) $$
+
+although it should be noted that the definitions of $\alpha_i$ and $\delta_ij$ change with the degree of inbreeding! Random mating means $\alpha_i$ and $\alpha_j$ are uncorrelated so we get back to the good old equation
+
+$$ \sigma^2_G = \sigma^2_A + \sigma^2_D $$
+
+Importantly, under random mating, $\sigma^2_A$ is equivalent to the variance of breeding values of individuals in the population.
+
+***
+**Summarising some key terms**
+
+__The homozygous effect, $a$, and the dominance coefficient, $k$,__ are intrinsic properties of allelic products. They are not functions of allele frequencies, but may vary with genetic background
+
+__The additive effect, $\alpha_i$, and the average excess, $\alpha^x_i$,__ are properties of alleles in a particular population. They are functions of $a$, $k$ and genotype frequencies ($p_i$).
+
+__The breeding value, $A$,__ is a property of a particular individual in reference to a particular population. It's equivalent to the sum of the additive effects of an individual's alleles.
+
+__The additive genetic variance, $\sigma^2_A$__ is a property of a particular population. It is equivalent to the variance of the breeding values of individuals within the population.
+
+***
 
