@@ -1,10 +1,15 @@
 #!/bin/bash
 
-# RMDFILE=$1
-# echo $RMDFILE
-
-# Rscript -e "require(knitr); require(markdown); rmarkdown::render('${RMDFILE}.Rmd', output_format = 'all')"
-
 cd notes/
 
-Rscript -e "require(knitr); require(markdown); require(bookdown); bookdown::render_book('index.Rmd', output_format = 'all')"
+chapters=$1
+
+if [[ $chapters == "all" ]]; then
+	Rscript -e "require(knitr); require(markdown); require(bookdown); bookdown::render_book('index.Rmd')"	
+else 
+	chap=chapter${chapters}
+	echo $chap
+	# script="bookdown::preview_chapter('${chap}.Rmd')"
+	# echo $script
+	Rscript -e "bookdown::preview_chapter('${chap}.Rmd')"	
+fi
