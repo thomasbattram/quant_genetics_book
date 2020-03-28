@@ -7,7 +7,7 @@ chapters=$1
 if [[ $chapters == "all" ]]; then
 	Rscript -e "require(knitr); require(markdown); require(bookdown); bookdown::render_book('index.Rmd', output_format = 'all')"	
 else 
-	chap=chapter${chapters}
+	chap=03-chapter${chapters}
 	echo $chap
 	# script="bookdown::preview_chapter('${chap}.Rmd')"
 	# echo $script
