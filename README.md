@@ -2,7 +2,9 @@
 
 Notes + some simulations to help understand the book.
 
-All of the notes can be found in notes/\_book/quant_genetics_book_notes.pdf OR in notes/\_book/index.html.
+All of the chapter notes together can be found in notes/\_book/quant_genetics_book_notes.pdf OR in notes/\_book/index.html.
+
+Individual chapters can be found in notes/\_book/
 
 ## To-do
 

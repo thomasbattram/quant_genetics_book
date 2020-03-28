@@ -54,7 +54,6 @@
 
 
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -67,9 +66,6 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="an-overview-of-quantitative-genetics.html"><a href="an-overview-of-quantitative-genetics.html"><i class="fa fa-check"></i><b>1</b> An overview of quantitative genetics</a></li>
 <li class="chapter" data-level="2" data-path="properties-of-distributions.html"><a href="properties-of-distributions.html"><i class="fa fa-check"></i><b>2</b> Properties of distributions</a></li>
@@ -77,7 +73,7 @@
 <ul>
 <li class="chapter" data-level="3.1" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#covariance"><i class="fa fa-check"></i><b>3.1</b> Covariance</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#useful-identities-for-cov"><i class="fa fa-check"></i><b>3.1.1</b> Useful identities for cov</a></li>
+<li class="chapter" data-level="3.1.1" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#useful-identities-for-covariance"><i class="fa fa-check"></i><b>3.1.1</b> Useful identities for covariance</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#least-squares-linear-regression"><i class="fa fa-check"></i><b>3.2</b> Least squares linear regression</a>
 <ul>
@@ -111,9 +107,6 @@
 <li class="chapter" data-level="4.9.3" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#additive-genetic-variance"><i class="fa fa-check"></i><b>4.9.3</b> Additive genetic variance</a></li>
 </ul></li>
 </ul></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -136,15 +129,21 @@
 <div id="covariance" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Covariance</h2>
 <p>Covariance is a measure of association and the covariance between x and y would be denoted by <span class="math inline">\(\sigma(x, y)\)</span>. If x and y are independent then <span class="math inline">\(\sigma(x, y) = 0\)</span>, BUT if <span class="math inline">\(\sigma(x, y) = 0\)</span>, x and y aren’t necessarily independent.</p>
-<div id="useful-identities-for-cov" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Useful identities for cov</h3>
-<p>Covariance of x with itself = variance of x:
-<span class="math display">\[\sigma(x, x) = \sigma^2(x)\]</span></p>
-<p>For constants (here represented by a):
-<span class="math display">\[\sigma(a, x) = 0\]</span>
-<span class="math display">\[\sigma(ax, y) = a\sigma(x, y)\]</span>
-<span class="math display">\[\sigma^2(a, x) = a^2\sigma^2(x)\]</span>
-<span class="math display">\[\sigma[(a + x), y] = \sigma(x, y)\]</span></p>
+<div id="useful-identities-for-covariance" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Useful identities for covariance</h3>
+<p>Covariance of x with itself = variance of x:</p>
+<p><span class="math display" id="eq:covxx">\[\begin{equation}
+    \sigma(x, x) = \sigma^2(x)
+    \tag{3.1}
+\end{equation}\]</span></p>
+<p>For constants (here represented by a) see <a href="covariance-regression-and-correlation.html#eq:cov-rules-contants">(3.2)</a> below
+<span class="math display" id="eq:cov-rules-contants">\[\begin{align}
+    \sigma(a, x) &amp;= 0 \notag \\
+    \sigma(ax, y) &amp;= a\sigma(x, y) \notag \\
+    \sigma^2(a, x) &amp;= a^2\sigma^2(x) \notag \\
+    \sigma[(a + x), y] &amp;= \sigma(x, y) 
+    \tag{3.2}
+\end{align}\]</span></p>
 <p>The covariance of 2 sums can be written as the sum of covariances, i.e. just multiply out the brackets (I’ve left this blank, do it yourself or check book):
 <span class="math display">\[\sigma[(x + y),(w + z)] = ...\]</span></p>
 <p>Variance of a sum is sum of variances and covariances (figure this out):
@@ -155,7 +154,7 @@
 <h2><span class="header-section-number">3.2</span> Least squares linear regression</h2>
 <p>Linear model:
 <span class="math display">\[y = \alpha + \beta{x} + e\]</span></p>
-<p>Continuing on, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> will be the true population values and a and b will be the intercept and slope for the line of best fit derived from observed data. The derivation of a and b using the least-squares model can be found on pages 39-41. Buuut, who cares about that, here are the results:
+<p>Continuing on, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> will be the true population values and a and b will be the intercept and slope for the line of best fit derived from observed data. The derivation of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> using the least-squares model can be found on pages 39-41. Buuut, who cares about that, here are the results:
 <span class="math display">\[a = \bar{y} - b\bar{x}\]</span>
 <span class="math display">\[b = \frac{Cov(x, y)} {Var(x)}\]</span></p>
 <div id="properties-of-least-squares" class="section level3" number="3.2.1">
@@ -246,8 +245,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-chapter3.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,

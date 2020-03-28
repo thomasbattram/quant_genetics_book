@@ -11,5 +11,5 @@ else
 	echo $chap
 	# script="bookdown::preview_chapter('${chap}.Rmd')"
 	# echo $script
-	Rscript -e "bookdown::preview_chapter('${chap}.Rmd')"	
+	Rscript -e "bookdown::preview_chapter('${chap}.Rmd', output_format = 'all')"	
 fi
