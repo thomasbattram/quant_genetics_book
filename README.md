@@ -1,6 +1,8 @@
 # Walsh and Lynch. Genetics and Analysis of Quantitative Traits
 
-Notes + some simulations to help understand the book
+Notes + some simulations to help understand the book.
+
+All of the notes can be found in notes/\_book/quant_genetics_book_notes.pdf OR in notes/\_book/index.html.
 
 ## To-do
 
