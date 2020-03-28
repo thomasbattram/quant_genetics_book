@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Properties of distributions | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</title>
+  <meta name="description" content="Chapter 2 Properties of distributions | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Properties of distributions | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Properties of distributions | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  
+  
+  
+
+<meta name="author" content="Thomas Battram" />
+
+
+<meta name="date" content="2020-03-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="an-overview-of-quantitative-genetics.html"/>
+<link rel="next" href="covariance-regression-and-correlation.html"/>
+<script src="libs/header-attrs-2.1.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="an-overview-of-quantitative-genetics.html"><a href="an-overview-of-quantitative-genetics.html"><i class="fa fa-check"></i><b>1</b> An overview of quantitative genetics</a></li>
+<li class="chapter" data-level="2" data-path="properties-of-distributions.html"><a href="properties-of-distributions.html"><i class="fa fa-check"></i><b>2</b> Properties of distributions</a></li>
+<li class="chapter" data-level="3" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html"><i class="fa fa-check"></i><b>3</b> Covariance, regression, and correlation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#covariance"><i class="fa fa-check"></i><b>3.1</b> Covariance</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#useful-identities-for-cov"><i class="fa fa-check"></i><b>3.1.1</b> Useful identities for cov</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#least-squares-linear-regression"><i class="fa fa-check"></i><b>3.2</b> Least squares linear regression</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#properties-of-least-squares"><i class="fa fa-check"></i><b>3.2.1</b> Properties of least squares</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#correlation"><i class="fa fa-check"></i><b>3.3</b> Correlation</a></li>
+<li class="chapter" data-level="3.4" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#differential-selection-brief-intro"><i class="fa fa-check"></i><b>3.4</b> Differential selection (brief intro)</a></li>
+<li class="chapter" data-level="3.5" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#correlation-between-genotype-and-phenotype-brief-intro"><i class="fa fa-check"></i><b>3.5</b> Correlation between genotype and phenotype (brief intro)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html"><i class="fa fa-check"></i><b>4</b> Properties of single loci</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#allele-and-genotype-frequencies"><i class="fa fa-check"></i><b>4.2</b> Allele and genotype frequencies</a></li>
+<li class="chapter" data-level="4.3" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#the-transmission-of-genetic-information"><i class="fa fa-check"></i><b>4.3</b> The transmission of genetic information</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#the-hardy-weinberg-principle"><i class="fa fa-check"></i><b>4.3.1</b> The Hardy-Weinberg principle</a></li>
+<li class="chapter" data-level="4.3.2" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#sex-linked-loci"><i class="fa fa-check"></i><b>4.3.2</b> Sex-linked loci</a></li>
+<li class="chapter" data-level="4.3.3" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#polyploidy"><i class="fa fa-check"></i><b>4.3.3</b> Polyploidy</a></li>
+<li class="chapter" data-level="4.3.4" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#age-structure"><i class="fa fa-check"></i><b>4.3.4</b> Age structure</a></li>
+<li class="chapter" data-level="4.3.5" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#testing-for-hardy-weinberg-proportions"><i class="fa fa-check"></i><b>4.3.5</b> Testing for Hardy-Weinberg proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#characterising-the-influence-of-a-locus-on-the-phenotype"><i class="fa fa-check"></i><b>4.4</b> Characterising the influence of a locus on the phenotype</a></li>
+<li class="chapter" data-level="4.5" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#the-basis-of-dominance"><i class="fa fa-check"></i><b>4.5</b> The basis of dominance</a></li>
+<li class="chapter" data-level="4.6" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#fishers-decomposition-of-the-genotypic-value"><i class="fa fa-check"></i><b>4.6</b> Fisher’s decomposition of the genotypic value</a></li>
+<li class="chapter" data-level="4.7" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#partioning-the-genetic-variance."><i class="fa fa-check"></i><b>4.7</b> Partioning the genetic variance.</a></li>
+<li class="chapter" data-level="4.8" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#additive-effects-average-excesses-and-breeding-values"><i class="fa fa-check"></i><b>4.8</b> Additive effects, average excesses and breeding values</a></li>
+<li class="chapter" data-level="4.9" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#extensions-for-multiple-alleles-and-non-random-mating"><i class="fa fa-check"></i><b>4.9</b> Extensions for multiple alleles and non random mating</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#average-excess"><i class="fa fa-check"></i><b>4.9.1</b> Average excess</a></li>
+<li class="chapter" data-level="4.9.2" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#additive-effects"><i class="fa fa-check"></i><b>4.9.2</b> Additive effects</a></li>
+<li class="chapter" data-level="4.9.3" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#additive-genetic-variance"><i class="fa fa-check"></i><b>4.9.3</b> Additive genetic variance</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="properties-of-distributions" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Properties of distributions</h1>
+<p>ALSO BORWANG!</p>
+<p>You can guess what this chapter was on and also how much of a hoot it was…</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="an-overview-of-quantitative-genetics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="covariance-regression-and-correlation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-chapter2.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["quant_genetics_book_notes.pdf", "quant_genetics_book_notes.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

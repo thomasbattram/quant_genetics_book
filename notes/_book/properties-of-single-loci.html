@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Properties of single loci | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</title>
+  <meta name="description" content="Chapter 4 Properties of single loci | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Properties of single loci | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Properties of single loci | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  
+  
+  
+
+<meta name="author" content="Thomas Battram" />
+
+
+<meta name="date" content="2020-03-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="covariance-regression-and-correlation.html"/>
+
+<script src="libs/header-attrs-2.1.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="an-overview-of-quantitative-genetics.html"><a href="an-overview-of-quantitative-genetics.html"><i class="fa fa-check"></i><b>1</b> An overview of quantitative genetics</a></li>
+<li class="chapter" data-level="2" data-path="properties-of-distributions.html"><a href="properties-of-distributions.html"><i class="fa fa-check"></i><b>2</b> Properties of distributions</a></li>
+<li class="chapter" data-level="3" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html"><i class="fa fa-check"></i><b>3</b> Covariance, regression, and correlation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#covariance"><i class="fa fa-check"></i><b>3.1</b> Covariance</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#useful-identities-for-cov"><i class="fa fa-check"></i><b>3.1.1</b> Useful identities for cov</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#least-squares-linear-regression"><i class="fa fa-check"></i><b>3.2</b> Least squares linear regression</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#properties-of-least-squares"><i class="fa fa-check"></i><b>3.2.1</b> Properties of least squares</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#correlation"><i class="fa fa-check"></i><b>3.3</b> Correlation</a></li>
+<li class="chapter" data-level="3.4" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#differential-selection-brief-intro"><i class="fa fa-check"></i><b>3.4</b> Differential selection (brief intro)</a></li>
+<li class="chapter" data-level="3.5" data-path="covariance-regression-and-correlation.html"><a href="covariance-regression-and-correlation.html#correlation-between-genotype-and-phenotype-brief-intro"><i class="fa fa-check"></i><b>3.5</b> Correlation between genotype and phenotype (brief intro)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html"><i class="fa fa-check"></i><b>4</b> Properties of single loci</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#allele-and-genotype-frequencies"><i class="fa fa-check"></i><b>4.2</b> Allele and genotype frequencies</a></li>
+<li class="chapter" data-level="4.3" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#the-transmission-of-genetic-information"><i class="fa fa-check"></i><b>4.3</b> The transmission of genetic information</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#the-hardy-weinberg-principle"><i class="fa fa-check"></i><b>4.3.1</b> The Hardy-Weinberg principle</a></li>
+<li class="chapter" data-level="4.3.2" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#sex-linked-loci"><i class="fa fa-check"></i><b>4.3.2</b> Sex-linked loci</a></li>
+<li class="chapter" data-level="4.3.3" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#polyploidy"><i class="fa fa-check"></i><b>4.3.3</b> Polyploidy</a></li>
+<li class="chapter" data-level="4.3.4" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#age-structure"><i class="fa fa-check"></i><b>4.3.4</b> Age structure</a></li>
+<li class="chapter" data-level="4.3.5" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#testing-for-hardy-weinberg-proportions"><i class="fa fa-check"></i><b>4.3.5</b> Testing for Hardy-Weinberg proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#characterising-the-influence-of-a-locus-on-the-phenotype"><i class="fa fa-check"></i><b>4.4</b> Characterising the influence of a locus on the phenotype</a></li>
+<li class="chapter" data-level="4.5" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#the-basis-of-dominance"><i class="fa fa-check"></i><b>4.5</b> The basis of dominance</a></li>
+<li class="chapter" data-level="4.6" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#fishers-decomposition-of-the-genotypic-value"><i class="fa fa-check"></i><b>4.6</b> Fisher’s decomposition of the genotypic value</a></li>
+<li class="chapter" data-level="4.7" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#partioning-the-genetic-variance."><i class="fa fa-check"></i><b>4.7</b> Partioning the genetic variance.</a></li>
+<li class="chapter" data-level="4.8" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#additive-effects-average-excesses-and-breeding-values"><i class="fa fa-check"></i><b>4.8</b> Additive effects, average excesses and breeding values</a></li>
+<li class="chapter" data-level="4.9" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#extensions-for-multiple-alleles-and-non-random-mating"><i class="fa fa-check"></i><b>4.9</b> Extensions for multiple alleles and non random mating</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#average-excess"><i class="fa fa-check"></i><b>4.9.1</b> Average excess</a></li>
+<li class="chapter" data-level="4.9.2" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#additive-effects"><i class="fa fa-check"></i><b>4.9.2</b> Additive effects</a></li>
+<li class="chapter" data-level="4.9.3" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#additive-genetic-variance"><i class="fa fa-check"></i><b>4.9.3</b> Additive genetic variance</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="properties-of-single-loci" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Properties of single loci</h1>
+<div id="introduction" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<p>too easy</p>
+</div>
+<div id="allele-and-genotype-frequencies" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Allele and genotype frequencies</h2>
+<p>too easy</p>
+</div>
+<div id="the-transmission-of-genetic-information" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> The transmission of genetic information</h2>
+<div id="the-hardy-weinberg-principle" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> The Hardy-Weinberg principle</h3>
+<p><span class="math display">\[p^2 + 2pq + q^2 = 1\]</span></p>
+<p>where p = allele frequency of first allele at a locus and q = allele frequency of the second allele at that same locus.</p>
+<p>Assumptions of H-W:</p>
+<ul>
+<li>No selection</li>
+<li>No mutation</li>
+<li>Random mating</li>
+<li>No differential migration</li>
+<li>No random drift</li>
+</ul>
+<p>Even though these assumptions will never be met completely in the real world, for the majority of the time the H-W prinicple holds regardless.</p>
+<p>Assuming assumptions are met, 2 important points from H-W:</p>
+<ol style="list-style-type: decimal">
+<li>It takes no more than a single generation equilibriate and stabilize gene frequencies in the two sexes.</li>
+<li>Only one additional generation is required for the stabilisation of the genotype frequencies into the predictible Hardy-Weinberg proportions.</li>
+</ol>
+</div>
+<div id="sex-linked-loci" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Sex-linked loci</h3>
+<p>Alleles on sex chromosomes in diploid organisms are obviously different. Sons can only receive an X chromosome from their mother so the frequency of X linked loci in the sons is equal to that of their mothers. Daughters receive both an X chromosome from Mum + from Dad.</p>
+<p>Overall this means allele frequencies oscilate around an equilibrium state, but continually get closer to that state over the generations (see Figure 4.2 and page 56 for equation).</p>
+</div>
+<div id="polyploidy" class="section level3" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Polyploidy</h3>
+<p>Skipped over this section because it’s not relevant to human quant gen. Buuut, essentially it just details how to derive allele frequencies under a certain case of polyploidy. Also, it should be noted that of course H-W does not hold under polyploidy!</p>
+</div>
+<div id="age-structure" class="section level3" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Age structure</h3>
+<p>Age structure also complicates our idealised model of H-W. In populations composed of several age classes, the generations overlap, and this causes the approach of genotype frequencies towards the H-W expectations to be gradual (rather than just by 1/2 generations), even in the case of an autosomal locus. Doesn’t explain this very much, but it’s covered elsewhere. Importantly, when newly founded populations have significant age structure, fluctuations in both gene and genotoype frequencies may occur for a substantial period of time even in the abscence of selection!</p>
+</div>
+<div id="testing-for-hardy-weinberg-proportions" class="section level3" number="4.3.5">
+<h3><span class="header-section-number">4.3.5</span> Testing for Hardy-Weinberg proportions</h3>
+<p>Says in the book that LRT can be used to test for departures from HWE, buuuut I’m pretty sure that even now the most common method is the chi-squared test (or Fisher’s exact test if the sample size is tiny and the allele is rare.). Essentially, in a population, at a specific locus, you can calculate the allele frequencies (and from that expected genotype frequencies) from the observed genotype frequencies then test if there is a difference between the observed and expected values. LRT equation for it given on page 60. <strong>RECREATE THE CHI-SQUARED TEST IN CODE!!!!</strong></p>
+<p>Should remember (as pointed out above), that just because some assumptions are violated, doesn’t mean you’d get a departure from HWE!</p>
+</div>
+</div>
+<div id="characterising-the-influence-of-a-locus-on-the-phenotype" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Characterising the influence of a locus on the phenotype</h2>
+<p>If a trait is entirely influenced by a single locus then the genetic effect on that trait can be characterised pretty easily and the dominance and additive effects of the alleles can be calculated. So if a locus has genotypes <span class="math inline">\(B_1B_1\)</span>, <span class="math inline">\(B_1B_2\)</span>, <span class="math inline">\(B_2B_2\)</span>, then the values given to these genotypes can be said to be: <span class="math inline">\(-a\)</span>, <span class="math inline">\((1 + k)a\)</span> and <span class="math inline">\(+a\)</span>. Now if you have genotype data at that locus and data on the trait you can work out the effect of the <span class="math inline">\(B_2\)</span> allele by taking the mean phenotypic value of individuals with <span class="math inline">\(B_2B_2\)</span> and subtracting the mean phenotypic value of individuals with <span class="math inline">\(B_1B_1\)</span> and dividing by 2 i.e.</p>
+<p><span class="math display">\[ B_{2eff} = \frac{p_{B2} - p_{B1}} {2} \]</span></p>
+<p>where <span class="math inline">\(B_{2eff}\)</span> is the effect of allele <span class="math inline">\(B_2\)</span>, <span class="math inline">\(p_{B2}\)</span> is the mean phenotypic value of individuals with <span class="math inline">\(B_2B_2\)</span> and <span class="math inline">\(p_{B1}\)</span> is the mean phneotypic value of individuals with <span class="math inline">\(B_1B_1\)</span>.</p>
+<p>As <span class="math inline">\(B_{2eff} = a\)</span> you can then substitute this in to <span class="math inline">\((1 + k)a\)</span> to get the dominance coefficient <span class="math inline">\(k\)</span>. Of course if <span class="math inline">\(k = 0\)</span> then there is no dominance (in reality you would calculate probability of dominance).</p>
+</div>
+<div id="the-basis-of-dominance" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> The basis of dominance</h2>
+<p>Confusing part… Don’t really get the enzyme activity bit…</p>
+<p>Main point (I think) is that new deleterious mutations are very likely to be recessive and new mutations with a slight deleterious effect interact in an almost entirely additive fashion (no dominance!).</p>
+</div>
+<div id="fishers-decomposition-of-the-genotypic-value" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Fisher’s decomposition of the genotypic value</h2>
+<p>Recalling that the phenotypic value can be partitioned like so:</p>
+<p><span class="math display">\[ z = G + E \]</span></p>
+<p>where <span class="math inline">\(z\)</span> is the phenotype, <span class="math inline">\(G\)</span> is the genotypic value and <span class="math inline">\(E\)</span> is the environmental value.</p>
+<p>The genotypic value of a specific locus can be partitioned into it’s “expected” values based on there being only additive effects (<span class="math inline">\(\hat{G}\)</span>) and the deviations from the expected values or dominance effects (<span class="math inline">\(\delta\)</span>). So for genotype <span class="math inline">\(B_iB_J\)</span>:</p>
+<p><span class="math display">\[ G_ij = \hat{G_ij} + \delta_ij \]</span></p>
+<p>This can be formalised (whatever the fuck that means) by regressing the genotypic values on the number of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> alleles in the genotype (<span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span>):</p>
+<p><span class="math display">\[ G_ij = \hat{G_ij} + \delta_ij = \mu_G + \alpha_1N_1 + \alpha_2N_2 \]</span></p>
+<p><span class="math inline">\(\mu_G\)</span> = the mean genotypic value in the population, <span class="math inline">\(\alpha_1\)</span> and <span class="math inline">\(\alpha_2\)</span> are the slopes of the regression, <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span> are the number of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> alleles. So the regression is:</p>
+<p><span class="math display">\[ G_ij ~ N_2 + N_1 \]</span></p>
+<p>By noting that for any individual, <span class="math inline">\(N_1 = 2 - N_2\)</span> you can reduce the multiple regression model into an easier to work with univariate model. Give it a go:</p>
+<p><span class="math display">\[ G_ij = ... \]</span></p>
+<p>If you plotted the genotypic value (<span class="math inline">\(G\)</span>) against gene content (<span class="math inline">\(N_2\)</span> or number of <span class="math inline">\(B_2\)</span> alleles) and calculated residuals these residuals would be <span class="math inline">\(\delta\)</span> (see Figure 4.6).</p>
+<p>The rest of the chapter uses this regression and what we know about genotype frequencies to derive a formula for the average effect of allelic substitution:</p>
+<p><span class="math display">\[ \alpha = a[1 + k(p_1 - p_2)] \]</span></p>
+<p>where <span class="math inline">\(a\)</span> = genotypic value of <span class="math inline">\(B_2\)</span> (see above), <span class="math inline">\(k\)</span> is the dominance coefficient and <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> are the frequencies of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span>. This value <span class="math inline">\(\alpha\)</span> represents the average change in genotypic value that results when a <span class="math inline">\(B_2\)</span> allele is randomly substituted for a <span class="math inline">\(B_1\)</span> allele. If no dominance (<span class="math inline">\(k = 0\)</span>) then <span class="math inline">\(\alpha = a\)</span>. Except in the case of additivity, the average effect of allelic substitution is not simply a function of the inherent physiological properties of the allele. It can only be defined in the context of the population!</p>
+</div>
+<div id="partioning-the-genetic-variance." class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Partioning the genetic variance.</h2>
+<p>Deriving variance of <span class="math inline">\(G\)</span>:</p>
+<p><span class="math display">\[ G = \hat{G} + \delta \]</span>
+<span class="math display">\[ \sigma^2_G = \sigma^2(\hat{G} + \delta) \]</span>
+<span class="math display">\[ \sigma^2_G = \sigma^2(\hat{G}) + \sigma(\hat{G} + \delta) + \sigma^2(\delta) \]</span></p>
+<p>The top equation is just like a regression, with <span class="math inline">\(\delta\)</span> being the residual error and we know that for least-squares there is no correlation between the residual error and the predictor. So there is no correlation between <span class="math inline">\(\hat{G}\)</span> and <span class="math inline">\(\delta\)</span>. Therefore:</p>
+<p><span class="math display">\[ \sigma^2_G = \sigma^2(\hat{G}) + \sigma^2(\delta) \]</span>
+OR more commonly
+<span class="math display">\[ \sigma^2_G = \sigma^2_A + \sigma^2_D \]</span></p>
+<p><span class="math inline">\(\sigma^2_A\)</span> is the variance of G explained by regression on <span class="math inline">\(N_2\)</span> (or <span class="math inline">\(N_1\)</span>), and <span class="math inline">\(\sigma^2_D\)</span> is the residual variance of that regression. The variance of the additive and dominance effects!</p>
+<p>For a diallelic locus we can do some rearranging of equations in Table 4.1 of the book and get these equations:</p>
+<p><span class="math display">\[ \sigma^2_A = 2p_1p_2\alpha^2 \]</span>
+<span class="math display">\[ \sigma^2_D = (2p_1p_2ak)^2 \]</span></p>
+<p>From these we can clearly see that both components depend on allele frequencies, the dominance coefficient and the homozygous effect (remember <span class="math inline">\(\alpha\)</span> is just the slope of the <span class="math inline">\(G ~ N_2\)</span> regression!).</p>
+<p>By plotting how genetic variance changes with gene frequency under different scenarios (<strong>DEFINITELY DO THIS</strong>). You see some interesting patterns. Firstly, at a single diallelic locus, you see that <span class="math inline">\(\sigma^2_A\)</span> reaches it’s peak when <span class="math inline">\(p_1 = p_2 = 0.5\)</span>. Secondly, it’s clear that, even in the case of overdominance (which is rare!), additive genetic variance will almost always be much higher than genetic variance from dominance effects, even when the frequency of the dominant allele is high. (btw I think the scale on the top left graph is wrong…).</p>
+</div>
+<div id="additive-effects-average-excesses-and-breeding-values" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Additive effects, average excesses and breeding values</h2>
+<p>The dominance deviation of a parent, which is a function of the interaction between the two parental alleles, is eliminated when gametes are produced. Thus, one can think of <span class="math inline">\(\hat{G}\)</span> and <span class="math inline">\(\delta\)</span> as the heritable and nonheritable components of an individual’s genotypic value.</p>
+<p>Fisher proposed two different measures of the effect of an allele: one being the additive effect (<span class="math inline">\(\alpha_i\)</span>) and then the average excess <span class="math inline">\(\alpha^x_i\)</span>. The average excess <span class="math inline">\(\alpha^x_2\)</span> of allele <span class="math inline">\(B_2\)</span> is the difference between the mean genotypic value of individuals carrying at least one copy of <span class="math inline">\(B_2\)</span> and the mean genotypic value of a random individual from the entire population:</p>
+<p><span class="math display">\[ \alpha^x_2 = (G_{12}P_{12|2} + G_{22}P_{22|2}) - \mu_G \]</span></p>
+<p>where <span class="math inline">\(P_{ij}\)</span> is the conditional probability of a <span class="math inline">\(B_iB_j\)</span> genotype given that one allele is <span class="math inline">\(B_i\)</span>. Under random mating <span class="math inline">\(P_{ij|i} = p_j\)</span> (<span class="math inline">\(p_j\)</span> = frequency of allele <span class="math inline">\(B_j\)</span>). THINK ABOUT HARDY-WEINBERG AND IT MAKES SENSE!</p>
+<p>So under random mating,</p>
+<p><span class="math display">\[ \alpha^x_2 = G_{12}p_1 + G_{22}p_2 - \mu_G \]</span></p>
+<p><span class="math inline">\(G_{12} = a(1+k)\)</span> and <span class="math inline">\(G_{22} = 2a\)</span>. By substituting these into the equation above for <span class="math inline">\(\alpha^x_1\)</span> and <span class="math inline">\(\alpha^x_2\)</span> and then calculating <span class="math inline">\(\alpha_1\)</span> and <span class="math inline">\(\alpha_2\)</span> (additive effects) by the method previously mentioned (regressing genotypic value <span class="math inline">\(G\)</span> on the number of <span class="math inline">\(B_2\)</span> alleles <span class="math inline">\(N_2\)</span>), we will see they’re equivalent (shown on page 72):</p>
+<p><span class="math display">\[ \alpha_2 = p_1\alpha \]</span>
+<span class="math display">\[ \alpha_1 = -p_2\alpha \]</span></p>
+<p>The breeding value of an individual (<span class="math inline">\(A\)</span>) is the sum of the additive effects of its genes. So the breeding value of a <span class="math inline">\(B_1B_1\)</span> homozygote is just <span class="math inline">\(2\alpha_1\)</span>. In randomly mating populations the breeding value of a genotype is equivalent to twice the expected deviation of its offspring mean phenotype from the population mean. Soooo, no genotype information is needed to calculate the breeding value. All we have to do is mate an individual to many randomly chosen individuals from the population and taking twice the deviation of its offspring mean from the population mean. EASY IN HUMANS!!!</p>
+<p>In Chapter 13 this will be discussed wrt candidate gene studies.</p>
+</div>
+<div id="extensions-for-multiple-alleles-and-non-random-mating" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Extensions for multiple alleles and non random mating</h2>
+<p>So this section seems mostly unrelevant as we’re unlikely to deal with situations with more than 2 alleles. Non-random mating could be encountered if we’re interested in some phenotypes (e.g. alcohol intake). Buuuut, it’s still good to note some of the generalised equations for what we’ve been discussing so far in the chapter.</p>
+<div id="average-excess" class="section level3" number="4.9.1">
+<h3><span class="header-section-number">4.9.1</span> Average excess</h3>
+<p>When <span class="math inline">\(n\)</span> alleles are present, the average excess, <span class="math inline">\(\alpha^x_i\)</span>, for any allele <span class="math inline">\(B_i\)</span> is given by</p>
+<p><span class="math display">\[ \alpha^x_i = \sum_{j=1}^{n} P_{ij|i}G_{ij} - \mu_G \]</span></p>
+<p>Remember, under random mating <span class="math inline">\(P_{ij|i} == p_j\)</span></p>
+</div>
+<div id="additive-effects" class="section level3" number="4.9.2">
+<h3><span class="header-section-number">4.9.2</span> Additive effects</h3>
+<p>The genotypic value can also be obtained using regression as before, but in it’s generalised form is a multivariate regression. For <span class="math inline">\(n\)</span> alleles</p>
+<p><span class="math display">\[ G = \mu_G + \sum_{i=1}^{n} \alpha_{i}N_{i} + \delta \]</span></p>
+<p>After some re-arranging can derive the regression coefficients and finally end with</p>
+<p><span class="math display">\[ \alpha_i = \sum_{j=1}^{n} p_jG_{ij} - \mu_G \]</span></p>
+<p>i.e. under random mating, the average effects (<span class="math inline">\(\alpha_i\)</span>) are equal to the conditional mean deviations from the mean genotypic value of the population (<span class="math inline">\(\mu_G\)</span>).</p>
+<p>For non-random mating we need the inbreeding coefficient, <span class="math inline">\(f\)</span> to define our genotype frequencies:</p>
+<p><span class="math display">\[ P_{ii} = (1 - f)p^2_i + fp_i \]</span>
+<span class="math display">\[ P_{ij} = 2(1 -f)p_ip_j \]</span></p>
+<p>Unsure of why, but this means</p>
+<p><span class="math display">\[ \alpha_i = \frac{\alpha^x_i} {1 + f} \]</span></p>
+<p>so <span class="math inline">\(f\)</span> is the fractional reduction of heterozygote frequencies relative to those expected under random mating. This means you can kind of do a test for random mating by checking heterozygote and homozygote frequencies in a population!</p>
+</div>
+<div id="additive-genetic-variance" class="section level3" number="4.9.3">
+<h3><span class="header-section-number">4.9.3</span> Additive genetic variance</h3>
+<p>The additive genetic variance across <span class="math inline">\(n\)</span> alleles is</p>
+<p><span class="math display">\[ \sigma^2_A = 2 \sum_{i=1}^{n} p_i\alpha_i\alpha^x_i \]</span></p>
+<p>In general inbreeding inflates the additive genetic variance by causing correlations among the effects of alleles within the same individuals.</p>
+<p>The broad sense heritability, even under scenarios of non-random mating can be given by</p>
+<p><span class="math display">\[ \sigma^2_G = \sigma^{2}(\alpha_i + \alpha_j) + \sigma^{2}(\delta_{ij}) \]</span></p>
+<p>although it should be noted that the definitions of <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\delta_ij\)</span> change with the degree of inbreeding! Random mating means <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\alpha_j\)</span> are uncorrelated so we get back to the good old equation</p>
+<p><span class="math display">\[ \sigma^2_G = \sigma^2_A + \sigma^2_D \]</span></p>
+<p>Importantly, under random mating, <span class="math inline">\(\sigma^2_A\)</span> is equivalent to the variance of breeding values of individuals in the population.</p>
+<hr />
+<p><strong>Summarising some key terms</strong></p>
+<p><strong>The homozygous effect, <span class="math inline">\(a\)</span>, and the dominance coefficient, <span class="math inline">\(k\)</span>,</strong> are intrinsic properties of allelic products. They are not functions of allele frequencies, but may vary with genetic background</p>
+<p><strong>The additive effect, <span class="math inline">\(\alpha_i\)</span>, and the average excess, <span class="math inline">\(\alpha^x_i\)</span>,</strong> are properties of alleles in a particular population. They are functions of <span class="math inline">\(a\)</span>, <span class="math inline">\(k\)</span> and genotype frequencies (<span class="math inline">\(p_i\)</span>).</p>
+<p><strong>The breeding value, <span class="math inline">\(A\)</span>,</strong> is a property of a particular individual in reference to a particular population. It’s equivalent to the sum of the additive effects of an individual’s alleles.</p>
+<p><strong>The additive genetic variance, <span class="math inline">\(\sigma^2_A\)</span></strong> is a property of a particular population. It is equivalent to the variance of the breeding values of individuals within the population.</p>
+<hr />
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="covariance-regression-and-correlation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-chapter4.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["quant_genetics_book_notes.pdf", "quant_genetics_book_notes.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
