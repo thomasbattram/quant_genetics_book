@@ -8,10 +8,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
-
-# Prerequisites {.unnumbered}
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
@@ -19,3 +16,7 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+# Preface {.unnumbered}
+
+This is a good book, but if I make it through the whole thing I deserve several medals and some cake.

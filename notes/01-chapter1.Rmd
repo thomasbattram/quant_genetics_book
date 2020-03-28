@@ -1,3 +1,5 @@
-# Chapter 1
+# An overview of quantitative genetics
 
 BORWANG!!!
+
+This chapter just introduces the book and some simple concepts.
