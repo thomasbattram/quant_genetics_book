@@ -3,55 +3,78 @@
 pkgs <- c("tidyverse", "HardyWeinberg")
 lapply(pkgs, require, character.only = TRUE)
 
-# ---------------------------------------- 
-# chi-squared test -- tidy code!!!
+# ----------------------------------------
+# testing for HWE
 # ----------------------------------------
 
+# set genotype and allele frequencies
 b1b1 <- 300
 b1b2 <- 500
 b2b2 <- 200
 
-b1 <- 300 + 0.5 * 500
-b2 <- 200 + 0.5 * 500
+# generate allele frequencies
+gen_allele_freqs <- function(b1b1, b1b2, b2b2) {
+	b1 <- b1b1 + 0.5 * b1b2
+	b2 <- b2b2 + 0.5 * b1b2
+	out <- list(b1 = b1, b2 = b2)
+	return(out)
+}
 
-exp_b1b1 <- ((b1)^2 / 1000)
-exp_b1b2 <- (2 * b1 * b2) / 1000
-exp_b2b2 <- (b2^2) / 1000
+# generate expected values
+gen_expected_freqs <- function(b1, b2) {
+	exp_b1b1 <- (b1^2) / 1000
+	exp_b1b2 <- (2 * b1 * b2) / 1000
+	exp_b2b2 <- (b2^2) / 1000	
+	out <- list(b1b1 = exp_b1b1, b1b2 = exp_b1b2, b2b2 = exp_b2b2)
+	return(out)
+}
 
-chi2_part1 <- ((b1b1 - exp_b1b1)^2) / exp_b1b1
-chi2_part2 <- ((b1b2 - exp_b1b2)^2) / exp_b1b2
-chi2_part3 <- ((b2b2 - exp_b2b2)^2) / exp_b2b2
 
-chi2 <- sum(c(chi2_part1, chi2_part2, chi2_part3))
+# chi-squared test
+chi_sq_test <- function(b1b1, b1b2, b2b2) {
+	allele_freqs <- gen_allele_freqs(b1b1, b1b2, b2b2)
+	expected <- gen_expected_freqs(allele_freqs$b1, allele_freqs$b2)
 
-# from package
-x <- c(b1b1, b1b2, b2b2)
-HW.test <- HWChisq(x,verbose=TRUE, cc=0)
+	observed <- c(b1b1, b1b2, b2b2)
+	names(observed) <- c("b1b1", "b1b2", "b2b2")
+	chi2_vals <- map_dbl(seq_along(observed), function(x) {
+		obs <- observed[x]
+		exp <- expected[[names(obs)]] 
+		chi2_val <- ((obs - exp)^2) / exp
+	})
+	chi2 <- sum(chi2_vals)
+	p <- pchisq(chi2, df=1, lower.tail=FALSE)
+	out <- list(chi_sq = chi2, pval = p)
+	return(out)
+}
 
-# ---------------------------------------- 
-# lrt -- tidy code!!
-# ----------------------------------------
+x <- chi_sq_test(b1b1, b1b2, b2b2)
+package_hwe <- HWChisq(c(b1b1, b1b2, b2b2),verbose=TRUE, cc=0)
 
-lrt_hwe_test <- function(hom1_n, het_n, hom2_n) {
-	
-	b1 <- hom1_n + 0.5 * het_n
-	b2 <- hom2_n + 0.5 * het_n
-	exp_hom1_n <- ((b1)^2 / 1000)
-	exp_het_n <- (2 * b1 * b2) / 1000
-	exp_hom2_n <- (b2^2) / 1000
+x
+package_hwe
+# same output!
 
-	G <- -2 * ((hom1_n * log(exp_hom1_n / hom1_n)) +
-			het_n * log(exp_het_n / het_n) + 
-			hom2_n * log(exp_hom2_n / hom2_n))
+# lrt! 
+lrt_hwe_test <- function(b1b1, b1b2, b2b2) {	
+	allele_freqs <- gen_allele_freqs(b1b1, b1b2, b2b2)
+	expected <- gen_expected_freqs(allele_freqs$b1, allele_freqs$b2)
+
+	G <- -2 * ((b1b1 * log(expected$b1b1 / b1b1)) +
+			b1b2 * log(expected$b1b2 / b1b2) + 
+			b2b2 * log(expected$b2b2 / b2b2))
 	p <- pchisq(G, df=1, lower.tail=FALSE)
 	out <- list(G = G, p_val = p)
 	return(out)
 }
 
 lrt_hwe_test(b1b1, b1b2, b2b2)
-HW.test2 <- HWExact(x,verbose=TRUE)
-# similar but not the same!
+HW.test2 <- HWLratio(c(b1b1, b1b2, b2b2),verbose=TRUE)
+# same output!
 
+# apparently what is done in plink is the exact test! (Haldane's???)
+HW.test3 <- HWExact(c(b1b1, b1b2, b2b2),verbose=TRUE)
+# similar p value, but slightly different! 
 
 
 
