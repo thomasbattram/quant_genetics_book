@@ -1,0 +1,58 @@
+# Sources of genetic variation for multilocus traits
+
+## Epistasis
+
+Epistasis describes the nonadditivity of effects between loci, i.e. the alleles of one loci influence the effects of another loci. 
+
+The genotypic value, $G_{ijkl}$, needs to take into account all the interaction terms that can arrive between loci, for two loci it's additive x additive effects ($\alpha\alpha$), additive x dominance effects ($\alpha\delta$), and dominance x dominance effects ($\delta\delta$). As the number of loci increases the number of interaction terms increase steadily e.g. $\alpha\alpha\alpha$ will be there for three loci.
+
+## A general least-squares model for genetic effects
+
+This is just an extension of the one-locus linear model introduced in Chapter 4. 
+
+For this section, imagine we are interested in measuring the genetic effects of two loci, $G_{ijkl}$, which can easily be extended to more. The additive effect of an allele on a phenotype is just the phenotypic value in people with that allele minus the mean phenotypic value of the population. When considering epistatic effects we can define it in the same way. 
+
+\begin{equation}
+  \alpha_{i} = G_{i...} - \mu_{G}
+  (\#eq:additive-effects-i)
+\end{equation}
+
+$G_{i...}$ is just the conditional mean phenotype of individuals with allele $i$ at the first locus without regard to the other allele at that locus or to the genotype at the second locus. The other additive terms (for $\alpha_{j}$, $\alpha_{k}$, $\alpha_{l}$) are defined in the same way. Within each locus, the mean value of average effects (weighted by allele frequency) = 0. 
+
+Dominance effects can be defined in a similar way, complete these equations by recalling the equation for $G_{ij}$ at the end of Chapter 4: 
+
+\begin{align}
+  \delta_{ij} &= G_{ij} - ... (\#eq:dom-effects-ij) \\
+  \delta_{lk} &= G_{lk} - ... (\#eq:dom-effects-lj)
+\end{align}
+
+Like with the additive effects, the mean dominance deviation at each locus is equal to zero.
+
+Epistatic effect terms proceed in a similar fashion. Letting $G_{i.k.}$ be the mean phenotype of individuals with gene $i$ at locus 1 and $k$ at locus 2, without regard to the other two genes, the $ik$th additive x additive effect is:
+
+\begin{equation}
+  \left(\alpha\alpha\right)_{ik} = G_{i.k.} - \mu_{G} - \alpha{i} - \alpha{k} 
+  (\#eq:add-add-effects-ik)
+\end{equation}
+
+So $\left(\alpha\alpha\right)_{ik}$ is the deviation of the conditional mean $G_{i.k.}$ from the expectation based on the population mean $\mu_{G}$ and the additive effects $\alpha_{i}$ and $\alpha_{k}$. An additive x dominance effect measures the interaction between an allele at one locus with a genotype of another locus (see equation 5.5 in book) and the dominance x dominance effect involves an interaction between the genotypes at each locus (see equation 5.6 in book). 
+
+The complete genotypic value, $G_{ijkl...}$ can be found in equation 5.7 in the book. These parameters depend on genotype frequencies in the population, but the mean value of each type of effect is always equal to zero.
+
+The genotypic value of an individual is often impossible to quantify because of variation in the phenotype due to the environment, but the genotypic value for an individual equation can be extended to populations. Providing mating is random and segregation of loci is independent, there is no statistical relationship between the genes found within or among loci. So the total genetic variance is just the sum of the variance of the individual effects, simplified this is:
+
+\begin{equation}
+  \sigma^{2}_{G} = \sigma^{2}_{A} + \sigma^{2}_{D} + \sigma^{2}_{AA} + \sigma^{2}_{AD} + \sigma^{2}_{DD} + ...
+  (\#eq:multilocus-genetic-variance)
+\end{equation}
+
+... here and in other cases just symbolises more terms can be added if more than two loci are used.
+
+Epistatic effects are expected to be common throughout the genome and Wright thought they were the rule, rather than exception. See example two in the book for calculations of epistatic effects and how much variance they contribute to the overall genetic variance component. Overall, it is clear that even with large epistatic effects, additive genetic variance, $\sigma^{2}_{A}$ will pretty much always (if not always) contribute to the vast majority of overall genetic variance $\sigma^{2}_{G}$. This is important for two reasons: 
+
+1. Variance components provide limited insight into the physiological mode of gene action, i.e. just because genetic variance is explained by additive effects (which means you essentially count each gene separately), it does not mean the interaction between genes is not important in terms of their function!
+2. When interested in the variance of a trait that is explained by genetics, you can expect the vast majority of that variance to be explained by additive genetic effects, which makes things like estimating heritability far easier.
+
+### Extension to haploids and polyploids
+
+Skipped this section as not relevant to humans.

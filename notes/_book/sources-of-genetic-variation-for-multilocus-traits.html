@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</title>
-  <meta name="description" content="Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <title>Chapter 5 Sources of genetic variation for multilocus traits | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</title>
+  <meta name="description" content="Chapter 5 Sources of genetic variation for multilocus traits | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
   <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <meta property="og:title" content="Chapter 5 Sources of genetic variation for multilocus traits | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <meta name="twitter:title" content="Chapter 5 Sources of genetic variation for multilocus traits | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="properties-of-single-loci.html"/>
 
-<link rel="next" href="an-overview-of-quantitative-genetics.html"/>
 <script src="libs/header-attrs-2.1.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -132,23 +132,60 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</h1>
-<p class="author"><em>Thomas Battram</em></p>
-<p class="date"><em>2020-04-25</em></p>
+<div id="sources-of-genetic-variation-for-multilocus-traits" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Sources of genetic variation for multilocus traits</h1>
+<div id="epistasis" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Epistasis</h2>
+<p>Epistasis describes the nonadditivity of effects between loci, i.e. the alleles of one loci influence the effects of another loci.</p>
+<p>The genotypic value, <span class="math inline">\(G_{ijkl}\)</span>, needs to take into account all the interaction terms that can arrive between loci, for two loci it’s additive x additive effects (<span class="math inline">\(\alpha\alpha\)</span>), additive x dominance effects (<span class="math inline">\(\alpha\delta\)</span>), and dominance x dominance effects (<span class="math inline">\(\delta\delta\)</span>). As the number of loci increases the number of interaction terms increase steadily e.g. <span class="math inline">\(\alpha\alpha\alpha\)</span> will be there for three loci.</p>
 </div>
-<div id="preface" class="section level1 unnumbered" number="">
-<h1>Preface</h1>
-<p>This is a good book, but if I make it through the whole thing I deserve several medals and some cake.</p>
+<div id="a-general-least-squares-model-for-genetic-effects" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> A general least-squares model for genetic effects</h2>
+<p>This is just an extension of the one-locus linear model introduced in Chapter 4.</p>
+<p>For this section, imagine we are interested in measuring the genetic effects of two loci, <span class="math inline">\(G_{ijkl}\)</span>, which can easily be extended to more. The additive effect of an allele on a phenotype is just the phenotypic value in people with that allele minus the mean phenotypic value of the population. When considering epistatic effects we can define it in the same way.</p>
+<p><span class="math display" id="eq:additive-effects-i">\[\begin{equation}
+  \alpha_{i} = G_{i...} - \mu_{G}
+  \tag{5.1}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(G_{i...}\)</span> is just the conditional mean phenotype of individuals with allele <span class="math inline">\(i\)</span> at the first locus without regard to the other allele at that locus or to the genotype at the second locus. The other additive terms (for <span class="math inline">\(\alpha_{j}\)</span>, <span class="math inline">\(\alpha_{k}\)</span>, <span class="math inline">\(\alpha_{l}\)</span>) are defined in the same way. Within each locus, the mean value of average effects (weighted by allele frequency) = 0.</p>
+<p>Dominance effects can be defined in a similar way, complete these equations by recalling the equation for <span class="math inline">\(G_{ij}\)</span> at the end of Chapter 4:</p>
+<p><span class="math display" id="eq:dom-effects-lj" id="eq:dom-effects-ij">\[\begin{align}
+  \delta_{ij} &amp;= G_{ij} - ... \tag{5.2} \\
+  \delta_{lk} &amp;= G_{lk} - ... \tag{5.3}
+\end{align}\]</span></p>
+<p>Like with the additive effects, the mean dominance deviation at each locus is equal to zero.</p>
+<p>Epistatic effect terms proceed in a similar fashion. Letting <span class="math inline">\(G_{i.k.}\)</span> be the mean phenotype of individuals with gene <span class="math inline">\(i\)</span> at locus 1 and <span class="math inline">\(k\)</span> at locus 2, without regard to the other two genes, the <span class="math inline">\(ik\)</span>th additive x additive effect is:</p>
+<p><span class="math display" id="eq:add-add-effects-ik">\[\begin{equation}
+  \left(\alpha\alpha\right)_{ik} = G_{i.k.} - \mu_{G} - \alpha{i} - \alpha{k} 
+  \tag{5.4}
+\end{equation}\]</span></p>
+<p>So <span class="math inline">\(\left(\alpha\alpha\right)_{ik}\)</span> is the deviation of the conditional mean <span class="math inline">\(G_{i.k.}\)</span> from the expectation based on the population mean <span class="math inline">\(\mu_{G}\)</span> and the additive effects <span class="math inline">\(\alpha_{i}\)</span> and <span class="math inline">\(\alpha_{k}\)</span>. An additive x dominance effect measures the interaction between an allele at one locus with a genotype of another locus (see equation 5.5 in book) and the dominance x dominance effect involves an interaction between the genotypes at each locus (see equation 5.6 in book).</p>
+<p>The complete genotypic value, <span class="math inline">\(G_{ijkl...}\)</span> can be found in equation 5.7 in the book. These parameters depend on genotype frequencies in the population, but the mean value of each type of effect is always equal to zero.</p>
+<p>The genotypic value of an individual is often impossible to quantify because of variation in the phenotype due to the environment, but the genotypic value for an individual equation can be extended to populations. Providing mating is random and segregation of loci is independent, there is no statistical relationship between the genes found within or among loci. So the total genetic variance is just the sum of the variance of the individual effects, simplified this is:</p>
+<p><span class="math display" id="eq:multilocus-genetic-variance">\[\begin{equation}
+  \sigma^{2}_{G} = \sigma^{2}_{A} + \sigma^{2}_{D} + \sigma^{2}_{AA} + \sigma^{2}_{AD} + \sigma^{2}_{DD} + ...
+  \tag{5.5}
+\end{equation}\]</span></p>
+<p>… here and in other cases just symbolises more terms can be added if more than two loci are used.</p>
+<p>Epistatic effects are expected to be common throughout the genome and Wright thought they were the rule, rather than exception. See example two in the book for calculations of epistatic effects and how much variance they contribute to the overall genetic variance component. Overall, it is clear that even with large epistatic effects, additive genetic variance, <span class="math inline">\(\sigma^{2}_{A}\)</span> will pretty much always (if not always) contribute to the vast majority of overall genetic variance <span class="math inline">\(\sigma^{2}_{G}\)</span>. This is important for two reasons:</p>
+<ol style="list-style-type: decimal">
+<li>Variance components provide limited insight into the physiological mode of gene action, i.e. just because genetic variance is explained by additive effects (which means you essentially count each gene separately), it does not mean the interaction between genes is not important in terms of their function!</li>
+<li>When interested in the variance of a trait that is explained by genetics, you can expect the vast majority of that variance to be explained by additive genetic effects, which makes things like estimating heritability far easier.</li>
+</ol>
+<div id="extension-to-haploids-and-polyploids" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Extension to haploids and polyploids</h3>
+<p>Skipped this section as not relevant to humans.</p>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="properties-of-single-loci.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="an-overview-of-quantitative-genetics.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
