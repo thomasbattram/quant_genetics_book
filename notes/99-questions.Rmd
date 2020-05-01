@@ -1,0 +1,12 @@
+# Questions {-#questions}
+
+Have fun answering these Gib!
+
+## Chapter 4 {-#chapter-4}
+
+1. What the fuck are they talking about with the molecular basis of dominance? - page 63-64
+
+## Chapter 5 {-#chapter-5}
+
+1. How do they calculate the variance of a phenotype explained by just the dominance effects? - page 91
+
