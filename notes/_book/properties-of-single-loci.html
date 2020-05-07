@@ -24,7 +24,7 @@
 <meta name="author" content="Thomas Battram" />
 
 
-<meta name="date" content="2020-05-01" />
+<meta name="date" content="2020-05-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -114,6 +114,8 @@
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#extension-to-haploids-and-polyploids"><i class="fa fa-check"></i><b>5.2.1</b> Extension to haploids and polyploids</a></li>
 </ul></li>
+<li class="chapter" data-level="5.3" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#linkage"><i class="fa fa-check"></i><b>5.3</b> Linkage</a></li>
+<li class="chapter" data-level="5.4" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#effect-of-disequilibrium-of-the-genetic-variance"><i class="fa fa-check"></i><b>5.4</b> Effect of disequilibrium of the genetic variance</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="questions.html"><a href="questions.html"><i class="fa fa-check"></i>Questions</a>
 <ul>
@@ -214,7 +216,10 @@
 <p><span class="math display">\[ G_ij = ... \]</span></p>
 <p>If you plotted the genotypic value (<span class="math inline">\(G\)</span>) against gene content (<span class="math inline">\(N_2\)</span> or number of <span class="math inline">\(B_2\)</span> alleles) and calculated residuals these residuals would be <span class="math inline">\(\delta\)</span> (see Figure 4.6).</p>
 <p>The rest of the chapter uses this regression and what we know about genotype frequencies to derive a formula for the average effect of allelic substitution:</p>
-<p><span class="math display">\[ \alpha = a[1 + k(p_1 - p_2)] \]</span></p>
+<p><span class="math display" id="eq:allelic-sub-effect">\[\begin{equation}
+  \alpha = a[1 + k(p_1 - p_2)]
+  \tag{4.1}
+\end{equation}\]</span></p>
 <p>where <span class="math inline">\(a\)</span> = genotypic value of <span class="math inline">\(B_2\)</span> (see above), <span class="math inline">\(k\)</span> is the dominance coefficient and <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> are the frequencies of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span>. This value <span class="math inline">\(\alpha\)</span> represents the average change in genotypic value that results when a <span class="math inline">\(B_2\)</span> allele is randomly substituted for a <span class="math inline">\(B_1\)</span> allele. If no dominance (<span class="math inline">\(k = 0\)</span>) then <span class="math inline">\(\alpha = a\)</span>. Except in the case of additivity, the average effect of allelic substitution is not simply a function of the inherent physiological properties of the allele. It can only be defined in the context of the population!</p>
 </div>
 <div id="partioning-the-genetic-variance." class="section level2" number="4.7">
@@ -229,8 +234,10 @@ OR more commonly
 <span class="math display">\[ \sigma^2_G = \sigma^2_A + \sigma^2_D \]</span></p>
 <p><span class="math inline">\(\sigma^2_A\)</span> is the variance of G explained by regression on <span class="math inline">\(N_2\)</span> (or <span class="math inline">\(N_1\)</span>), and <span class="math inline">\(\sigma^2_D\)</span> is the residual variance of that regression. The variance of the additive and dominance effects!</p>
 <p>For a diallelic locus we can do some rearranging of equations in Table 4.1 of the book and get these equations:</p>
-<p><span class="math display">\[ \sigma^2_A = 2p_1p_2\alpha^2 \]</span>
-<span class="math display">\[ \sigma^2_D = (2p_1p_2ak)^2 \]</span></p>
+<p><span class="math display" id="eq:dominance-var" id="eq:additive-var">\[\begin{align}
+  \sigma^2_A &amp;= 2p_1p_2\alpha^2 \tag{4.2} \\
+  \sigma^2_D &amp;= (2p_1p_2ak)^2 \tag{4.3}
+\end{align}\]</span></p>
 <p>From these we can clearly see that both components depend on allele frequencies, the dominance coefficient and the homozygous effect (remember <span class="math inline">\(\alpha\)</span> is just the slope of the <span class="math inline">\(G ~ N_2\)</span> regression!).</p>
 <p>By plotting how genetic variance changes with gene frequency under different scenarios (<strong>DEFINITELY DO THIS</strong>). You see some interesting patterns. Firstly, at a single diallelic locus, you see that <span class="math inline">\(\sigma^2_A\)</span> reaches it’s peak when <span class="math inline">\(p_1 = p_2 = 0.5\)</span>. Secondly, it’s clear that, even in the case of overdominance (which is rare!), additive genetic variance will almost always be much higher than genetic variance from dominance effects, even when the frequency of the dominant allele is high. (btw I think the scale on the top left graph is wrong…).</p>
 </div>

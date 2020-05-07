@@ -24,7 +24,7 @@
 <meta name="author" content="Thomas Battram" />
 
 
-<meta name="date" content="2020-05-01" />
+<meta name="date" content="2020-05-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -114,6 +114,8 @@
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#extension-to-haploids-and-polyploids"><i class="fa fa-check"></i><b>5.2.1</b> Extension to haploids and polyploids</a></li>
 </ul></li>
+<li class="chapter" data-level="5.3" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#linkage"><i class="fa fa-check"></i><b>5.3</b> Linkage</a></li>
+<li class="chapter" data-level="5.4" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#effect-of-disequilibrium-of-the-genetic-variance"><i class="fa fa-check"></i><b>5.4</b> Effect of disequilibrium of the genetic variance</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="questions.html"><a href="questions.html"><i class="fa fa-check"></i>Questions</a>
 <ul>
@@ -180,8 +182,62 @@
 <div id="extension-to-haploids-and-polyploids" class="section level3" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Extension to haploids and polyploids</h3>
 <p>Skipped this section as not relevant to humans.</p>
-
 </div>
+</div>
+<div id="linkage" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Linkage</h2>
+<p>Genes of the same chromosome tend to be inherited as a group, a tendency that declines with increasing distance between the loci. Crossing-over during meiosis is responsible for this decline.</p>
+<hr />
+<p><strong>Difference between linkage and linkage disequilibrium</strong></p>
+<p>Loci are linked if they tend to be inherited together. If loci are correlated for any reason (don’t need to be inherited together), they are in linkage disequilibrium. The census units for measuring linkage are gamete frequencies, so you can use an individual to estimate this. LD is measured across a population.</p>
+<p>Can get linkage without LD, can get linkage and LD, and can get two correlated loci (LD) that aren’t linked.</p>
+<hr />
+<p>Even though you can get correlated loci for reasons other than linkage, the LD between linked loci are more likely to persist over time as seen in <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:LD-decay">(5.8)</a>.</p>
+<p>Under linkage equilibrium, the frequency of gametes is the product of allele frequencies, so for loci <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>,</p>
+<p><span class="math display" id="eq:linkage-equilibrium">\[\begin{equation}
+  Freq(AB) = Freq(A) * Freq(B)
+  \tag{5.6}
+\end{equation}\]</span></p>
+<p>So A and B are independent of each other.</p>
+<p>Measure of disequilibrium is just the departure from this:</p>
+<p><span class="math display" id="eq:LD-D">\[\begin{equation}
+  D_{AB} = Freq(AB) - Freq(A) * Freq(B)
+  \tag{5.7}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(D_{AB}\)</span> can be positive or negative depending on whether <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are in coupling (<span class="math inline">\(AB\)</span> gametes are overrepresented) or repulsion (<span class="math inline">\(AB\)</span> gametes are underrepresented) disequilibrium. <span class="math inline">\(D\)</span> is often referred to as the coefficient of linkage disequilibrium (although can be non-zero without linkage!).</p>
+<p>Selection, migration, mutation and drift can help maintain LD. Even without these forces, once LD is established it can be maintained for many generations (especially if loci are more tightly linked!).</p>
+<p>Expected LD changes over time depend on the recombination fraction between loci, <span class="math inline">\(c\)</span>. This value ranges from 0 to 0.5, where 0 essentially means the loci are inherited together and 0.5 is free recombination between loci.</p>
+<p>If recombination frequency between the <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> loci is <span class="math inline">\(c\)</span>, the disequilibrium in generation <span class="math inline">\(t\)</span> is given by:</p>
+<p><span class="math display" id="eq:LD-decay">\[\begin{equation}
+  D(t) = (1 - c)^{t}D(0)
+  \tag{5.8}
+\end{equation}\]</span></p>
+<p>This equation is graphically displayed in <a href="sources-of-genetic-variation-for-multilocus-traits.html#fig:ld-decay">5.1</a>.</p>
+
+<div class="figure"><span id="fig:ld-decay"></span>
+<img src="quant_genetics_book_notes_files/figure-html/ld-decay-1.png" alt="The decline, under random mating, of linkage disequilibrium when the initial value [D(0)] is set to 1 as a function of the recombination frequency, c." width="672" />
+<p class="caption">
+Figure 5.1: The decline, under random mating, of linkage disequilibrium when the initial value [D(0)] is set to 1 as a function of the recombination frequency, c.
+</p>
+</div>
+<p>To estimate <span class="math inline">\(D\)</span> you can directly count gamete frequencies of an individual. This is not possible for most organisms though and usually you have to make-do with measured multilocus genotypes across a population. You can then workout gametes used to produce the genotypes (e.g. someone with an <span class="math inline">\(AABb\)</span> genotype would be formed from a <span class="math inline">\(AB\)</span> gamete and <span class="math inline">\(aB\)</span> gamete). However, with double heterozygotes you can’t be sure if an <span class="math inline">\(ABab\)</span> individual was formed from <span class="math inline">\(AB\)</span> and <span class="math inline">\(ab\)</span> gametes or from <span class="math inline">\(Ab\)</span> and <span class="math inline">\(aB\)</span> gametes. Under random mating, it’s not necessary to distinguish between coupling and repulsion heterozygotes so this doesn’t really matter. In this case an estimate of <span class="math inline">\(D\)</span> is given by:</p>
+<p><span class="math display" id="eq:LD-from-genotypes">\[\begin{equation}
+  \hat{D_{AB}} = \frac{N} {N - 1} [\frac{4N_{AABB} + 2(N_{AABb} + N_{AaBB}) + N_{AbBb}} {2N} -2\hat{p_{A}}\hat{p_{B}}]
+  \tag{5.9}
+\end{equation}\]</span></p>
+<p>The equation for the sampling variance of <span class="math inline">\(D\)</span> is shown on page 99.</p>
+<p>Ideally you’d have 1000s of samples to achieve reasonable statistical power when estimating <span class="math inline">\(D\)</span> using multilocus genotype frequencies.</p>
+</div>
+<div id="effect-of-disequilibrium-of-the-genetic-variance" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Effect of disequilibrium of the genetic variance</h2>
+<p>The aggregate effects of gametic phase disequilibrium might be extensive for quantitative traits whose expression is based on large numbers of loci, even if the average level of disequilibrium between pairs of loci is relatively small. If genes with a positive influence on a character tend to be associated on some chromosomes, and those with a negative influence on others (coupling disequilbrium), the observed genetic variation will be inflated relative to the expectation under random assortment. The opposite will occur if “plus” alleles at one locus tend to be associated with “minus” alleles at another (repulsion disequilibrium). This is illustrated nicely by figure 5.6 in the book. Think of it this way, you’re studying gene <span class="math inline">\(A\)</span>, gene <span class="math inline">\(B\)</span> and phenotype <span class="math inline">\(X\)</span>. If upregulation of <span class="math inline">\(A\)</span> leads to an increase in <span class="math inline">\(X\)</span> and an upregulation of <span class="math inline">\(B\)</span> leads to an increase in <span class="math inline">\(X\)</span> by the same proportions, then if genetic variation always occurs so that whenever <span class="math inline">\(A\)</span> is upregulated, <span class="math inline">\(B\)</span> is downregulated by the same amount, then what will be observed at both of the loci is that variation at them is not associated with variation in <span class="math inline">\(X\)</span>. This situation described is complete repulsion linkage (again, see figure 5.6 in book). This is assuming additive effects across loci. When there is no disequilibrium between loci, the variance at each locus is just <span class="math inline">\(2pqa^{2}\)</span>, see <a href="properties-of-single-loci.html#eq:additive-var">(4.2)</a>.</p>
+<p>As always, dominance effects muddy the waters, but here are the formalized multilocus analogs of <a href="properties-of-single-loci.html#eq:additive-var">(4.2)</a> and <a href="properties-of-single-loci.html#eq:dominance-var">(4.3)</a>:</p>
+<p><span class="math display" id="eq:dominance-var-LD" id="eq:additve-var-LD">\[\begin{align}
+  \sigma^2_A &amp;= 2\sum_{i=1}^{n} \alpha(i)^{2}p_{i}q_{i} + 2\sum_{i=1}^{n} \sum_{j\ne1}^{n} \alpha(i)\alpha(j)D_{ij} \tag{5.10} \\ 
+  \sigma^2_D &amp;= 4\sum_{i=1}^{n} (a_{i}k_{i}p_{i}q_{i})^{2} + 4\sum_{i=1}^{n} \sum_{j\ne1}^{n} a_{i}a_{j}k_{i}k_{j}D^2_{ij} \tag{5.11}
+\end{align}\]</span></p>
+<p><a href="properties-of-single-loci.html#eq:allelic-sub-effect">(4.1)</a></p>
+
 </div>
 </div>
             </section>

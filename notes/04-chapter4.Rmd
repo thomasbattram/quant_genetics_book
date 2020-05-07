@@ -95,7 +95,10 @@ If you plotted the genotypic value ($G$) against gene content ($N_2$ or number o
 
 The rest of the chapter uses this regression and what we know about genotype frequencies to derive a formula for the average effect of allelic substitution:
 
-$$ \alpha = a[1 + k(p_1 - p_2)] $$
+\begin{equation}
+  \alpha = a[1 + k(p_1 - p_2)]
+  (\#eq:allelic-sub-effect)
+\end{equation}
 
 where $a$ = genotypic value of $B_2$ (see above), $k$ is the dominance coefficient and $p_1$ and $p_2$ are the frequencies of $B_1$ and $B_2$. This value $\alpha$ represents the average change in genotypic value that results when a $B_2$ allele is randomly substituted for a $B_1$ allele. If no dominance ($k = 0$) then $\alpha = a$. Except in the case of additivity, the average effect of allelic substitution is not simply a function of the inherent physiological properties of the allele. It can only be defined in the context of the population!
 
@@ -117,8 +120,10 @@ $\sigma^2_A$ is the variance of G explained by regression on $N_2$ (or $N_1$), a
 
 For a diallelic locus we can do some rearranging of equations in Table 4.1 of the book and get these equations:
 
-$$ \sigma^2_A = 2p_1p_2\alpha^2 $$
-$$ \sigma^2_D = (2p_1p_2ak)^2 $$
+\begin{align}
+  \sigma^2_A &= 2p_1p_2\alpha^2 (\#eq:additive-var) \\
+  \sigma^2_D &= (2p_1p_2ak)^2 (\#eq:dominance-var)
+\end{align}
 
 From these we can clearly see that both components depend on allele frequencies, the dominance coefficient and the homozygous effect (remember $\alpha$ is just the slope of the $G ~ N_2$ regression!).
 

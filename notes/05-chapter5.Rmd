@@ -56,3 +56,104 @@ Epistatic effects are expected to be common throughout the genome and Wright tho
 ### Extension to haploids and polyploids
 
 Skipped this section as not relevant to humans.
+
+## Linkage
+
+Genes of the same chromosome tend to be inherited as a group, a tendency that declines with increasing distance between the loci. Crossing-over during meiosis is responsible for this decline. 
+
+***
+**Difference between linkage and linkage disequilibrium**
+
+Loci are linked if they tend to be inherited together. If loci are correlated for any reason (don't need to be inherited together), they are in linkage disequilibrium. The census units for measuring linkage are gamete frequencies, so you can use an individual to estimate this. LD is measured across a population.
+
+Can get linkage without LD, can get linkage and LD, and can get two correlated loci (LD) that aren't linked.
+
+***
+
+Even though you can get correlated loci for reasons other than linkage, the LD between linked loci are more likely to persist over time as seen in \@ref(eq:LD-decay).
+
+Under linkage equilibrium, the frequency of gametes is the product of allele frequencies, so for loci $A$ and $B$,
+
+\begin{equation}
+  Freq(AB) = Freq(A) * Freq(B)
+  (\#eq:linkage-equilibrium)
+\end{equation}
+
+So A and B are independent of each other.
+
+Measure of disequilibrium is just the departure from this:
+
+\begin{equation}
+  D_{AB} = Freq(AB) - Freq(A) * Freq(B)
+  (\#eq:LD-D)
+\end{equation}
+
+$D_{AB}$ can be  positive or negative depending on whether $A$ and $B$ are in coupling ($AB$ gametes are overrepresented) or repulsion ($AB$ gametes are underrepresented) disequilibrium.  $D$ is often referred to as the coefficient of linkage disequilibrium (although can be non-zero without linkage!).
+
+Selection, migration, mutation and drift can help maintain LD. Even without these forces, once LD is established it can be maintained for many generations (especially if loci are more tightly linked!).
+
+Expected LD changes over time depend on the recombination fraction between loci, $c$. This value ranges from 0 to 0.5, where 0 essentially means the loci are inherited together and 0.5 is free recombination between loci.
+
+If recombination frequency between the $A$ and $B$ loci is $c$, the disequilibrium in generation $t$ is given by:
+
+\begin{equation}
+  D(t) = (1 - c)^{t}D(0)
+  (\#eq:LD-decay)
+\end{equation}
+
+This equation is graphically displayed in \@ref(fig:ld-decay).
+
+(ref:ld-decay-cap) The decline, under random mating, of linkage disequilibrium when the initial value [D(0)] is set to 1 as a function of the recombination frequency, c.
+
+```{r ld-decay, message=FALSE, echo=FALSE, warning=FALSE, results="asis", fig.cap='(ref:ld-decay-cap)'}
+	library(tidyverse)
+	calc_D <- function(D0=1, c, t) {
+		D <- (1 - c)^t * D0
+		D
+	}
+	c <- c(0.001, 0.01, 0.1, 0.5)
+	t <- 0:100
+	D_df <- expand.grid(c = c, t = t) %>%
+		mutate(D = calc_D(1, c, t)) %>%
+		arrange(c, t)
+	p <- ggplot(D_df, aes(x = t, y = D, colour = as.factor(c))) +
+		geom_line() +
+		theme_bw() +
+		labs(x = "Generation (t)", y = "D", colour = "c")
+	print(p)
+```
+
+To estimate $D$ you can directly count gamete frequencies of an individual. This is not possible for most organisms though and usually you have to make-do with measured multilocus genotypes across a population. You can then workout gametes used to produce the genotypes (e.g. someone with an $AABb$ genotype would be formed from a $AB$ gamete and $aB$ gamete). However, with double heterozygotes you can't be sure if an $ABab$ individual was formed from $AB$ and $ab$ gametes or from $Ab$ and $aB$ gametes. Under random mating, it's not necessary to distinguish between coupling and repulsion heterozygotes so this doesn't really matter. In this case an estimate of $D$ is given by:
+
+\begin{equation}
+  \hat{D_{AB}} = \frac{N} {N - 1} [\frac{4N_{AABB} + 2(N_{AABb} + N_{AaBB}) + N_{AbBb}} {2N} -2\hat{p_{A}}\hat{p_{B}}]
+  (\#eq:LD-from-genotypes)
+\end{equation}
+
+The equation for the sampling variance of $D$ is shown on page 99.
+
+Ideally you'd have 1000s of samples to achieve reasonable statistical power when estimating $D$ using multilocus genotype frequencies.
+
+## Effect of disequilibrium of the genetic variance
+
+The aggregate effects of gametic phase disequilibrium might be extensive for quantitative traits whose expression is based on large numbers of loci, even if the average level of disequilibrium between pairs of loci is relatively small. If genes with a positive influence on a character tend to be associated on some chromosomes, and those with a negative influence on others (coupling disequilbrium), the observed genetic variation will be inflated relative to the expectation under random assortment. The opposite will occur if "plus" alleles at one locus tend to be associated with "minus" alleles at another (repulsion disequilibrium). This is illustrated nicely by figure 5.6 in the book. Think of it this way, you're studying gene $A$, gene $B$ and phenotype $X$. If upregulation of $A$ leads to an increase in $X$ and an upregulation of $B$ leads to an increase in $X$ by the same proportions, then if genetic variation always occurs so that whenever $A$ is upregulated, $B$ is downregulated by the same amount, then what will be observed at both of the loci is that variation at them is not associated with variation in $X$. This situation described is complete repulsion linkage (again, see figure 5.6 in book). This is assuming additive effects across loci. When there is no disequilibrium between loci, the variance at each locus is just $2pqa^{2}$, see \@ref(eq:additive-var).
+
+As always, dominance effects muddy the waters, but here are the formalized multilocus analogs of \@ref(eq:additive-var) and \@ref(eq:dominance-var):
+
+\begin{align}
+  \sigma^2_A &= 2\sum_{i=1}^{n} \alpha(i)^{2}p_{i}q_{i} + 2\sum_{i=1}^{n} \sum_{j\ne1}^{n} \alpha(i)\alpha(j)D_{ij} (\#eq:additve-var-LD) \\ 
+  \sigma^2_D &= 4\sum_{i=1}^{n} (a_{i}k_{i}p_{i}q_{i})^{2} + 4\sum_{i=1}^{n} \sum_{j\ne1}^{n} a_{i}a_{j}k_{i}k_{j}D^2_{ij} (\#eq:dominance-var-LD)
+\end{align}
+
+where $\alpha(i)$ is the average effect of allelic substitution at   the $i$th locus (defined in equation \@ref(eq:allelic-sub-effect)).
+
+Epistatic interactions make things crazy complicated!
+
+In summary, the componenets of expressed genetic variance for quantitative traits can be partitioned into expected values under gametic phase equilibrium and deviations from these caused by disequilibrium. NOW FOR A SENTENCE I DON'T UNDERSTAND! When the disequilibrium covariance is negative, we refer to it as hidden genetic variance because it is subject to conversion to expressed genetic variance via the breakdown of gametic phase disequilibria.
+
+### The evidence
+
+
+
+
+
