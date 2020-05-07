@@ -115,7 +115,10 @@
 <li class="chapter" data-level="5.2.1" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#extension-to-haploids-and-polyploids"><i class="fa fa-check"></i><b>5.2.1</b> Extension to haploids and polyploids</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#linkage"><i class="fa fa-check"></i><b>5.3</b> Linkage</a></li>
-<li class="chapter" data-level="5.4" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#effect-of-disequilibrium-of-the-genetic-variance"><i class="fa fa-check"></i><b>5.4</b> Effect of disequilibrium of the genetic variance</a></li>
+<li class="chapter" data-level="5.4" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#effect-of-disequilibrium-of-the-genetic-variance"><i class="fa fa-check"></i><b>5.4</b> Effect of disequilibrium of the genetic variance</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#the-evidence"><i class="fa fa-check"></i><b>5.4.1</b> The evidence</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="questions.html"><a href="questions.html"><i class="fa fa-check"></i>Questions</a>
 <ul>
@@ -236,8 +239,16 @@ Figure 5.1: The decline, under random mating, of linkage disequilibrium when the
   \sigma^2_A &amp;= 2\sum_{i=1}^{n} \alpha(i)^{2}p_{i}q_{i} + 2\sum_{i=1}^{n} \sum_{j\ne1}^{n} \alpha(i)\alpha(j)D_{ij} \tag{5.10} \\ 
   \sigma^2_D &amp;= 4\sum_{i=1}^{n} (a_{i}k_{i}p_{i}q_{i})^{2} + 4\sum_{i=1}^{n} \sum_{j\ne1}^{n} a_{i}a_{j}k_{i}k_{j}D^2_{ij} \tag{5.11}
 \end{align}\]</span></p>
-<p><a href="properties-of-single-loci.html#eq:allelic-sub-effect">(4.1)</a></p>
+<p>where <span class="math inline">\(\alpha(i)\)</span> is the average effect of allelic substitution at the <span class="math inline">\(i\)</span>th locus (defined in equation <a href="properties-of-single-loci.html#eq:allelic-sub-effect">(4.1)</a>).</p>
+<p>Epistatic interactions make things crazy complicated!</p>
+<p>In summary, the componenets of expressed genetic variance for quantitative traits can be partitioned into expected values under gametic phase equilibrium and deviations from these caused by disequilibrium. From the book: “When the disequilibrium covariance is negative, we refer to it as hidden genetic variance because it is subject to conversion to expressed genetic variance via the breakdown of gametic phase disequilibria”. What I think this means: Negative disequilibrium covariance is just when loci correlated loci covary in a way so that when one increases a traits value, the other decreases it, this is what happens in repulsion linkage! The reason it’s not just called repulsion linkage is because you can have covarying loci without them being linked. Sooo, what the book is saying here, is that if linkage disequilibrium (correlation) between the two loci that negatively covary is reduced, the amount of genetic variance they explain in the trait will increase!</p>
+<div id="the-evidence" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> The evidence</h3>
+<p>Hidden genetic variation is expected to be a natural consequence of stabilising selection, which favours linkage groups for their composite properties without regard to the alleles at individual loci. Theoretical work has suggested that stabilising selection encourages the development of substantial hidden genetic variance, potentially depressing the level of expressed genetic variance to 50% or less than its equilibrium expectation.</p>
+<p>Of course selection doesn’t always favour an increase in hidden genetic variance. Sometimes coupling selection is favoured, so that expressed genetic variance exceeds equilibrium expectations. In this case the disequilibrium covariance is positive, and recombination would be expected to result in a reduction in the expressed genetic variance.</p>
+<p>Here we’ve just considered one trait, but of course the same thinking applies to selection upon multiple traits simultaneously. For example, in populations of insects (LIKE BEES) that exploit multiple host plants, one might expect a genetic correlation to evolve such that individuals prefer to feed on the plant species upon which they perform best. Such correlations could result from LD between a set of genes influencing preference and another influencing performance.</p>
 
+</div>
 </div>
 </div>
             </section>

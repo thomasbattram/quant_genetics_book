@@ -149,11 +149,15 @@ where $\alpha(i)$ is the average effect of allelic substitution at   the $i$th l
 
 Epistatic interactions make things crazy complicated!
 
-In summary, the componenets of expressed genetic variance for quantitative traits can be partitioned into expected values under gametic phase equilibrium and deviations from these caused by disequilibrium. NOW FOR A SENTENCE I DON'T UNDERSTAND! When the disequilibrium covariance is negative, we refer to it as hidden genetic variance because it is subject to conversion to expressed genetic variance via the breakdown of gametic phase disequilibria.
+In summary, the componenets of expressed genetic variance for quantitative traits can be partitioned into expected values under gametic phase equilibrium and deviations from these caused by disequilibrium. From the book: "When the disequilibrium covariance is negative, we refer to it as hidden genetic variance because it is subject to conversion to expressed genetic variance via the breakdown of gametic phase disequilibria". What I think this means: Negative disequilibrium covariance is just when loci correlated loci covary in a way so that when one increases a traits value, the other decreases it, this is what happens in repulsion linkage! The reason it's not just called repulsion linkage is because you can have covarying loci without them being linked. Sooo, what the book is saying here, is that if linkage disequilibrium (correlation) between the two loci that negatively covary is reduced, the amount of genetic variance they explain in the trait will increase! 
 
 ### The evidence
 
+Hidden genetic variation is expected to be a natural consequence of stabilising selection, which favours linkage groups for their composite properties without regard to the alleles at individual loci. Theoretical work has suggested that stabilising selection encourages the development of substantial hidden genetic variance, potentially depressing the level of expressed genetic variance to 50% or less than its equilibrium expectation.
 
+Of course selection doesn't always favour an increase in hidden genetic variance. Sometimes coupling selection is favoured, so that expressed genetic variance exceeds equilibrium expectations. In this case the disequilibrium covariance is positive, and recombination would be expected to result in a reduction in the expressed genetic variance.
+
+Here we've just considered one trait, but of course the same thinking applies to selection upon multiple traits simultaneously. For example, in populations of insects (LIKE BEES) that exploit multiple host plants, one might expect a genetic correlation to evolve such that individuals prefer to feed on the plant species upon which they perform best. Such correlations could result from LD between a set of genes influencing preference and another influencing performance.
 
 
 

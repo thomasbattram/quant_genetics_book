@@ -9,4 +9,3 @@ Have fun answering these Gib!
 ## Chapter 5 {-#chapter-5}
 
 1. How do they calculate the variance of a phenotype explained by just the dominance effects? - page 91
-2. What does this mean: "When the disequilibrium covariance is negative, we refer to it as hidden genetic variance because it is subject to conversion to expressed genetic variance via the breakdown of gametic phase disequilibria."? What is disequilibrium covariance?
