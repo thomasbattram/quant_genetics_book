@@ -1,18 +1,18 @@
 # Covariance, regression, and correlation
 
 ## Covariance
-Covariance is a measure of association and the covariance between x and y would be denoted by $\sigma(x, y)$. If x and y are independent then $\sigma(x, y) = 0$, BUT if $\sigma(x, y) = 0$, x and y aren’t necessarily independent. 
+Covariance is a measure of association and the covariance between x and y would be denoted by $\sigma(x, y)$. If $x$ and $y$ are independent then $\sigma(x, y) = 0$, BUT if $\sigma(x, y) = 0$, $x$ and $y$ aren’t necessarily independent. 
 
 ### Useful identities for covariance
 
-Covariance of x with itself = variance of x:
+Covariance of $x$ with itself = variance of $x$:
 
 \begin{equation}
 	\sigma(x, x) = \sigma^2(x)
   	(\#eq:covxx)
 \end{equation}
 
-For constants (here represented by a) see \@ref(eq:cov-rules-contants) below
+For constants (here represented by $a$) see \@ref(eq:cov-rules-contants) below
 \begin{align}
 	\sigma(a, x) &= 0 \notag \\
 	\sigma(ax, y) &= a\sigma(x, y) \notag \\
@@ -21,81 +21,148 @@ For constants (here represented by a) see \@ref(eq:cov-rules-contants) below
 	(\#eq:cov-rules-contants)
 \end{align}
 
-The covariance of 2 sums can be written as the sum of covariances, i.e. just multiply out the brackets (I've left this blank, do it yourself or check book):
-$$\sigma[(x + y),(w + z)] = ...$$
+The covariance of 2 sums can be written as the sum of covariances, i.e. just multiply out the brackets:
 
-Variance of a sum is sum of variances and covariances (figure this out):
-$$\sigma^2(x + y) = ...$$
+\begin{equation}
+  \sigma[(x + y),(w + z)] = \sigma(x, w) + \sigma(x, z) + \sigma(y, w) + \sigma(y, z) 
+  (\#eq:cov-of-two-sums)
+\end{equation}
+
+Variance of a sum is sum of variances and covariances:
+
+\begin{equation}
+  \sigma^2(x + y) = \sigma^2(x) + 2\sigma(x, y) + \sigma^2(y)
+  (\#eq:var-of-sum)  
+\end{equation}
 
 ## Least squares linear regression
 
 Linear model:
-$$y = \alpha + \beta{x} + e$$
 
-Continuing on, $\alpha$ and $\beta$ will be the true population values and a and b will be the intercept and slope for the line of best fit derived from observed data. The derivation of $a$ and $b$ using the least-squares model can be found on pages 39-41. Buuut, who cares about that, here are the results:
-$$a = \bar{y} - b\bar{x}$$
-$$b = \frac{Cov(x, y)} {Var(x)}$$
+\begin{equation}
+  y = \alpha + \beta{x} + e
+  (\#eq:simple-linear-model)  
+\end{equation}
+
+Continuing on, $\alpha$ and $\beta$ will be the true population values and $a$ and $b$ will be the intercept and slope for the line of best fit derived from observed data. The derivation of $a$ and $b$ using the least-squares model can be found on pages 39-41. Buuut, who cares about that, here are the results:
+
+\begin{align}
+  a &= \bar{y} - b\bar{x} \notag \\
+  b &= \frac{Cov(x, y)} {Var(x)}
+  (\#eq:intercept-and-slope)
+\end{align}
 
 ### Properties of least squares
 
 6 in the book, just writing down important/not obvious ones.
 
 * The mean residual ($\bar{e}$) is 0
-* Residual errors are uncorrelated with predictor variable x (see book for why)
-	- BUT e and x may not be independent if the relationship between x and y is non-linear. If it is truly non-linear $E(e|x) != 0$
-* Variance of e can vary with x, in this situation the the regression is said to display heteroscedasticity (see Figure 3.4 for great illustration)
-* The regression of y on x is different to the regression of x on y! 
+* Residual errors are uncorrelated with predictor variable $x$ (see book for why)
+	- BUT $e$ and $x$ may not be independent if the relationship between $x$ and $y$ is non-linear. If it is truly non-linear $E(e|x) != 0$
+* Variance of $e$ can vary with $x$, in this situation the the regression is said to display heteroscedasticity (see Figure 3.4 for great illustration)
+* The regression of $y$ on $x$ is different to the regression of $x$ on $y$! 
 
 ## Correlation
 
-Correlation coefficient between x and y:
-$$r(x, y) = \frac{Cov(x, y)} {\sqrt{Var(x) Var(y)}}$$
+Correlation coefficient between $x$ and $y$:
+
+\begin{equation}
+  r(x, y) = \frac{Cov(x, y)} {\sqrt{Var(x) Var(y)}}
+  (\#eq:correlation-coef)
+\end{equation}
 
 The correlation coefficient is a dimensionless measure of association and it is symmetrical (i.e. $r(x, y) = r(y, x)$).
 
-Scaling x or y by constants does not change the correlation coefficient, but it does affect variances and covariances.
+Scaling $x$ or $y$ by constants does not change the correlation coefficient, but it does affect variances and covariances.
 
-The correlation coefficient is a standardised regression coefficient -> the regression coefficient resulting from rescaling x and y such that each has unit variance). 
+The correlation coefficient is a standardised regression coefficient -> the regression coefficient resulting from rescaling $x$ and $y$ such that each has unit variance). 
 
 $r^2$ assumes $E(y|x)$ is linear!
 
 ## Differential selection (brief intro)
 
 The directional selection differential, $S$, is the difference between the mean phenotype within that generation before selection ($\mu_s$) and the mean phenotype within that generation after ($\mu$) selection.
-$$S = \mu_s - \mu$$
+
+\begin{equation}
+  S = \mu_s - \mu
+  (\#eq:selection-differential)
+\end{equation}
 
 If all individuals have equal fertility and viability then selecting individuals won't change anything so $\mu_s = \mu$ and $S = 0$. 
 
-If  $W(z)$ is the probability that individuals with phenotype $z$ survive to reproduce and $p(z)$ is the density of $z$ (pretty much means distribution) before selection, then the density after selection is:
-$$p_{s}(z) = \frac{W(z)p(z)} {\int W(z)p(z)dz}$$
+If $W(z)$ is the probability that individuals with phenotype $z$ survive to reproduce and $p(z)$ is the density of $z$ (pretty much means distribution) before selection, then the density after selection is:
+
+\begin{equation}
+  p_{s}(z) = \frac{W(z)p(z)} {\int W(z)p(z)dz}
+  (\#eq:density-after-selection)
+\end{equation}
 
 The denominator here is the mean individual fitness ($\bar{W}$). The relative fitness of $z$ is $w(z) = \frac{W(z)} {\bar{W}}$.
 
 After some sweet derivation (see page 46), you finish with:
-$$S = \sigma[z, w(z)]$$
+
+\begin{equation}
+  S = \sigma[z, w(z)]
+  (\#eq:selection-differential2)
+\end{equation}
 
 Therefore the directional selection is equivalent to the covariance of the phenotype and the relative fitness.
 
 If you regress offspring phenotype on the midparent phenotype and that relationship is linear with slope $\beta$, a change in mean midparent phenotype induces an expected change in mean phenotype across generations equal to:
-$$\Delta\mu = \mu_0 - \mu = \beta(\mu_s - \mu) = \beta{S}$$
+
+\begin{equation}
+\begin{split}
+  \Delta\mu &= \mu_0 - \mu \\
+  &= \beta(\mu_s - \mu) \\
+  &= \beta{S}
+\end{split}
+(\#eq:breeders-equation)
+\end{equation}
 
 This is the breeders' equation!
 
 ## Correlation between genotype and phenotype (brief intro)
 
 Only when there is no gene-environment interaction is the variance explained by genetics (broad-sense heritability) the equation below:
-$$H^2 = \frac{\sigma^2_G} {\sigma^2_z}$$,
 
-where $z$ is the phenotype and G is the sum of the total effects (not just additive) at all loci on the trait.
+\begin{equation}
+  H^2 = \frac{\sigma^2_G} {\sigma^2_z},
+  (\#eq:broad-sense-heritability)
+\end{equation}
+
+where $z$ is the phenotype and $G$ is the sum of the total effects (not just additive) at all loci on the trait.
 
 The slope of a midparent-offspring regression provides an estimate of the proportion of the phenotypic variance that is attributable to additive genetic factors (the narrow-sense heritability).
-$$h^2 = \frac{\sigma^2_A} {\sigma^2_z}$$
+
+\begin{equation}
+  h^2 = \frac{\sigma^2_A} {\sigma^2_z}
+  (\#eq:narrow-sense-heritability)
+\end{equation}
 
 So as $h^2$ is just the regression of offspring phenotype on midparent phenotype it can actually be used in the breeders' equation!
-$$\Delta\mu = h^2S$$
+
+\begin{equation}
+  \Delta\mu = h^2S
+  (\#eq:breeders-equation-with-h2)
+\end{equation}
 
 So the narrow-sense heritability can be thought of as the efficiency of the response to selection. If $h^2 = 0$ there can be no evolutionary change regardless of strength of selection. Although this should be obvious because if $h^2$ is 0 then there is clearly no passing of genetic material onto the next generation that is influencing that trait.
 
+
+## End of chapter questions
+
+1. True of false, if $\sigma(x,y) = 0$, $x$ and $y$ are independent
+2. Finish these equations:
+\begin{align}
+  \sigma[(x + y),(w + z)] &= ... \notag \\
+  \sigma^2(a, x) &= ... \notag \\
+  \sigma[(a + x), y] &= ... \notag \\
+  \sigma^2(x + y) &= ... \notag \\
+\end{align}
+3. Name 4 important properties of least-squares regression
+4. Give an assumption of the correlation coefficient
+5. How can you work out $h^2$ from trio data? 
+6. Give two definitions of the breeders' equation.
 
 
 
