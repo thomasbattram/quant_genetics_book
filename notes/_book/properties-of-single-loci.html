@@ -157,8 +157,11 @@
 <h2><span class="header-section-number">4.3</span> The transmission of genetic information</h2>
 <div id="the-hardy-weinberg-principle" class="section level3" number="4.3.1">
 <h3><span class="header-section-number">4.3.1</span> The Hardy-Weinberg principle</h3>
-<p><span class="math display">\[p^2 + 2pq + q^2 = 1\]</span></p>
-<p>where p = allele frequency of first allele at a locus and q = allele frequency of the second allele at that same locus.</p>
+<p><span class="math display" id="eq:hardy-weinberg-principal">\[\begin{equation}
+  p^2 + 2pq + q^2 = 1
+  \tag{4.1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(p\)</span> = allele frequency of first allele at a locus and <span class="math inline">\(q\)</span> = allele frequency of the second allele at that same locus.</p>
 <p>Assumptions of H-W:</p>
 <ul>
 <li>No selection</li>
@@ -170,7 +173,7 @@
 <p>Even though these assumptions will never be met completely in the real world, for the majority of the time the H-W prinicple holds regardless.</p>
 <p>Assuming assumptions are met, 2 important points from H-W:</p>
 <ol style="list-style-type: decimal">
-<li>It takes no more than a single generation equilibriate and stabilize gene frequencies in the two sexes.</li>
+<li>It takes no more than a single generation to equilibriate and stabilize gene frequencies in the two sexes.</li>
 <li>Only one additional generation is required for the stabilisation of the genotype frequencies into the predictible Hardy-Weinberg proportions.</li>
 </ol>
 </div>
@@ -185,18 +188,21 @@
 </div>
 <div id="age-structure" class="section level3" number="4.3.4">
 <h3><span class="header-section-number">4.3.4</span> Age structure</h3>
-<p>Age structure also complicates our idealised model of H-W. In populations composed of several age classes, the generations overlap, and this causes the approach of genotype frequencies towards the H-W expectations to be gradual (rather than just by 1/2 generations), even in the case of an autosomal locus. Doesn’t explain this very much, but it’s covered elsewhere. Importantly, when newly founded populations have significant age structure, fluctuations in both gene and genotoype frequencies may occur for a substantial period of time even in the abscence of selection!</p>
+<p>Age structure also complicates our idealised model of H-W. In populations composed of several age classes, the generations overlap, and this causes the approach of genotype frequencies towards the H-W expectations to be gradual (rather than just by 1 or 2 generations), even in the case of an autosomal locus. Doesn’t explain this very much, but it’s covered elsewhere. Importantly, when newly founded populations have significant age structure, fluctuations in both gene and genotoype frequencies may occur for a substantial period of time even in the abscence of selection!</p>
 </div>
 <div id="testing-for-hardy-weinberg-proportions" class="section level3" number="4.3.5">
 <h3><span class="header-section-number">4.3.5</span> Testing for Hardy-Weinberg proportions</h3>
-<p>Says in the book that LRT can be used to test for departures from HWE, buuuut I’m pretty sure that even now the most common method is the chi-squared test (or Fisher’s exact test if the sample size is tiny and the allele is rare.). Essentially, in a population, at a specific locus, you can calculate the allele frequencies (and from that expected genotype frequencies) from the observed genotype frequencies then test if there is a difference between the observed and expected values. LRT equation for it given on page 60. <strong>RECREATE THE CHI-SQUARED TEST IN CODE!!!!</strong></p>
+<p>Says in the book that LRT can be used to test for departures from HWE and it can, but another common method is the chi-squared test and in <a href="https://www.cog-genomics.org/plink/1.9/">PLINK</a> they used Haldane’s exact test which is apparently analogus to Fisher’s exact test (<a href="https://www.genetics.org/content/183/4/1431">papier on it</a>) (can also use Fisher’s exact test if the sample size is tiny and the allele is rare.). Essentially, in a population, at a specific locus, you can calculate the allele frequencies (and from that expected genotype frequencies) from the observed genotype frequencies then test if there is a difference between the observed and expected values. LRT equation for it given on page 60. See code for some comparisons.</p>
 <p>Should remember (as pointed out above), that just because some assumptions are violated, doesn’t mean you’d get a departure from HWE!</p>
 </div>
 </div>
 <div id="characterising-the-influence-of-a-locus-on-the-phenotype" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Characterising the influence of a locus on the phenotype</h2>
 <p>If a trait is entirely influenced by a single locus then the genetic effect on that trait can be characterised pretty easily and the dominance and additive effects of the alleles can be calculated. So if a locus has genotypes <span class="math inline">\(B_1B_1\)</span>, <span class="math inline">\(B_1B_2\)</span>, <span class="math inline">\(B_2B_2\)</span>, then the values given to these genotypes can be said to be: <span class="math inline">\(-a\)</span>, <span class="math inline">\((1 + k)a\)</span> and <span class="math inline">\(+a\)</span>. Now if you have genotype data at that locus and data on the trait you can work out the effect of the <span class="math inline">\(B_2\)</span> allele by taking the mean phenotypic value of individuals with <span class="math inline">\(B_2B_2\)</span> and subtracting the mean phenotypic value of individuals with <span class="math inline">\(B_1B_1\)</span> and dividing by 2 i.e.</p>
-<p><span class="math display">\[ B_{2eff} = \frac{p_{B2} - p_{B1}} {2} \]</span></p>
+<p><span class="math display" id="eq:effect-of-b2">\[\begin{equation}
+  B_{2eff} = \frac{p_{B2} - p_{B1}} {2}
+  \tag{4.2}
+\end{equation}\]</span></p>
 <p>where <span class="math inline">\(B_{2eff}\)</span> is the effect of allele <span class="math inline">\(B_2\)</span>, <span class="math inline">\(p_{B2}\)</span> is the mean phenotypic value of individuals with <span class="math inline">\(B_2B_2\)</span> and <span class="math inline">\(p_{B1}\)</span> is the mean phneotypic value of individuals with <span class="math inline">\(B_1B_1\)</span>.</p>
 <p>As <span class="math inline">\(B_{2eff} = a\)</span> you can then substitute this in to <span class="math inline">\((1 + k)a\)</span> to get the dominance coefficient <span class="math inline">\(k\)</span>. Of course if <span class="math inline">\(k = 0\)</span> then there is no dominance (in reality you would calculate probability of dominance).</p>
 </div>
@@ -208,54 +214,89 @@
 <div id="fishers-decomposition-of-the-genotypic-value" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Fisher’s decomposition of the genotypic value</h2>
 <p>Recalling that the phenotypic value can be partitioned like so:</p>
-<p><span class="math display">\[ z = G + E \]</span></p>
+<p><span class="math display" id="eq:phenotypic-value-partition">\[\begin{equation}
+  z = G + E
+  \tag{4.3}
+\end{equation}\]</span></p>
 <p>where <span class="math inline">\(z\)</span> is the phenotype, <span class="math inline">\(G\)</span> is the genotypic value and <span class="math inline">\(E\)</span> is the environmental value.</p>
-<p>The genotypic value of a specific locus can be partitioned into it’s “expected” values based on there being only additive effects (<span class="math inline">\(\hat{G}\)</span>) and the deviations from the expected values or dominance effects (<span class="math inline">\(\delta\)</span>). So for genotype <span class="math inline">\(B_iB_J\)</span>:</p>
-<p><span class="math display">\[ G_ij = \hat{G_ij} + \delta_ij \]</span></p>
+<p>The genotypic value of a specific locus can be partitioned into it’s “expected” values based on there being only additive effects (<span class="math inline">\(\hat{G}\)</span>) and the deviations from the expected values or dominance effects (<span class="math inline">\(\delta\)</span>). So for genotype <span class="math inline">\(B_iB_j\)</span>:</p>
+<p><span class="math display" id="eq:expected-genotypic-value-simple">\[\begin{equation}
+  G_{ij} = \hat{G_{ij}} + \delta_{ij}
+  \tag{4.4}
+\end{equation}\]</span></p>
 <p>This can be formalised (whatever the fuck that means) by regressing the genotypic values on the number of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> alleles in the genotype (<span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span>):</p>
-<p><span class="math display">\[ G_ij = \hat{G_ij} + \delta_ij = \mu_G + \alpha_1N_1 + \alpha_2N_2 \]</span></p>
+<p><span class="math display" id="eq:expected-genotypic-value-2">\[\begin{equation}
+  G_{ij} = \hat{G_{ij}} + \delta_{ij} = \mu_G + \alpha_1N_1 + \alpha_2N_2
+  \tag{4.5}
+\end{equation}\]</span></p>
 <p><span class="math inline">\(\mu_G\)</span> = the mean genotypic value in the population, <span class="math inline">\(\alpha_1\)</span> and <span class="math inline">\(\alpha_2\)</span> are the slopes of the regression, <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span> are the number of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> alleles. So the regression is:</p>
-<p><span class="math display">\[ G_ij ~ N_2 + N_1 \]</span></p>
-<p>By noting that for any individual, <span class="math inline">\(N_1 = 2 - N_2\)</span> you can reduce the multiple regression model into an easier to work with univariate model. Give it a go:</p>
-<p><span class="math display">\[ G_ij = ... \]</span></p>
-<p>If you plotted the genotypic value (<span class="math inline">\(G\)</span>) against gene content (<span class="math inline">\(N_2\)</span> or number of <span class="math inline">\(B_2\)</span> alleles) and calculated residuals these residuals would be <span class="math inline">\(\delta\)</span> (see Figure 4.6).</p>
+<p><span class="math display">\[\begin{equation}
+  G_{ij} ~ N_2 + N_1
+\end{equation}\]</span></p>
+<p>By noting that for any individual, <span class="math inline">\(N_1 = 2 - N_2\)</span> you can reduce the multiple regression model into an easier to work with univariate model. Give it a go (use equation <a href="properties-of-single-loci.html#eq:expected-genotypic-value-2">(4.5)</a>):</p>
+<p><span class="math display" id="eq:genotypic-value-regression">\[\begin{equation}
+\begin{split}
+  G_{ij} &amp;= \mu_G + \alpha_1(2 - N_2) + \alpha2N_2 + \delta_{ij} \\
+  &amp;= l + (\alpha_2 - \alpha_1)N_2 + \delta_{ij}
+\end{split}
+\tag{4.6}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(l = \mu_G + 2\alpha_1\)</span> is the intercept and the slope is <span class="math inline">\(\alpha = \alpha_2 - \alpha_1\)</span></p>
+<p>If you plotted the genotypic value (<span class="math inline">\(G\)</span>) against gene content (<span class="math inline">\(N_2\)</span> or number of <span class="math inline">\(B_2\)</span> alleles) and calculated residuals these residuals would be <span class="math inline">\(\delta\)</span>, the dominance deviation (see Figure 4.6).</p>
 <p>The rest of the chapter uses this regression and what we know about genotype frequencies to derive a formula for the average effect of allelic substitution:</p>
 <p><span class="math display" id="eq:allelic-sub-effect">\[\begin{equation}
   \alpha = a[1 + k(p_1 - p_2)]
-  \tag{4.1}
+  \tag{4.7}
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(a\)</span> = genotypic value of <span class="math inline">\(B_2\)</span> (see above), <span class="math inline">\(k\)</span> is the dominance coefficient and <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> are the frequencies of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span>. This value <span class="math inline">\(\alpha\)</span> represents the average change in genotypic value that results when a <span class="math inline">\(B_2\)</span> allele is randomly substituted for a <span class="math inline">\(B_1\)</span> allele. If no dominance (<span class="math inline">\(k = 0\)</span>) then <span class="math inline">\(\alpha = a\)</span>. Except in the case of additivity, the average effect of allelic substitution is not simply a function of the inherent physiological properties of the allele. It can only be defined in the context of the population!</p>
 </div>
 <div id="partioning-the-genetic-variance." class="section level2" number="4.7">
 <h2><span class="header-section-number">4.7</span> Partioning the genetic variance.</h2>
 <p>Deriving variance of <span class="math inline">\(G\)</span>:</p>
-<p><span class="math display">\[ G = \hat{G} + \delta \]</span>
-<span class="math display">\[ \sigma^2_G = \sigma^2(\hat{G} + \delta) \]</span>
-<span class="math display">\[ \sigma^2_G = \sigma^2(\hat{G}) + \sigma(\hat{G} + \delta) + \sigma^2(\delta) \]</span></p>
+<p><span class="math display" id="eq:total-genetic-variance-longwinded">\[\begin{align}
+\begin{split}
+  G &amp;= \hat{G} + \delta \notag \\
+  \sigma^2_G &amp;= \sigma^2(\hat{G} + \delta) \notag \\
+  &amp;= \sigma^2(\hat{G}) + 2\sigma(\hat{G} + \delta) + \sigma^2(\delta)
+\end{split}
+\tag{4.8}
+\end{align}\]</span></p>
 <p>The top equation is just like a regression, with <span class="math inline">\(\delta\)</span> being the residual error and we know that for least-squares there is no correlation between the residual error and the predictor. So there is no correlation between <span class="math inline">\(\hat{G}\)</span> and <span class="math inline">\(\delta\)</span>. Therefore:</p>
 <p><span class="math display">\[ \sigma^2_G = \sigma^2(\hat{G}) + \sigma^2(\delta) \]</span>
 OR more commonly
-<span class="math display">\[ \sigma^2_G = \sigma^2_A + \sigma^2_D \]</span></p>
-<p><span class="math inline">\(\sigma^2_A\)</span> is the variance of G explained by regression on <span class="math inline">\(N_2\)</span> (or <span class="math inline">\(N_1\)</span>), and <span class="math inline">\(\sigma^2_D\)</span> is the residual variance of that regression. The variance of the additive and dominance effects!</p>
+<span class="math display" id="eq:genetic-variance-one-locus">\[\begin{equation}
+  \sigma^2_G = \sigma^2_A + \sigma^2_D
+  \tag{4.9}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(\sigma^2_A\)</span> is the variance of <span class="math inline">\(G\)</span> explained by regression on <span class="math inline">\(N_2\)</span> (or <span class="math inline">\(N_1\)</span>), and <span class="math inline">\(\sigma^2_D\)</span> is the residual variance of that regression. The variance of the additive and dominance effects!</p>
 <p>For a diallelic locus we can do some rearranging of equations in Table 4.1 of the book and get these equations:</p>
 <p><span class="math display" id="eq:dominance-var" id="eq:additive-var">\[\begin{align}
-  \sigma^2_A &amp;= 2p_1p_2\alpha^2 \tag{4.2} \\
-  \sigma^2_D &amp;= (2p_1p_2ak)^2 \tag{4.3}
+  \sigma^2_A &amp;= 2p_1p_2\alpha^2 \tag{4.10} \\
+  \sigma^2_D &amp;= (2p_1p_2ak)^2 \tag{4.11}
 \end{align}\]</span></p>
 <p>From these we can clearly see that both components depend on allele frequencies, the dominance coefficient and the homozygous effect (remember <span class="math inline">\(\alpha\)</span> is just the slope of the <span class="math inline">\(G ~ N_2\)</span> regression!).</p>
-<p>By plotting how genetic variance changes with gene frequency under different scenarios (<strong>DEFINITELY DO THIS</strong>). You see some interesting patterns. Firstly, at a single diallelic locus, you see that <span class="math inline">\(\sigma^2_A\)</span> reaches it’s peak when <span class="math inline">\(p_1 = p_2 = 0.5\)</span>. Secondly, it’s clear that, even in the case of overdominance (which is rare!), additive genetic variance will almost always be much higher than genetic variance from dominance effects, even when the frequency of the dominant allele is high. (btw I think the scale on the top left graph is wrong…).</p>
+<p>By plotting how genetic variance changes with gene frequency under different scenarios (See code). You see some interesting patterns. Firstly, at a single diallelic locus, you see that <span class="math inline">\(\sigma^2_A\)</span> reaches it’s peak when <span class="math inline">\(p_1 = p_2 = 0.5\)</span>. Secondly, it’s clear that, even in the case of overdominance (which is rare!), additive genetic variance will almost always be much higher than genetic variance from dominance effects, even when the frequency of the dominant allele is high. (btw I think the scale on the top left graph is wrong…).</p>
+<p><img src="quant_genetics_book_notes_files/figure-html/sigma-g-gene-frequency-1.png" width="672" /></p>
 </div>
 <div id="additive-effects-average-excesses-and-breeding-values" class="section level2" number="4.8">
 <h2><span class="header-section-number">4.8</span> Additive effects, average excesses and breeding values</h2>
 <p>The dominance deviation of a parent, which is a function of the interaction between the two parental alleles, is eliminated when gametes are produced. Thus, one can think of <span class="math inline">\(\hat{G}\)</span> and <span class="math inline">\(\delta\)</span> as the heritable and nonheritable components of an individual’s genotypic value.</p>
 <p>Fisher proposed two different measures of the effect of an allele: one being the additive effect (<span class="math inline">\(\alpha_i\)</span>) and then the average excess <span class="math inline">\(\alpha^x_i\)</span>. The average excess <span class="math inline">\(\alpha^x_2\)</span> of allele <span class="math inline">\(B_2\)</span> is the difference between the mean genotypic value of individuals carrying at least one copy of <span class="math inline">\(B_2\)</span> and the mean genotypic value of a random individual from the entire population:</p>
-<p><span class="math display">\[ \alpha^x_2 = (G_{12}P_{12|2} + G_{22}P_{22|2}) - \mu_G \]</span></p>
+<p><span class="math display" id="eq:average-excess-effect">\[\begin{equation}
+  \alpha^x_2 = (G_{12}P_{12|2} + G_{22}P_{22|2}) - \mu_G
+  \tag{4.12}  
+\end{equation}\]</span></p>
 <p>where <span class="math inline">\(P_{ij}\)</span> is the conditional probability of a <span class="math inline">\(B_iB_j\)</span> genotype given that one allele is <span class="math inline">\(B_i\)</span>. Under random mating <span class="math inline">\(P_{ij|i} = p_j\)</span> (<span class="math inline">\(p_j\)</span> = frequency of allele <span class="math inline">\(B_j\)</span>). THINK ABOUT HARDY-WEINBERG AND IT MAKES SENSE!</p>
 <p>So under random mating,</p>
-<p><span class="math display">\[ \alpha^x_2 = G_{12}p_1 + G_{22}p_2 - \mu_G \]</span></p>
-<p><span class="math inline">\(G_{12} = a(1+k)\)</span> and <span class="math inline">\(G_{22} = 2a\)</span>. By substituting these into the equation above for <span class="math inline">\(\alpha^x_1\)</span> and <span class="math inline">\(\alpha^x_2\)</span> and then calculating <span class="math inline">\(\alpha_1\)</span> and <span class="math inline">\(\alpha_2\)</span> (additive effects) by the method previously mentioned (regressing genotypic value <span class="math inline">\(G\)</span> on the number of <span class="math inline">\(B_2\)</span> alleles <span class="math inline">\(N_2\)</span>), we will see they’re equivalent (shown on page 72):</p>
-<p><span class="math display">\[ \alpha_2 = p_1\alpha \]</span>
-<span class="math display">\[ \alpha_1 = -p_2\alpha \]</span></p>
+<p><span class="math display" id="eq:average-excess-effect2">\[\begin{equation}
+  \alpha^x_2 = G_{12}p_1 + G_{22}p_2 - \mu_G
+  \tag{4.13}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(G_{12} = a(1+k)\)</span> and <span class="math inline">\(G_{22} = 2a\)</span>. By substituting these into the equation above for <span class="math inline">\(\alpha^x_1\)</span> and <span class="math inline">\(\alpha^x_2\)</span> and then calculating <span class="math inline">\(\alpha_1\)</span> and <span class="math inline">\(\alpha_2\)</span> (additive effects) by the method previously mentioned (regressing genotypic value <span class="math inline">\(G\)</span> on the number of <span class="math inline">\(B_2\)</span> alleles, <span class="math inline">\(N_2\)</span>), we will see they’re equivalent (shown on page 72):</p>
+<p><span class="math display">\[\begin{align}
+  \alpha_2 &amp;= p_1\alpha \notag \\
+  \alpha_1 &amp;= -p_2\alpha
+\end{align}\]</span></p>
 <p>The breeding value of an individual (<span class="math inline">\(A\)</span>) is the sum of the additive effects of its genes. So the breeding value of a <span class="math inline">\(B_1B_1\)</span> homozygote is just <span class="math inline">\(2\alpha_1\)</span>. In randomly mating populations the breeding value of a genotype is equivalent to twice the expected deviation of its offspring mean phenotype from the population mean. Soooo, no genotype information is needed to calculate the breeding value. All we have to do is mate an individual to many randomly chosen individuals from the population and taking twice the deviation of its offspring mean from the population mean. EASY IN HUMANS!!!</p>
 <p>In Chapter 13 this will be discussed wrt candidate gene studies.</p>
 </div>
@@ -265,30 +306,50 @@ OR more commonly
 <div id="average-excess" class="section level3" number="4.9.1">
 <h3><span class="header-section-number">4.9.1</span> Average excess</h3>
 <p>When <span class="math inline">\(n\)</span> alleles are present, the average excess, <span class="math inline">\(\alpha^x_i\)</span>, for any allele <span class="math inline">\(B_i\)</span> is given by</p>
-<p><span class="math display">\[ \alpha^x_i = \sum_{j=1}^{n} P_{ij|i}G_{ij} - \mu_G \]</span></p>
+<p><span class="math display" id="eq:average-excess-effect3">\[\begin{equation}
+  \alpha^x_i = \sum_{j=1}^{n} P_{ij|i}G_{ij} - \mu_G
+  \tag{4.14}
+\end{equation}\]</span></p>
 <p>Remember, under random mating <span class="math inline">\(P_{ij|i} == p_j\)</span></p>
 </div>
 <div id="additive-effects" class="section level3" number="4.9.2">
 <h3><span class="header-section-number">4.9.2</span> Additive effects</h3>
 <p>The genotypic value can also be obtained using regression as before, but in it’s generalised form is a multivariate regression. For <span class="math inline">\(n\)</span> alleles</p>
-<p><span class="math display">\[ G = \mu_G + \sum_{i=1}^{n} \alpha_{i}N_{i} + \delta \]</span></p>
+<p><span class="math display" id="eq:generalised-genotypic-value-regression">\[\begin{equation}
+  G = \mu_G + \sum_{i=1}^{n} \alpha_{i}N_{i} + \delta
+  \tag{4.15}
+\end{equation}\]</span></p>
 <p>After some re-arranging can derive the regression coefficients and finally end with</p>
-<p><span class="math display">\[ \alpha_i = \sum_{j=1}^{n} p_jG_{ij} - \mu_G \]</span></p>
+<p><span class="math display" id="eq:all-average-effects">\[\begin{equation}
+  \alpha_i = \sum_{j=1}^{n} p_jG_{ij} - \mu_G
+  \tag{4.16}
+\end{equation}\]</span></p>
 <p>i.e. under random mating, the average effects (<span class="math inline">\(\alpha_i\)</span>) are equal to the conditional mean deviations from the mean genotypic value of the population (<span class="math inline">\(\mu_G\)</span>).</p>
 <p>For non-random mating we need the inbreeding coefficient, <span class="math inline">\(f\)</span> to define our genotype frequencies:</p>
-<p><span class="math display">\[ P_{ii} = (1 - f)p^2_i + fp_i \]</span>
-<span class="math display">\[ P_{ij} = 2(1 -f)p_ip_j \]</span></p>
+<p><span class="math display" id="eq:nonrandom-mating-genotype-frequencies">\[\begin{align}
+  P_{ii} &amp;= (1 - f)p^2_i + fp_i \notag \\
+  P_{ij} &amp;= 2(1 -f)p_ip_j
+  \tag{4.17}
+\end{align}\]</span></p>
 <p>Unsure of why, but this means</p>
-<p><span class="math display">\[ \alpha_i = \frac{\alpha^x_i} {1 + f} \]</span></p>
+<p><span class="math display" id="eq:average-effects-inbreeding">\[\begin{equation}
+  \alpha_i = \frac{\alpha^x_i} {1 + f}
+  \tag{4.18}
+\end{equation}\]</span></p>
 <p>so <span class="math inline">\(f\)</span> is the fractional reduction of heterozygote frequencies relative to those expected under random mating. This means you can kind of do a test for random mating by checking heterozygote and homozygote frequencies in a population!</p>
 </div>
 <div id="additive-genetic-variance" class="section level3" number="4.9.3">
 <h3><span class="header-section-number">4.9.3</span> Additive genetic variance</h3>
 <p>The additive genetic variance across <span class="math inline">\(n\)</span> alleles is</p>
-<p><span class="math display">\[ \sigma^2_A = 2 \sum_{i=1}^{n} p_i\alpha_i\alpha^x_i \]</span></p>
+<p><span class="math display" id="eq:all-additive-genetic-variance">\[\begin{equation}
+  \sigma^2_A = 2 \sum_{i=1}^{n} p_i\alpha_i\alpha^x_i
+  \tag{4.19}  
+\end{equation}\]</span></p>
 <p>In general inbreeding inflates the additive genetic variance by causing correlations among the effects of alleles within the same individuals.</p>
 <p>The broad sense heritability, even under scenarios of non-random mating can be given by</p>
-<p><span class="math display">\[ \sigma^2_G = \sigma^{2}(\alpha_i + \alpha_j) + \sigma^{2}(\delta_{ij}) \]</span></p>
+<p><span class="math display">\[\begin{equation}
+  \sigma^2_G = \sigma^{2}(\alpha_i + \alpha_j) + \sigma^{2}(\delta_{ij})
+\end{equation}\]</span></p>
 <p>although it should be noted that the definitions of <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\delta_ij\)</span> change with the degree of inbreeding! Random mating means <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\alpha_j\)</span> are uncorrelated so we get back to the good old equation</p>
 <p><span class="math display">\[ \sigma^2_G = \sigma^2_A + \sigma^2_D \]</span></p>
 <p>Importantly, under random mating, <span class="math inline">\(\sigma^2_A\)</span> is equivalent to the variance of breeding values of individuals in the population.</p>
