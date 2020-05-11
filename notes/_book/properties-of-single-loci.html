@@ -24,7 +24,7 @@
 <meta name="author" content="Thomas Battram" />
 
 
-<meta name="date" content="2020-05-10" />
+<meta name="date" content="2020-05-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -107,6 +107,7 @@
 <li class="chapter" data-level="4.9.2" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#additive-effects"><i class="fa fa-check"></i><b>4.9.2</b> Additive effects</a></li>
 <li class="chapter" data-level="4.9.3" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#additive-genetic-variance"><i class="fa fa-check"></i><b>4.9.3</b> Additive genetic variance</a></li>
 </ul></li>
+<li class="chapter" data-level="4.10" data-path="properties-of-single-loci.html"><a href="properties-of-single-loci.html#end-of-chapter-questions-1"><i class="fa fa-check"></i><b>4.10</b> End of chapter questions</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html"><i class="fa fa-check"></i><b>5</b> Sources of genetic variation for multilocus traits</a>
 <ul>
@@ -275,8 +276,14 @@ OR more commonly
   \sigma^2_D &amp;= (2p_1p_2ak)^2 \tag{4.11}
 \end{align}\]</span></p>
 <p>From these we can clearly see that both components depend on allele frequencies, the dominance coefficient and the homozygous effect (remember <span class="math inline">\(\alpha\)</span> is just the slope of the <span class="math inline">\(G ~ N_2\)</span> regression!).</p>
-<p>By plotting how genetic variance changes with gene frequency under different scenarios (See code). You see some interesting patterns. Firstly, at a single diallelic locus, you see that <span class="math inline">\(\sigma^2_A\)</span> reaches it’s peak when <span class="math inline">\(p_1 = p_2 = 0.5\)</span>. Secondly, it’s clear that, even in the case of overdominance (which is rare!), additive genetic variance will almost always be much higher than genetic variance from dominance effects, even when the frequency of the dominant allele is high. (btw I think the scale on the top left graph is wrong…).</p>
-<p><img src="quant_genetics_book_notes_files/figure-html/sigma-g-gene-frequency-1.png" width="672" /></p>
+<p>By plotting how genetic variance changes with gene frequency under different scenarios (see <a href="properties-of-single-loci.html#fig:sigma-g-gene-frequency">4.1</a>). You see some interesting patterns. Firstly, at a single diallelic locus, you see that <span class="math inline">\(\sigma^2_A\)</span> reaches it’s peak when <span class="math inline">\(p_1 = p_2 = 0.5\)</span>. Secondly, it’s clear that, even in the case of overdominance (which is rare!), additive genetic variance will almost always be much higher than genetic variance from dominance effects, even when the frequency of the dominant allele is high.</p>
+
+<div class="figure"><span id="fig:sigma-g-gene-frequency"></span>
+<img src="quant_genetics_book_notes_files/figure-html/sigma-g-gene-frequency-1.png" alt="The dependence of components of genetic variance at a locus on the frequency of the \(B_2\) allele. \(a\) is set to be one, which scales the vertical axes so that for any particular case, the actual variances are obtainable by multiplying by \(a^2\)." width="672" />
+<p class="caption">
+Figure 4.1: The dependence of components of genetic variance at a locus on the frequency of the <span class="math inline">\(B_2\)</span> allele. <span class="math inline">\(a\)</span> is set to be one, which scales the vertical axes so that for any particular case, the actual variances are obtainable by multiplying by <span class="math inline">\(a^2\)</span>.
+</p>
+</div>
 </div>
 <div id="additive-effects-average-excesses-and-breeding-values" class="section level2" number="4.8">
 <h2><span class="header-section-number">4.8</span> Additive effects, average excesses and breeding values</h2>
@@ -360,8 +367,25 @@ OR more commonly
 <p><strong>The breeding value, <span class="math inline">\(A\)</span>,</strong> is a property of a particular individual in reference to a particular population. It’s equivalent to the sum of the additive effects of an individual’s alleles.</p>
 <p><strong>The additive genetic variance, <span class="math inline">\(\sigma^2_A\)</span></strong> is a property of a particular population. It is equivalent to the variance of the breeding values of individuals within the population.</p>
 <hr />
-
 </div>
+</div>
+<div id="end-of-chapter-questions-1" class="section level2" number="4.10">
+<h2><span class="header-section-number">4.10</span> End of chapter questions</h2>
+<ol style="list-style-type: decimal">
+<li>What is the Hardy-Weinberg principle and what are it’s assumptions?</li>
+<li>What does the H-W principle mean for gene and genotype frequencies across generations?</li>
+<li>What is age structure and how does it affect HWE?</li>
+<li>How can you test for HWE?</li>
+<li>Are deliterious mutations likely to be dominant or recessive?</li>
+<li>Assuming a trait was entirely influenced by a single locus, how could you calculate dominance and additive effects knowing the genotypic value and the number of effect alleles?</li>
+<li>What is the formula for the average effect of allelic substitution?</li>
+<li>For a diallelic locus, what does the additive genetic variance and dominance genetic variance depend on?</li>
+<li>How does the contribution of additive genetic variance contribute to total genetic variance when <span class="math inline">\(k\)</span> varies?</li>
+<li>What is the breeding value of an individual?</li>
+<li>Define the additive genetic variance in the presence of <span class="math inline">\(n\)</span> alleles</li>
+<li>Learn the definitions of the key terms!</li>
+</ol>
+
 </div>
 </div>
             </section>

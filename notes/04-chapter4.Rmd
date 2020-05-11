@@ -160,9 +160,11 @@ For a diallelic locus we can do some rearranging of equations in Table 4.1 of th
 
 From these we can clearly see that both components depend on allele frequencies, the dominance coefficient and the homozygous effect (remember $\alpha$ is just the slope of the $G ~ N_2$ regression!).
 
-By plotting how genetic variance changes with gene frequency under different scenarios (See code). You see some interesting patterns. Firstly, at a single diallelic locus, you see that $\sigma^2_A$ reaches it's peak when $p_1 = p_2 = 0.5$. Secondly, it's clear that, even in the case of overdominance (which is rare!), additive genetic variance will almost always be much higher than genetic variance from dominance effects, even when the frequency of the dominant allele is high. (btw I think the scale on the top left graph is wrong...).
+By plotting how genetic variance changes with gene frequency under different scenarios (see \@ref(fig:sigma-g-gene-frequency)). You see some interesting patterns. Firstly, at a single diallelic locus, you see that $\sigma^2_A$ reaches it's peak when $p_1 = p_2 = 0.5$. Secondly, it's clear that, even in the case of overdominance (which is rare!), additive genetic variance will almost always be much higher than genetic variance from dominance effects, even when the frequency of the dominant allele is high.
 
-```{r sigma-g-gene-frequency, message=FALSE, warning=FALSE, echo=FALSE, results="asis"}
+(ref:sigma-g-gene-frequency-cap) The dependence of components of genetic variance at a locus on the frequency of the $B_2$ allele. $a$ is set to be one, which scales the vertical axes so that for any particular case, the actual variances are obtainable by multiplying by $a^2$.
+
+```{r sigma-g-gene-frequency, message=FALSE, warning=FALSE, echo=FALSE, results="asis", fig.cap='(ref:sigma-g-gene-frequency-cap)'}
 	library(tidyverse)
 	library(gridExtra)
 	p2 <- seq(0, 1, length.out = 101) # allele frequency of allele 2
@@ -305,4 +307,20 @@ __The breeding value, $A$,__ is a property of a particular individual in referen
 __The additive genetic variance, $\sigma^2_A$__ is a property of a particular population. It is equivalent to the variance of the breeding values of individuals within the population.
 
 ***
+
+## End of chapter questions
+
+1. What is the Hardy-Weinberg principle and what are it's assumptions?
+2. What does the H-W principle mean for gene and genotype frequencies across generations?
+3. What is age structure and how does it affect HWE?
+4. How can you test for HWE?
+5. Are deliterious mutations likely to be dominant or recessive?
+6. Assuming a trait was entirely influenced by a single locus, how could you calculate dominance and additive effects knowing the genotypic value and the number of effect alleles?
+7. What is the formula for the average effect of allelic substitution?
+8. For a diallelic locus, what does the additive genetic variance and dominance genetic variance depend on?
+9. How does the contribution of additive genetic variance contribute to total genetic variance when $k$ varies?
+10. What is the breeding value of an individual?
+11. Define the additive genetic variance in the presence of $n$ alleles
+12. Learn the definitions of the key terms!
+
 
