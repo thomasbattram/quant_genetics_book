@@ -5,7 +5,8 @@ cd notes/
 chapters=$1
 
 if [[ $chapters == "all" ]]; then
-	Rscript -e "require(knitr); require(markdown); require(bookdown); bookdown::render_book('index.Rmd', output_format = 'all')"	
+	Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::pdf_book')"
+	Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
 else 
 	chap=0${chapters}-chapter${chapters}
 	echo $chap

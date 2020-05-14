@@ -24,7 +24,7 @@
 <meta name="author" content="Thomas Battram" />
 
 
-<meta name="date" content="2020-05-11" />
+<meta name="date" content="2020-05-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -121,6 +121,7 @@
 <ul>
 <li class="chapter" data-level="5.4.1" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#the-evidence"><i class="fa fa-check"></i><b>5.4.1</b> The evidence</a></li>
 </ul></li>
+<li class="chapter" data-level="5.5" data-path="sources-of-genetic-variation-for-multilocus-traits.html"><a href="sources-of-genetic-variation-for-multilocus-traits.html#end-of-chapter-questions-2"><i class="fa fa-check"></i><b>5.5</b> End of chapter questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="questions.html"><a href="questions.html"><i class="fa fa-check"></i>Questions</a>
 <ul>
@@ -160,15 +161,15 @@
   \tag{5.1}
 \end{equation}\]</span></p>
 <p><span class="math inline">\(G_{i...}\)</span> is just the conditional mean phenotype of individuals with allele <span class="math inline">\(i\)</span> at the first locus without regard to the other allele at that locus or to the genotype at the second locus. The other additive terms (for <span class="math inline">\(\alpha_{j}\)</span>, <span class="math inline">\(\alpha_{k}\)</span>, <span class="math inline">\(\alpha_{l}\)</span>) are defined in the same way. Within each locus, the mean value of average effects (weighted by allele frequency) = 0.</p>
-<p>Dominance effects can be defined in a similar way, complete these equations by recalling the equation for <span class="math inline">\(G_{ij}\)</span> at the end of Chapter 4:</p>
-<p><span class="math display" id="eq:dom-effects-lj" id="eq:dom-effects-ij">\[\begin{align}
-  \delta_{ij} &amp;= G_{ij} - ... \tag{5.2} \\
-  \delta_{lk} &amp;= G_{lk} - ... \tag{5.3}
+<p>Dominance effects can be defined in a similar way, complete these equations by recalling <a href="properties-of-single-loci.html#eq:generalised-genotypic-value-regression">(4.15)</a>:</p>
+<p><span class="math display" id="eq:dom-effects-lk" id="eq:dom-effects-ij">\[\begin{align}
+  \delta_{ij} &amp;= G_{ij..} - ... \tag{5.2} \\
+  \delta_{lk} &amp;= G_{..lk} - ... \tag{5.3}
 \end{align}\]</span></p>
 <p>Like with the additive effects, the mean dominance deviation at each locus is equal to zero.</p>
 <p>Epistatic effect terms proceed in a similar fashion. Letting <span class="math inline">\(G_{i.k.}\)</span> be the mean phenotype of individuals with gene <span class="math inline">\(i\)</span> at locus 1 and <span class="math inline">\(k\)</span> at locus 2, without regard to the other two genes, the <span class="math inline">\(ik\)</span>th additive x additive effect is:</p>
 <p><span class="math display" id="eq:add-add-effects-ik">\[\begin{equation}
-  \left(\alpha\alpha\right)_{ik} = G_{i.k.} - \mu_{G} - \alpha{i} - \alpha{k} 
+  \left(\alpha\alpha\right)_{ik} = G_{i.k.} - \mu_{G} - \alpha_{i} - \alpha_{k} 
   \tag{5.4}
 \end{equation}\]</span></p>
 <p>So <span class="math inline">\(\left(\alpha\alpha\right)_{ik}\)</span> is the deviation of the conditional mean <span class="math inline">\(G_{i.k.}\)</span> from the expectation based on the population mean <span class="math inline">\(\mu_{G}\)</span> and the additive effects <span class="math inline">\(\alpha_{i}\)</span> and <span class="math inline">\(\alpha_{k}\)</span>. An additive x dominance effect measures the interaction between an allele at one locus with a genotype of another locus (see equation 5.5 in book) and the dominance x dominance effect involves an interaction between the genotypes at each locus (see equation 5.6 in book).</p>
@@ -249,8 +250,26 @@ Figure 5.1: The decline, under random mating, of linkage disequilibrium when the
 <p>Hidden genetic variation is expected to be a natural consequence of stabilising selection, which favours linkage groups for their composite properties without regard to the alleles at individual loci. Theoretical work has suggested that stabilising selection encourages the development of substantial hidden genetic variance, potentially depressing the level of expressed genetic variance to 50% or less than its equilibrium expectation.</p>
 <p>Of course selection doesn’t always favour an increase in hidden genetic variance. Sometimes coupling selection is favoured, so that expressed genetic variance exceeds equilibrium expectations. In this case the disequilibrium covariance is positive, and recombination would be expected to result in a reduction in the expressed genetic variance.</p>
 <p>Here we’ve just considered one trait, but of course the same thinking applies to selection upon multiple traits simultaneously. For example, in populations of insects (LIKE BEES) that exploit multiple host plants, one might expect a genetic correlation to evolve such that individuals prefer to feed on the plant species upon which they perform best. Such correlations could result from LD between a set of genes influencing preference and another influencing performance.</p>
-
 </div>
+</div>
+<div id="end-of-chapter-questions-2" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> End of chapter questions</h2>
+<ol style="list-style-type: decimal">
+<li>Define epistasis</li>
+<li>Describe the terms that will be needed to define the genotypic value <span class="math inline">\(G_{ijkl}\)</span></li>
+<li>Complete equations <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:dom-effects-ij">(5.2)</a> and <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:dom-effects-lk">(5.3)</a></li>
+<li>Give two important inferences from the fact the total genetic variance will mostly be attributable to the additive genetic variance, even if there are large dominance and epistatic effects</li>
+<li>What is linkage and linkage disequilibrium?</li>
+<li>What is the coefficient of linkage disequilibrium?</li>
+<li>What can influence maintenance of LD? (5 things)</li>
+<li>What is the relationship between linkage and LD over time?</li>
+<li>Give two methods of estimating <span class="math inline">\(D\)</span></li>
+<li>What are coupling disequlibrium and repulsion disequilibrium and how do they effect genetic variance?</li>
+<li>Explain equations <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:additve-var-LD">(5.10)</a> and <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:dominance-var-LD">(5.11)</a></li>
+<li>What is hidden genetic variance?</li>
+<li>How is stabilising selection thought to influence hidden genetic variance? Why?</li>
+</ol>
+
 </div>
 </div>
             </section>

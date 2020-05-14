@@ -19,11 +19,11 @@ For this section, imagine we are interested in measuring the genetic effects of 
 
 $G_{i...}$ is just the conditional mean phenotype of individuals with allele $i$ at the first locus without regard to the other allele at that locus or to the genotype at the second locus. The other additive terms (for $\alpha_{j}$, $\alpha_{k}$, $\alpha_{l}$) are defined in the same way. Within each locus, the mean value of average effects (weighted by allele frequency) = 0. 
 
-Dominance effects can be defined in a similar way, complete these equations by recalling the equation for $G_{ij}$ at the end of Chapter 4: 
+Dominance effects can be defined in a similar way, complete these equations by recalling \@ref(eq:generalised-genotypic-value-regression): 
 
 \begin{align}
-  \delta_{ij} &= G_{ij} - ... (\#eq:dom-effects-ij) \\
-  \delta_{lk} &= G_{lk} - ... (\#eq:dom-effects-lj)
+  \delta_{ij} &= G_{ij..} - ... (\#eq:dom-effects-ij) \\
+  \delta_{lk} &= G_{..lk} - ... (\#eq:dom-effects-lk)
 \end{align}
 
 Like with the additive effects, the mean dominance deviation at each locus is equal to zero.
@@ -31,7 +31,7 @@ Like with the additive effects, the mean dominance deviation at each locus is eq
 Epistatic effect terms proceed in a similar fashion. Letting $G_{i.k.}$ be the mean phenotype of individuals with gene $i$ at locus 1 and $k$ at locus 2, without regard to the other two genes, the $ik$th additive x additive effect is:
 
 \begin{equation}
-  \left(\alpha\alpha\right)_{ik} = G_{i.k.} - \mu_{G} - \alpha{i} - \alpha{k} 
+  \left(\alpha\alpha\right)_{ik} = G_{i.k.} - \mu_{G} - \alpha_{i} - \alpha_{k} 
   (\#eq:add-add-effects-ik)
 \end{equation}
 
@@ -159,5 +159,19 @@ Of course selection doesn't always favour an increase in hidden genetic variance
 
 Here we've just considered one trait, but of course the same thinking applies to selection upon multiple traits simultaneously. For example, in populations of insects (LIKE BEES) that exploit multiple host plants, one might expect a genetic correlation to evolve such that individuals prefer to feed on the plant species upon which they perform best. Such correlations could result from LD between a set of genes influencing preference and another influencing performance.
 
+## End of chapter questions
 
+1. Define epistasis
+2. Describe the terms that will be needed to define the genotypic value $G_{ijkl}$
+3. Complete equations \@ref(eq:dom-effects-ij) and \@ref(eq:dom-effects-lk)
+4. Give two important inferences from the fact the total genetic variance will mostly be attributable to the additive genetic variance, even if there are large dominance and epistatic effects
+5. What is linkage and linkage disequilibrium? 
+6. What is the coefficient of linkage disequilibrium?
+7. What can influence maintenance of LD? (5 things)
+8. What is the relationship between linkage and LD over time?
+9. Give two methods of estimating $D$
+10. What are coupling disequlibrium and repulsion disequilibrium and how do they effect genetic variance?
+11. Explain equations \@ref(eq:additve-var-LD) and \@ref(eq:dominance-var-LD)
+12. What is hidden genetic variance?
+13. How is stabilising selection thought to influence hidden genetic variance? Why?
 
