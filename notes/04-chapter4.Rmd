@@ -315,10 +315,10 @@ __The additive genetic variance, $\sigma^2_A$__ is a property of a particular po
 3. What is age structure and how does it affect HWE?
 4. How can you test for HWE?
 5. Are deliterious mutations likely to be dominant or recessive?
-6. Assuming a trait was entirely influenced by a single locus, how could you calculate dominance and additive effects knowing the genotypic value and the number of effect alleles?
+6. Assuming a trait was entirely influenced by a single locus, how could you calculate dominance and additive effects knowing the genotypes and phenotypes of the individuals in the sample?
 7. What is the formula for the average effect of allelic substitution?
 8. For a diallelic locus, what does the additive genetic variance and dominance genetic variance depend on?
-9. How does the contribution of additive genetic variance contribute to total genetic variance when $k$ varies?
+9. How does the contribution of additive genetic variance to total genetic variance change when $k$ varies?
 10. What is the breeding value of an individual?
 11. Define the additive genetic variance in the presence of $n$ alleles
 12. Learn the definitions of the key terms!

@@ -151,7 +151,7 @@ So the narrow-sense heritability can be thought of as the efficiency of the resp
 
 ## End of chapter questions
 
-1. True of false, if $\sigma(x,y) = 0$, $x$ and $y$ are independent
+1. True or false, if $\sigma(x,y) = 0$, $x$ and $y$ are independent
 2. Finish these equations:
 \begin{align}
   \sigma[(x + y),(w + z)] &= ... \notag \\
@@ -159,10 +159,12 @@ So the narrow-sense heritability can be thought of as the efficiency of the resp
   \sigma[(a + x), y] &= ... \notag \\
   \sigma^2(x + y) &= ... \notag \\
 \end{align}
-3. Name 4 important properties of least-squares regression
-4. Give an assumption of the correlation coefficient
-5. How can you work out $h^2$ from trio data? 
-6. Give two definitions of the breeders' equation.
+3. Give 2 properties of residuals from least-squares regression
+4. What is heteroscedasticity?
+5. True or false, $y$ ~ $x$ will always give the same effect estimate as $x$ ~ $y$
+6. Give an assumption of the correlation coefficient
+7. How can you work out $h^2$ from trio data? 
+8. Give two definitions of the breeders' equation.
 
 
 
