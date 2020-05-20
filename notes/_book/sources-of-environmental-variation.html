@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Covariance, regression, and correlation | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</title>
-  <meta name="description" content="Chapter 3 Covariance, regression, and correlation | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <title>Chapter 6 Sources of Environmental Variation | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</title>
+  <meta name="description" content="Chapter 6 Sources of Environmental Variation | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
   <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Covariance, regression, and correlation | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <meta property="og:title" content="Chapter 6 Sources of Environmental Variation | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Covariance, regression, and correlation | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <meta name="twitter:title" content="Chapter 6 Sources of Environmental Variation | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="properties-of-distributions.html"/>
-<link rel="next" href="properties-of-single-loci.html"/>
+<link rel="prev" href="sources-of-genetic-variation-for-multilocus-traits.html"/>
+<link rel="next" href="questions.html"/>
 <script src="libs/header-attrs-2.1.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -157,146 +157,98 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="covariance-regression-and-correlation" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Covariance, regression, and correlation</h1>
-<div id="covariance" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Covariance</h2>
-<p>Covariance is a measure of association and the covariance between x and y would be denoted by <span class="math inline">\(\sigma(x, y)\)</span>. If <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are independent then <span class="math inline">\(\sigma(x, y) = 0\)</span>, BUT if <span class="math inline">\(\sigma(x, y) = 0\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> aren’t necessarily independent.</p>
-<div id="useful-identities-for-covariance" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Useful identities for covariance</h3>
-<p>Covariance of <span class="math inline">\(x\)</span> with itself = variance of <span class="math inline">\(x\)</span>:</p>
-<p><span class="math display" id="eq:covxx">\[\begin{equation}
-    \sigma(x, x) = \sigma^2(x)
-    \tag{3.1}
-\end{equation}\]</span></p>
-<p>For constants (here represented by <span class="math inline">\(a\)</span>) see <a href="covariance-regression-and-correlation.html#eq:cov-rules-contants">(3.2)</a> below
-<span class="math display" id="eq:cov-rules-contants">\[\begin{align}
-    \sigma(a, x) &amp;= 0 \notag \\
-    \sigma(ax, y) &amp;= a\sigma(x, y) \notag \\
-    \sigma^2(a, x) &amp;= a^2\sigma^2(x) \notag \\
-    \sigma[(a + x), y] &amp;= \sigma(x, y) 
-    \tag{3.2}
-\end{align}\]</span></p>
-<p>The covariance of 2 sums can be written as the sum of covariances, i.e. just multiply out the brackets:</p>
-<p><span class="math display" id="eq:cov-of-two-sums">\[\begin{equation}
-  \sigma[(x + y),(w + z)] = \sigma(x, w) + \sigma(x, z) + \sigma(y, w) + \sigma(y, z) 
-  \tag{3.3}
-\end{equation}\]</span></p>
-<p>Variance of a sum is sum of variances and covariances:</p>
-<p><span class="math display" id="eq:var-of-sum">\[\begin{equation}
-  \sigma^2(x + y) = \sigma^2(x) + 2\sigma(x, y) + \sigma^2(y)
-  \tag{3.4}  
-\end{equation}\]</span></p>
-</div>
-</div>
-<div id="least-squares-linear-regression" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Least squares linear regression</h2>
-<p>Linear model:</p>
-<p><span class="math display" id="eq:simple-linear-model">\[\begin{equation}
-  y = \alpha + \beta{x} + e
-  \tag{3.5}  
-\end{equation}\]</span></p>
-<p>Continuing on, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> will be the true population values and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> will be the intercept and slope for the line of best fit derived from observed data. The derivation of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> using the least-squares model can be found on pages 39-41. Buuut, who cares about that, here are the results:</p>
-<p><span class="math display" id="eq:intercept-and-slope">\[\begin{align}
-  a &amp;= \bar{y} - b\bar{x} \notag \\
-  b &amp;= \frac{Cov(x, y)} {Var(x)}
-  \tag{3.6}
-\end{align}\]</span></p>
-<div id="properties-of-least-squares" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Properties of least squares</h3>
-<p>6 in the book, just writing down important/not obvious ones.</p>
+<div id="sources-of-environmental-variation" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Sources of Environmental Variation</h1>
+<p>This book divides environmental effects up into 2 different classes:</p>
 <ul>
-<li>The mean residual (<span class="math inline">\(\bar{e}\)</span>) is 0</li>
-<li>Residual errors are uncorrelated with predictor variable <span class="math inline">\(x\)</span> (see book for why)
-<ul>
-<li>BUT <span class="math inline">\(e\)</span> and <span class="math inline">\(x\)</span> may not be independent if the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is non-linear. If it is truly non-linear <span class="math inline">\(E(e|x) != 0\)</span></li>
-</ul></li>
-<li>Variance of <span class="math inline">\(e\)</span> can vary with <span class="math inline">\(x\)</span>, in this situation the the regression is said to display heteroscedasticity (see Figure 3.4 for great illustration)</li>
-<li>The regression of <span class="math inline">\(y\)</span> on <span class="math inline">\(x\)</span> is different to the regression of <span class="math inline">\(x\)</span> on <span class="math inline">\(y\)</span>!</li>
+<li>General environmental effects: influential factors that are shared by groups of individuals (they include maternal effects in this)</li>
+<li>Special environmental effects: residual deviations from the phenotype expected based on genotype and general environmental effects</li>
 </ul>
+<div id="extension-of-the-linear-model-to-phenotypes" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Extension of the linear model to phenotypes</h2>
+<p>Here we let <span class="math inline">\(E\)</span> and <span class="math inline">\(e\)</span> denote the contributions of general and specifc environmental effects and <span class="math inline">\(I\)</span> denote GxE. Phenotype for <span class="math inline">\(k\)</span>th individual of the <span class="math inline">\(i\)</span>th genotype exposed to the <span class="math inline">\(j\)</span>th general environmental effect can then be described as a linear function of 4 components:</p>
+<p><span class="math display" id="eq:phenotype-linear-model">\[\begin{equation}
+  z_{ijk} = G_{i} + I_{ij} + E_{j} + e_{ijk}
+  \tag{6.1}
+\end{equation}\]</span></p>
+<p>Explaining some terms:</p>
+<ul>
+<li><span class="math inline">\(I_{ij}\)</span>, <span class="math inline">\(E_{j}\)</span>, <span class="math inline">\(e_{ijk}\)</span> are defined in a least-squares sense as deviations from lower-order expectations and so have mean values equal to zero</li>
+<li><span class="math inline">\(\mu_{G} = \overline{z}_{ijk}\)</span> is the mean phenotype of all genotypes in the population</li>
+<li><span class="math inline">\(G_i\)</span> is the expected phenotype of the particular genotype <span class="math inline">\(i\)</span> averaged over all possible environmental conditions</li>
+<li><span class="math inline">\(\mu_G + E_{j}\)</span> is the mean phenotypic value expected if all genotypes were assayed in the <span class="math inline">\(j\)</span>th macroenvironment</li>
+<li><span class="math inline">\(G_i + I_{ij} + E_{j}\)</span> is the expected phenotype of individuals with genotype <span class="math inline">\(i\)</span> in the <span class="math inline">\(j\)</span>th macroenvironment</li>
+<li><span class="math inline">\(e_{ijk}\)</span> is the deviation from that expected phenotype so, as per least-squares rules, it isn’t correlated with <span class="math inline">\(G_i\)</span>, <span class="math inline">\(I_{ij}\)</span> or <span class="math inline">\(E_{j}\)</span></li>
+</ul>
+<p><span class="math inline">\(I\)</span> and <span class="math inline">\(e\)</span> are uncorrelated with other variables (by construction). Remembering that the variance of a sum of uncorrelated variables is just the sum of the variances of each variable (and using equation <a href="covariance-regression-and-correlation.html#eq:var-of-sum">(3.4)</a>), we can define the phenotypic variance:</p>
+<p><span class="math display" id="eq:total-phenotypic-variance">\[\begin{equation}
+  \sigma^2_{P} = \sigma^2_{G} + \sigma^2_{I} + 2\sigma_{G.E} + \sigma^2_{E} + \sigma^2{e}
+  \tag{6.2}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(\sigma^2_{I}\)</span> is the GxE variance and <span class="math inline">\(\sigma_{G.E}\)</span> is the genotype-environment covariance. These terms are quite different. GxE is concerned variation in phenotypic response of specific genotypes within specific environments. Genotype-environment covariance is simply a measure of association between particular environments and genotypes. So, if individuals were randomly distributed across all environments, <span class="math inline">\(\sigma_{G.E} = 0\)</span>, but <span class="math inline">\(\sigma^2_{I}\)</span> will be non-zero if genotypic and environmental effects are non-additive.</p>
+<p>Maternal or paternal effects can cause genotype-environment covariance if there is correlation between parental genotype and ability to provision the young.</p>
+<p>Genotype-environment covariance is often hard to estimate so and often contributes and unknown amount to estimates of genetic variance.</p>
+</div>
+<div id="special-environmental-effects" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Special environmental effects</h2>
+<p>Two sources: internal developmental noise and external microenvironmental heterogeneity.</p>
+<div id="within-individual-variation" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Within-individual variation</h3>
+<p>Can gain some information on within-individual variation by measuring the right and left components of a bilaterally symetrical individual. Pretty difficult to rule out external environmental contributions here though. Total variance of special environmental effects can be written as the sum of within-individual and among-individual environmental components</p>
+<p><span class="math display" id="eq:special-environmental-effects-variance">\[\begin{equation}
+  \sigma^2_{e} = \sigma^2_{ew} + \sigma^2_{ea}
+  \tag{6.3}
+\end{equation}\]</span></p>
+<p>3 types of asymmetry:</p>
+<ul>
+<li>Directional - consistent bias in one direction (e.g. heart being more to the left)</li>
+<li>Antisymmetry - asymmetry is the rule rather than the exception, but it is nondirectional</li>
+<li>Fluctuating asymmetry - the difference between left and right measures is symmetrically distributed around a mean and mode of 0</li>
+</ul>
+<p>Unbiased estimate of the within-individual variance for a trait:</p>
+<p><span class="math display" id="eq:within-individual-variance">\[\begin{equation}
+  \sigma^2_{ew} = \sum_{i=1}^{N} \frac{(r_i - l_i)^2}{2N} - \sigma^2_{em}
+  \tag{6.4}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(N\)</span> is the number of individuals sampled, <span class="math inline">\(r_i\)</span> and <span class="math inline">\(l_i\)</span> are the right and left measures for the <span class="math inline">\(i\)</span>th individual, and ^2{em} is variance due to measurement error.</p>
+<p>The effects of environmental stress on fluctuating asymmetry are fairly predictable - <span class="math inline">\(\sigma^2_{ew}\)</span> tends to increase in extreme or novel environments. A study suggested humans suffering from malnutrition show increases in fluctuating asymmetry.</p>
+</div>
+<div id="developmental-homeostasis-and-homozygosity" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Developmental homeostasis and homozygosity</h3>
+<p>Lerner endorsed the idea that the degree of developmental stability is positively correlated with the overall level of individual heterozygosity. The usual mechanistic explanation is that heterozygosity acts as a buffer against environmental variation. Rest of this section discusses evidence for this hypothesis. It might be a useful exercise to think through how you’d do experiments to test the hypothesis based on the different components of variance that need to be considered. For now, here is the conclusion: “The acceptance of a general causal relationship between heterozygosity and developmental stability should be postponed until additional adequately designed experiments have been performed.”</p>
+</div>
+<div id="repeatability" class="section level3" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Repeatability</h3>
+<p>Variance among repeated measures on the same individual can only be due to environmental causes (or measurement errors), so information on the within-individual component of variance can provide some insight into the possible magnitude of the environmental variance for a trait. Time complicates things (phenotypes can vary within individuals at one time and across time), but that aside, the upper-bound estimate of the genetic variance of a trait is provided by:</p>
+<p><span class="math display" id="eq:genetic-variance-upper-bound">\[\begin{equation}
+  \sigma^2_{G(max)} = \sigma^2_{z} - \sigma^2_{ew}
+  \tag{6.5}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(\sigma^2_{z}\)</span> is an estimate for the total phenotypic variance for the trait.</p>
+<p>Measurement error always inflates estimates of within-individual variance. As it contributes to total phenotypic variance, this cancels out in the equation above, but it’s a pain because often we want to know the contribution of genetic variance to the total phenotypic variance. Repeated measures can help correct for measurement error where the measure won’t change over time - e.g. adult limb length. This is less tractable for measures that vary over time as you can’t distinguish variation due natural organismal changes over time and those due to measurement error.</p>
+<p>Expected value of <span class="math inline">\(\sigma^2_{G(max)}\)</span> is greater than the total genetic variance for the trait because it includes the among-individual component of variance due to the special environmental effects (<span class="math inline">\(\sigma^2_{ea}\)</span>) and variance due to general environmental effects (<span class="math inline">\(\sigma^2_{E}\)</span>). Letting var(e) denote the variance associated with measurement error, the repeatablitity is:</p>
+<p><span class="math display" id="eq:repeatability">\[\begin{equation}
+  r = \frac{\sigma^2_{z} - \sigma^2_{ew}} {\sigma^2_{z} - \sigma^2_{em}}
+  \tag{6.6}
+\end{equation}\]</span></p>
+<p>and it provides an upper-bound estimate of the broad-sense heritability of a trait (<span class="math inline">\(H^2\)</span>). The degree to which <span class="math inline">\(r\)</span> exceeds <span class="math inline">\(H^2\)</span> depends on the magnitude of <span class="math inline">\(\sigma^2_{ea} + \sigma^2_{E}\)</span> relative to <span class="math inline">\(\sigma^2_{ew}\)</span>. If all environmental variance is just within-individual variance and no measurement error is present, then <span class="math inline">\(r\)</span> gives an unbiased estimate of <span class="math inline">\(H^2\)</span>. Nice thing is that it gives an upper-bound regardless, so if <span class="math inline">\(r\)</span> is low you can say that the environmental components must dominate. Unfortunately, repeatability is often computed as the correlation between two repeated measures (<span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_2\)</span>) on the same individuals:</p>
+<p><span class="math display" id="eq:falconer-repeatability">\[\begin{equation}
+  r_F = \frac{\sigma(z_1, z_2)} {\sigma(z_1)\sigma(z_2)}
+  \tag{6.7}
+\end{equation}\]</span></p>
+<p>and as measurement error is contained in the denominator, it downwardly biases <span class="math inline">\(r_F\)</span>. So we are no longer necessarily measuring the upper-bound of <span class="math inline">\(H^2\)</span> :(</p>
 </div>
 </div>
-<div id="correlation" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Correlation</h2>
-<p>Correlation coefficient between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>:</p>
-<p><span class="math display" id="eq:correlation-coef">\[\begin{equation}
-  r(x, y) = \frac{Cov(x, y)} {\sqrt{Var(x) Var(y)}}
-  \tag{3.7}
-\end{equation}\]</span></p>
-<p>The correlation coefficient is a dimensionless measure of association and it is symmetrical (i.e. <span class="math inline">\(r(x, y) = r(y, x)\)</span>).</p>
-<p>Scaling <span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span> by constants does not change the correlation coefficient, but it does affect variances and covariances.</p>
-<p>The correlation coefficient is a standardised regression coefficient -&gt; the regression coefficient resulting from rescaling <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> such that each has unit variance).</p>
-<p><span class="math inline">\(r^2\)</span> assumes <span class="math inline">\(E(y|x)\)</span> is linear!</p>
+<div id="general-environmental-effects-of-maternal-origin" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> General environmental effects of maternal origin</h2>
+<p>Before thinking of maternal effects on offspring, remember there is little evidence for intrauterine effects on complex traits in humans, quote from GDS’s twitter: “virtually all disease mother-offspring and father-offspring risk concordance the same, except maternal small excess for epilepsy (intrauterine valproate?) and type 2 diabetes” (<a href="https://twitter.com/mendel_random/status/1261221722344357889">Link to tweet</a>). <a href="https://www.medrxiv.org/content/10.1101/2020.05.04.20091173v1.full">Example MR paper</a>.</p>
+<p>Unless one runs an experiment where the environment of the past generation is the same as the current generation, one runs the risk that observed phenotypes are largely due to past generation. Similar thinking applies to estimates of heritability when there is assortative mating!</p>
+<p>There are some striking examples of maternal effects in the wild and there are plenty of associations that have been drawn between maternal age and various human traits too, for example the chances of Down’s syndrome increases with maternal age.</p>
+<p>Lack of data for multigenerational transmission of environmental effects – still a lack of data in 2020 in humans!</p>
 </div>
-<div id="differential-selection-brief-intro" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Differential selection (brief intro)</h2>
-<p>The directional selection differential, <span class="math inline">\(S\)</span>, is the difference between the mean phenotype within that generation before selection (<span class="math inline">\(\mu_s\)</span>) and the mean phenotype within that generation after (<span class="math inline">\(\mu\)</span>) selection.</p>
-<p><span class="math display" id="eq:selection-differential">\[\begin{equation}
-  S = \mu_s - \mu
-  \tag{3.8}
-\end{equation}\]</span></p>
-<p>If all individuals have equal fertility and viability then selecting individuals won’t change anything so <span class="math inline">\(\mu_s = \mu\)</span> and <span class="math inline">\(S = 0\)</span>.</p>
-<p>If <span class="math inline">\(W(z)\)</span> is the probability that individuals with phenotype <span class="math inline">\(z\)</span> survive to reproduce and <span class="math inline">\(p(z)\)</span> is the density of <span class="math inline">\(z\)</span> (pretty much means distribution) before selection, then the density after selection is:</p>
-<p><span class="math display" id="eq:density-after-selection">\[\begin{equation}
-  p_{s}(z) = \frac{W(z)p(z)} {\int W(z)p(z)dz}
-  \tag{3.9}
-\end{equation}\]</span></p>
-<p>The denominator here is the mean individual fitness (<span class="math inline">\(\bar{W}\)</span>). The relative fitness of <span class="math inline">\(z\)</span> is <span class="math inline">\(w(z) = \frac{W(z)} {\bar{W}}\)</span>.</p>
-<p>After some sweet derivation (see page 46), you finish with:</p>
-<p><span class="math display" id="eq:selection-differential2">\[\begin{equation}
-  S = \sigma[z, w(z)]
-  \tag{3.10}
-\end{equation}\]</span></p>
-<p>Therefore the directional selection is equivalent to the covariance of the phenotype and the relative fitness.</p>
-<p>If you regress offspring phenotype on the midparent phenotype and that relationship is linear with slope <span class="math inline">\(\beta\)</span>, a change in mean midparent phenotype induces an expected change in mean phenotype across generations equal to:</p>
-<p><span class="math display" id="eq:breeders-equation">\[\begin{equation}
-\begin{split}
-  \Delta\mu &amp;= \mu_0 - \mu \\
-  &amp;= \beta(\mu_s - \mu) \\
-  &amp;= \beta{S}
-\end{split}
-\tag{3.11}
-\end{equation}\]</span></p>
-<p>This is the breeders’ equation!</p>
-</div>
-<div id="correlation-between-genotype-and-phenotype-brief-intro" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Correlation between genotype and phenotype (brief intro)</h2>
-<p>Only when there is no gene-environment interaction is the variance explained by genetics (broad-sense heritability) the equation below:</p>
-<p><span class="math display" id="eq:broad-sense-heritability">\[\begin{equation}
-  H^2 = \frac{\sigma^2_G} {\sigma^2_z},
-  \tag{3.12}
-\end{equation}\]</span></p>
-<p>where <span class="math inline">\(z\)</span> is the phenotype and <span class="math inline">\(G\)</span> is the sum of the total effects (not just additive) at all loci on the trait.</p>
-<p>The slope of a midparent-offspring regression provides an estimate of the proportion of the phenotypic variance that is attributable to additive genetic factors (the narrow-sense heritability).</p>
-<p><span class="math display" id="eq:narrow-sense-heritability">\[\begin{equation}
-  h^2 = \frac{\sigma^2_A} {\sigma^2_z}
-  \tag{3.13}
-\end{equation}\]</span></p>
-<p>So as <span class="math inline">\(h^2\)</span> is just the regression of offspring phenotype on midparent phenotype it can actually be used in the breeders’ equation!</p>
-<p><span class="math display" id="eq:breeders-equation-with-h2">\[\begin{equation}
-  \Delta\mu = h^2S
-  \tag{3.14}
-\end{equation}\]</span></p>
-<p>So the narrow-sense heritability can be thought of as the efficiency of the response to selection. If <span class="math inline">\(h^2 = 0\)</span> there can be no evolutionary change regardless of strength of selection. Although this should be obvious because if <span class="math inline">\(h^2\)</span> is 0 then there is clearly no passing of genetic material onto the next generation that is influencing that trait.</p>
-</div>
-<div id="end-of-chapter-questions" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> End of chapter questions</h2>
-<ol style="list-style-type: decimal">
-<li>True or false, if <span class="math inline">\(\sigma(x,y) = 0\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are independent</li>
-<li>Finish these equations:
-<span class="math display">\[\begin{align}
-  \sigma[(x + y),(w + z)] &amp;= ... \notag \\
-  \sigma^2(a, x) &amp;= ... \notag \\
-  \sigma[(a + x), y] &amp;= ... \notag \\
-  \sigma^2(x + y) &amp;= ... \notag \\
-\end{align}\]</span></li>
-<li>Give 2 properties of residuals from least-squares regression</li>
-<li>What is heteroscedasticity?</li>
-<li>True or false, <span class="math inline">\(y\)</span> ~ <span class="math inline">\(x\)</span> will always give the same effect estimate as <span class="math inline">\(x\)</span> ~ <span class="math inline">\(y\)</span></li>
-<li>Give an assumption of the correlation coefficient</li>
-<li>How can you work out <span class="math inline">\(h^2\)</span> from trio data?</li>
-<li>Give two definitions of the breeders’ equation.</li>
-</ol>
+<div id="genotype-x-environment-interaction" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Genotype x environment interaction</h2>
+<p>This part gives examples of experiments done to detect GxE. In the examples, it was possible to make some inference as to the existence of GxE because members of the same genetic groups were evaluated under well-defined treatments. Of course, for natural populations, assigning individuals to discrete environmental groups is often impossible, so GxE becomes unmeasurable because any GxE will be confounded with the environmental source of variance. Interestingly, I think for <a href="https://academic.oup.com/ije/article/48/3/702/5193695">Wes’s GxE MR paper</a>, they’re able to apply the method in cases without clear discrete environments.</p>
 
 </div>
 </div>
@@ -305,8 +257,8 @@
           </div>
         </div>
       </div>
-<a href="properties-of-distributions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="properties-of-single-loci.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sources-of-genetic-variation-for-multilocus-traits.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="questions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
