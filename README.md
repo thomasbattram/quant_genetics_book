@@ -10,6 +10,4 @@ To use these notes in full, you'll need a copy of the book with you as well beca
 
 ## To-do
 
-* Go back through chapters 3 & 4 and run simulations to help understand each of the concepts. 
-	- plot how genetic variance changes with gene frequency under different scenarios (chapter 4)
 
