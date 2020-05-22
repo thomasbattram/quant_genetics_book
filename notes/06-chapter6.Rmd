@@ -14,6 +14,8 @@ Here we let $E$ and $e$ denote the contributions of general and specifc environm
   (\#eq:phenotype-linear-model)
 \end{equation}
 
+__NOTE__ to fit an interaction term in R just put the terms into the model and multiply them, e.g. `lm(y ~ x*i, data=df)`.
+
 Explaining some terms:
 
 * $I_{ij}$, $E_{j}$, $e_{ijk}$ are defined in a least-squares sense as deviations from lower-order expectations and so have mean values equal to zero
@@ -62,7 +64,7 @@ Unbiased estimate of the within-individual variance for a trait:
   (\#eq:within-individual-variance)
 \end{equation}
 
-$N$ is the number of individuals sampled, $r_i$ and $l_i$ are the right and left measures for the $i$th individual, and \sigma^2{em} is variance due to measurement error.
+$N$ is the number of individuals sampled, $r_i$ and $l_i$ are the right and left measures for the $i$th individual, and $\sigma^2{em}$ is variance due to measurement error.
 
 The effects of environmental stress on fluctuating asymmetry are fairly predictable - $\sigma^2_{ew}$ tends to increase in extreme or novel environments. A study suggested humans suffering from malnutrition show increases in fluctuating asymmetry.
 

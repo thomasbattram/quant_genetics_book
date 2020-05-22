@@ -24,7 +24,7 @@
 <meta name="author" content="Thomas Battram" />
 
 
-<meta name="date" content="2020-05-20" />
+<meta name="date" content="2020-05-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -171,6 +171,7 @@
   z_{ijk} = G_{i} + I_{ij} + E_{j} + e_{ijk}
   \tag{6.1}
 \end{equation}\]</span></p>
+<p><strong>NOTE</strong> to fit an interaction term in R just put the terms into the model and multiply them, e.g. <code>lm(y ~ x*i, data=df)</code>.</p>
 <p>Explaining some terms:</p>
 <ul>
 <li><span class="math inline">\(I_{ij}\)</span>, <span class="math inline">\(E_{j}\)</span>, <span class="math inline">\(e_{ijk}\)</span> are defined in a least-squares sense as deviations from lower-order expectations and so have mean values equal to zero</li>
@@ -210,7 +211,7 @@
   \sigma^2_{ew} = \sum_{i=1}^{N} \frac{(r_i - l_i)^2}{2N} - \sigma^2_{em}
   \tag{6.4}
 \end{equation}\]</span></p>
-<p><span class="math inline">\(N\)</span> is the number of individuals sampled, <span class="math inline">\(r_i\)</span> and <span class="math inline">\(l_i\)</span> are the right and left measures for the <span class="math inline">\(i\)</span>th individual, and ^2{em} is variance due to measurement error.</p>
+<p><span class="math inline">\(N\)</span> is the number of individuals sampled, <span class="math inline">\(r_i\)</span> and <span class="math inline">\(l_i\)</span> are the right and left measures for the <span class="math inline">\(i\)</span>th individual, and <span class="math inline">\(\sigma^2{em}\)</span> is variance due to measurement error.</p>
 <p>The effects of environmental stress on fluctuating asymmetry are fairly predictable - <span class="math inline">\(\sigma^2_{ew}\)</span> tends to increase in extreme or novel environments. A study suggested humans suffering from malnutrition show increases in fluctuating asymmetry.</p>
 </div>
 <div id="developmental-homeostasis-and-homozygosity" class="section level3" number="6.2.2">
