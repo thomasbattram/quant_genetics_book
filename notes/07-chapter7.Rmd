@@ -1,0 +1,92 @@
+# Resemblance between relatives 
+
+If you ignore GxE you can express the phenotypic values of individuals $x$ and $y$ (recall equation \@ref(eq:phenotype-linear-model)) simply as $Z_x = G_x + E_x + e_x$ and $Z_y = G_y + E_y + e_y$. This chapter is interested in the resemblence between relatives, so using these equations we can specify what the covariance between phenotypic values will be:
+
+\begin{equation}
+\begin{split}
+  \sigma_z(x, y) &= \sigma[(G_x + E_x + e_x), (G_y + E_y + e_y)] \\
+  &= \sigma_G(x, y) + \sigma_{G.E}(x, y) + \sigma_{G.E}(y, x) + \sigma_{E}(x, y)
+\end{split}
+(\#eq:phenotypic-covariance-no-gxe)
+\end{equation}
+
+Remember, $e$ (special environmental effects) are derived from random residual deviations so are uncorrelated between individuals (think within-individual variation). You can design experiments so all terms with $E$ in them have expected values of 0 and here we're going to assume that one individual's genotypic effects are not covarying with the others general environmental effects, i.e. $\sigma_{G.E}(x, y) = \sigma_{G.E}(y, x) = 0$. This boils everything nicely down to this simple equation:
+
+\begin{equation}
+  \sigma_z(x, y) = \sigma_G(x, y) + \sigma_{E}(x, y)
+  (\#eq:phenotypic-covariance-no-gxe-simple)
+\end{equation}
+
+$\sigma_G(x, y)$ will be the focus of things to come! Like genetic variance, the covariance can be split into components attributable to additive, dominance, and epistatic effects. Each term is simply one of the terms used to describe genetic variance (e.g. equation \@ref(eq:multilocus-genetic-variance)), weighted by a coefficient that describes the joint distribution of effects in pairs of relatives. 
+
+Complications of estimating these coefficients include, non-random mating, LD, assortative mating, sex-linkage, maternal genetic effects and inbreeding.
+
+## Measures of relatedness
+
+Relatedness can only be defined with respect to a specified frame of reference as all individuals are related (DUH). From here on the reference population is the base of the observed pedigree. So if the observed data is just trios, then the base population is the parents in those trios. If, data on grandparents is observed then they're the base population and so-on. Members of the base population are assumed to be unrelated. Also when discussing relatedness we refer to identity by descent (IBD), not identity by state (IBS).
+
+***
+__Identity by descent and identity by state__
+
+Genes that are identical by descent are those that have been passed down by a common ancestor. The same gene from two individuals may share the same genetic sequence, making them identical by state, but if they do not derive from the same common ancestor they are not identical by descent. 
+
+So, genes that are identical by descent must, except for mutations, be identical by state, BUT genes that are identical by state might not be identical by descent.
+
+***
+
+### Coefficients of identity
+
+At a single locus in a diploid individual there are two alleles so with two individuals you have four alleles. Each allele is inherited singularly (a gamete only passes on one copy), so has it's own identity with each of the other three alleles. This means identity within individuals and between individuals can exist. This scenario gives rise to 15 different configurations of identity by descent. Individuals that contain pairs of alleles that are identical by descent are said to be inbred. Ignoring difference between maternally and paternally derived alleles, the number of IBD configurations reduces to nine. These range from a state where all four alleles are identical by descent (two inbred individuals that share a common ancestor) to a state where none of the alleles are identical by descent. In a large population with randomly mating individuals most states don't exist. The probabilities associated with each of the nine states are called the condensed coefficients of identity. Consider the case of a single gene for two non-inbred full sibs. There is a probability of 0.5 that both sibs inherit the same allele from their father and, independently, the probability they inherit the same allele from their mother is 0.5. So there is a probability of 0.25 that both pairs of alleles are identical by descent (i.e. the alleles inherited from the mother were the same and the alleles inherited from the father were the same.), there is a probability of 0.5 that just one pair is identical by descent and a probability of 0.25 that neither pair are identical by descent. All other states have a probability of 0.
+
+### Coefficients of coancestry and inbreeding
+
+Suppose single genes (or alleles -- side note alleles and genes will probably be used interchangably in this chapter) are drawn randomly from individuals $x$ and $y$. The probability that these two genes are identical by descent, $\Theta_{xy}$, is the coefficient of coancestry (can be called coefficient of consanguinity or coefficient of kinship). See figure 7.2 in the book for a graphical depiction of the nine IBD state classes and equation 7.2 in the book relates these states to $\Theta_{xy}$ --> each state is weighted by the conditional probability that a randomly drawn gene from $x$ is identical by descent with a randomly drawn gene from $y$.
+
+For an individual, $z$, their inbreeding coefficient ($f_z$) is equal to their parents coefficient of coancestry ($f_z = \Theta_{xy}$). 
+
+To derive $\Theta_{xy}$, we first need to derive $\Theta_{xx}$ (may seem weird, but it ain't). If you took a gene with two alleles, $A_1$ and $A_2$ and you could know which parent each came from to distinguish them, if you drew one allele at random then replaced it and drew another you could draw $A_1$ twice, $A_1$ then $A_2$, $A_2$ then $A_1$ or $A_2$ twice. If they're not copies of the same allele (i.e. $A_1$ doesn't equal $A_2$) then if $A_1$ is drawn twice it must be identical by descent and the same goes for $A_2$. In this scenario, $\Theta_{xx} = (1/4)(1) + (1/4)(1)$. Of course, the individual could be inbred and so the probability that $A_1$ and $A_2$ are identical by descent is $f_x$. A general expression for the coefficient of coancestry of an individual with itself is given below in equation \@ref(eq:coef-coan-itself)
+
+\begin{equation}
+  \Theta_{xx} = \frac{1}{4}(1 + f_x + f_x + 1) = \frac{1}{2}(1 + f_x)
+  (\#eq:coef-coan-itself)
+\end{equation}
+
+Parent ($p$) and offspring ($o$) scenario now!! If neither are inbred ($p$'s parents unrelated and they are unrelated to their mate), then that makes things simple. When drawing one of the two alleles from the mother and then one of the two alleles from the offspring, there is only one scenario in which they are the same. As each scenario has an equal probability of occurring, $\Theta_{po} = \frac{1}{4}$. If $p$ is inbred, probability of their alleles being identical by descent is $f_p$. This is the same as the probability of the offspring allele being identical by descent to the maternal allele the offspring did not inherit. Probability of drawing inherited allele from offspring and allele not passed on from parent is (like the others) 1/4. Therfore, inbreeding inflates the coefficient of coancestry to $\Theta_{po} = \frac{f_p}{4} + \frac{1}{4} = \frac{1 + f_p}{4}$. Complete inbreeding means $f_p = 1$ so $\Theta_{po} = \frac{1}{2}$. By thinking about probability of picking paternally derived allele and stuff you can add in $f_o$ (see book page 136) and the general expression is given in equation \@ref(eq:coef-coan-parent-offspring) below.
+
+\begin{equation}
+  \Theta_{po} = \frac{1}{4}(1 + f_p + 2f_o)
+  (\#eq:coef-coan-parent-offspring)
+\end{equation}
+
+Often in the literature $\Theta_{po}$ is considered to simply be 1/4. So no inbreeding is assumed.
+
+Full sibs time! $m$ = mother, $f$ = father, $x$ = kid1 and $y$ = kid2. So if $m$ and $f$ are not inbred or related themselves then there are two situations from which a child could inherit the same allele by descent. Either that allele has come from $m$ or that allele has come from $f$. Both have the same probability so let's just look at $m$ -> $x$ and $m$ -> $y$. The probability $x$ and $y$ receive the same maternal allele is 1/2 (i.e. the coefficient of coancestry of the mum with herself, $\Theta_{mm}$). The probability of randomly drawing the maternally inherited allele from $x$ is 1/2 and the same is true for $y$. Therefore the probability of drawing one allele from $x$ and one from $y$, that are identical by descent, passed down from $m$ is $\Theta_{mm}/4 = 1/8$. Adding contribution from el dado, we get $\Theta_{xy} = 1/4$ EASY! Appendix 2 contains path analysis, developed by Sewall Wright, that can derive these results. Now we allow for inbreeding of parents so introduce $f_m$ and $f_f$. There are still only two paths that lead to alleles identical by descent in $x$ and $y$ (they're just more likely with inbreeding because alleles within the father and within the mother are more likely to be identical by descent, i.e. $\Theta_{mm}$ > 1/2 and so is $\Theta_{ff}$ if there is inbreeding). Including these terms gives:
+
+\begin{equation}
+  \Theta_{xy} = \frac{1}{4}(\Theta_{mm} + \Theta_{ff}) = \frac{1}{4}(\frac{1 + f_m}{2} + \frac{1 + f_f}{2}) = \frac{1}{8}(2 + f_m + f_f) \notag
+\end{equation}
+
+By taking into account inbreeding coefficients of kids, we end up with:
+
+\begin{equation}
+  \Theta_{xy} = \frac{1}{8}(2 + f_m + f_f + 4\Theta_{mf}) \notag
+  (\#eq:coef-coan-full-sibs)
+\end{equation}
+
+Under random mating $\Theta_{xy} = 1/4$.
+
+These techniques can be extended to more distant relatives and more complicated schemes of relatedness. The coefficient of coancestry is always the sum of a series of two types of paths between $x$ and $y$. The first type of path leads from a single common ancestor to the two individuals of interest, while the second type passes through two remote ancestors that are related to each other. Neither type of path is allowed to pass through the same ancestor more than once. This procedure is summarised by equation \@ref(eq:coef-coan-xy-autosomes) below.
+
+\begin{equation}
+  \Theta_{xy} = \sum_{i}\Theta_{ii}(\frac{1}{2})^{n_i - 1} + \sum_{j}\sum_{j \ne k}\Theta_{jk}(\frac{1}{2})^{n_{jk} - 2}
+  (\#eq:coef-coan-xy-autosomes)
+\end{equation}
+
+where $n_i$ is the number of individuals (including $x$ and $y$) in the path leading from common ancestor $i$, and $n_{jk}$ is the number of individuals (including $x$ and $y$) on the path leading from two different but related ancestors, $j$ and $k$.
+
+Been assuming autosomal genes until this point! Sex-linked genes means we have to change things a bit. See book for deets (only 1 paragraph).
+
+### The coefficient of fraternity
+
+
+

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Properties of distributions | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</title>
-  <meta name="description" content="Chapter 2 Properties of distributions | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <title>Chapter 7 Resemblance between relatives | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</title>
+  <meta name="description" content="Chapter 7 Resemblance between relatives | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
   <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Properties of distributions | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <meta property="og:title" content="Chapter 7 Resemblance between relatives | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Properties of distributions | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <meta name="twitter:title" content="Chapter 7 Resemblance between relatives | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="an-overview-of-quantitative-genetics.html"/>
-<link rel="next" href="covariance-regression-and-correlation.html"/>
+<link rel="prev" href="sources-of-environmental-variation.html"/>
+<link rel="next" href="questions.html"/>
 <script src="libs/header-attrs-2.1.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -166,19 +166,81 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="properties-of-distributions" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Properties of distributions</h1>
-<p>ALSO BORWANG!</p>
-<p>You can guess what this chapter was on and also how much of a hoot it was…</p>
+<div id="resemblance-between-relatives" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Resemblance between relatives</h1>
+<p>If you ignore GxE you can express the phenotypic values of individuals <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (recall equation <a href="sources-of-environmental-variation.html#eq:phenotype-linear-model">(6.1)</a>) simply as <span class="math inline">\(Z_x = G_x + E_x + e_x\)</span> and <span class="math inline">\(Z_y = G_y + E_y + e_y\)</span>. This chapter is interested in the resemblence between relatives, so using these equations we can specify what the covariance between phenotypic values will be:</p>
+<p><span class="math display" id="eq:phenotypic-covariance-no-gxe">\[\begin{equation}
+\begin{split}
+  \sigma_z(x, y) &amp;= \sigma[(G_x + E_x + e_x), (G_y + E_y + e_y)] \\
+  &amp;= \sigma_G(x, y) + \sigma_{G.E}(x, y) + \sigma_{G.E}(y, x) + \sigma_{E}(x, y)
+\end{split}
+\tag{7.1}
+\end{equation}\]</span></p>
+<p>Remember, <span class="math inline">\(e\)</span> (special environmental effects) are derived from random residual deviations so are uncorrelated between individuals (think within-individual variation). You can design experiments so all terms with <span class="math inline">\(E\)</span> in them have expected values of 0 and here we’re going to assume that one individual’s genotypic effects are not covarying with the others general environmental effects, i.e. <span class="math inline">\(\sigma_{G.E}(x, y) = \sigma_{G.E}(y, x) = 0\)</span>. This boils everything nicely down to this simple equation:</p>
+<p><span class="math display" id="eq:phenotypic-covariance-no-gxe-simple">\[\begin{equation}
+  \sigma_z(x, y) = \sigma_G(x, y) + \sigma_{E}(x, y)
+  \tag{7.2}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(\sigma_G(x, y)\)</span> will be the focus of things to come! Like genetic variance, the covariance can be split into components attributable to additive, dominance, and epistatic effects. Each term is simply one of the terms used to describe genetic variance (e.g. equation <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:multilocus-genetic-variance">(5.5)</a>), weighted by a coefficient that describes the joint distribution of effects in pairs of relatives.</p>
+<p>Complications of estimating these coefficients include, non-random mating, LD, assortative mating, sex-linkage, maternal genetic effects and inbreeding.</p>
+<div id="measures-of-relatedness" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Measures of relatedness</h2>
+<p>Relatedness can only be defined with respect to a specified frame of reference as all individuals are related (DUH). From here on the reference population is the base of the observed pedigree. So if the observed data is just trios, then the base population is the parents in those trios. If, data on grandparents is observed then they’re the base population and so-on. Members of the base population are assumed to be unrelated. Also when discussing relatedness we refer to identity by descent (IBD), not identity by state (IBS).</p>
+<hr />
+<p><strong>Identity by descent and identity by state</strong></p>
+<p>Genes that are identical by descent are those that have been passed down by a common ancestor. The same gene from two individuals may share the same genetic sequence, making them identical by state, but if they do not derive from the same common ancestor they are not identical by descent.</p>
+<p>So, genes that are identical by descent must, except for mutations, be identical by state, BUT genes that are identical by state might not be identical by descent.</p>
+<hr />
+<div id="coefficients-of-identity" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Coefficients of identity</h3>
+<p>At a single locus in a diploid individual there are two alleles so with two individuals you have four alleles. Each allele is inherited singularly (a gamete only passes on one copy), so has it’s own identity with each of the other three alleles. This means identity within individuals and between individuals can exist. This scenario gives rise to 15 different configurations of identity by descent. Individuals that contain pairs of alleles that are identical by descent are said to be inbred. Ignoring difference between maternally and paternally derived alleles, the number of IBD configurations reduces to nine. These range from a state where all four alleles are identical by descent (two inbred individuals that share a common ancestor) to a state where none of the alleles are identical by descent. In a large population with randomly mating individuals most states don’t exist. The probabilities associated with each of the nine states are called the condensed coefficients of identity. Consider the case of a single gene for two non-inbred full sibs. There is a probability of 0.5 that both sibs inherit the same allele from their father and, independently, the probability they inherit the same allele from their mother is 0.5. So there is a probability of 0.25 that both pairs of alleles are identical by descent (i.e. the alleles inherited from the mother were the same and the alleles inherited from the father were the same.), there is a probability of 0.5 that just one pair is identical by descent and a probability of 0.25 that neither pair are identical by descent. All other states have a probability of 0.</p>
+</div>
+<div id="coefficients-of-coancestry-and-inbreeding" class="section level3" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Coefficients of coancestry and inbreeding</h3>
+<p>Suppose single genes (or alleles – side note alleles and genes will probably be used interchangably in this chapter) are drawn randomly from individuals <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. The probability that these two genes are identical by descent, <span class="math inline">\(\Theta_{xy}\)</span>, is the coefficient of coancestry (can be called coefficient of consanguinity or coefficient of kinship). See figure 7.2 in the book for a graphical depiction of the nine IBD state classes and equation 7.2 in the book relates these states to <span class="math inline">\(\Theta_{xy}\)</span> –&gt; each state is weighted by the conditional probability that a randomly drawn gene from <span class="math inline">\(x\)</span> is identical by descent with a randomly drawn gene from <span class="math inline">\(y\)</span>.</p>
+<p>For an individual, <span class="math inline">\(z\)</span>, their inbreeding coefficient (<span class="math inline">\(f_z\)</span>) is equal to their parents coefficient of coancestry (<span class="math inline">\(f_z = \Theta_{xy}\)</span>).</p>
+<p>To derive <span class="math inline">\(\Theta_{xy}\)</span>, we first need to derive <span class="math inline">\(\Theta_{xx}\)</span> (may seem weird, but it ain’t). If you took a gene with two alleles, <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> and you could know which parent each came from to distinguish them, if you drew one allele at random then replaced it and drew another you could draw <span class="math inline">\(A_1\)</span> twice, <span class="math inline">\(A_1\)</span> then <span class="math inline">\(A_2\)</span>, <span class="math inline">\(A_2\)</span> then <span class="math inline">\(A_1\)</span> or <span class="math inline">\(A_2\)</span> twice. If they’re not copies of the same allele (i.e. <span class="math inline">\(A_1\)</span> doesn’t equal <span class="math inline">\(A_2\)</span>) then if <span class="math inline">\(A_1\)</span> is drawn twice it must be identical by descent and the same goes for <span class="math inline">\(A_2\)</span>. In this scenario, <span class="math inline">\(\Theta_{xx} = (1/4)(1) + (1/4)(1)\)</span>. Of course, the individual could be inbred and so the probability that <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> are identical by descent is <span class="math inline">\(f_x\)</span>. A general expression for the coefficient of coancestry of an individual with itself is given below in equation <a href="resemblance-between-relatives.html#eq:coef-coan-itself">(7.3)</a></p>
+<p><span class="math display" id="eq:coef-coan-itself">\[\begin{equation}
+  \Theta_{xx} = \frac{1}{4}(1 + f_x + f_x + 1) = \frac{1}{2}(1 + f_x)
+  \tag{7.3}
+\end{equation}\]</span></p>
+<p>Parent (<span class="math inline">\(p\)</span>) and offspring (<span class="math inline">\(o\)</span>) scenario now!! If neither are inbred (<span class="math inline">\(p\)</span>’s parents unrelated and they are unrelated to their mate), then that makes things simple. When drawing one of the two alleles from the mother and then one of the two alleles from the offspring, there is only one scenario in which they are the same. As each scenario has an equal probability of occurring, <span class="math inline">\(\Theta_{po} = \frac{1}{4}\)</span>. If <span class="math inline">\(p\)</span> is inbred, probability of their alleles being identical by descent is <span class="math inline">\(f_p\)</span>. This is the same as the probability of the offspring allele being identical by descent to the maternal allele the offspring did not inherit. Probability of drawing inherited allele from offspring and allele not passed on from parent is (like the others) 1/4. Therfore, inbreeding inflates the coefficient of coancestry to <span class="math inline">\(\Theta_{po} = \frac{f_p}{4} + \frac{1}{4} = \frac{1 + f_p}{4}\)</span>. Complete inbreeding means <span class="math inline">\(f_p = 1\)</span> so <span class="math inline">\(\Theta_{po} = \frac{1}{2}\)</span>. By thinking about probability of picking paternally derived allele and stuff you can add in <span class="math inline">\(f_o\)</span> (see book page 136) and the general expression is given in equation <a href="resemblance-between-relatives.html#eq:coef-coan-parent-offspring">(7.4)</a> below.</p>
+<p><span class="math display" id="eq:coef-coan-parent-offspring">\[\begin{equation}
+  \Theta_{po} = \frac{1}{4}(1 + f_p + 2f_o)
+  \tag{7.4}
+\end{equation}\]</span></p>
+<p>Often in the literature <span class="math inline">\(\Theta_{po}\)</span> is considered to simply be 1/4. So no inbreeding is assumed.</p>
+<p>Full sibs time! <span class="math inline">\(m\)</span> = mother, <span class="math inline">\(f\)</span> = father, <span class="math inline">\(x\)</span> = kid1 and <span class="math inline">\(y\)</span> = kid2. So if <span class="math inline">\(m\)</span> and <span class="math inline">\(f\)</span> are not inbred or related themselves then there are two situations from which a child could inherit the same allele by descent. Either that allele has come from <span class="math inline">\(m\)</span> or that allele has come from <span class="math inline">\(f\)</span>. Both have the same probability so let’s just look at <span class="math inline">\(m\)</span> -&gt; <span class="math inline">\(x\)</span> and <span class="math inline">\(m\)</span> -&gt; <span class="math inline">\(y\)</span>. The probability <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> receive the same maternal allele is 1/2 (i.e. the coefficient of coancestry of the mum with herself, <span class="math inline">\(\Theta_{mm}\)</span>). The probability of randomly drawing the maternally inherited allele from <span class="math inline">\(x\)</span> is 1/2 and the same is true for <span class="math inline">\(y\)</span>. Therefore the probability of drawing one allele from <span class="math inline">\(x\)</span> and one from <span class="math inline">\(y\)</span>, that are identical by descent, passed down from <span class="math inline">\(m\)</span> is <span class="math inline">\(\Theta_{mm}/4 = 1/8\)</span>. Adding contribution from el dado, we get <span class="math inline">\(\Theta_{xy} = 1/4\)</span> EASY! Appendix 2 contains path analysis, developed by Sewall Wright, that can derive these results. Now we allow for inbreeding of parents so introduce <span class="math inline">\(f_m\)</span> and <span class="math inline">\(f_f\)</span>. There are still only two paths that lead to alleles identical by descent in <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (they’re just more likely with inbreeding because alleles within the father and within the mother are more likely to be identical by descent, i.e. <span class="math inline">\(\Theta_{mm}\)</span> &gt; 1/2 and so is <span class="math inline">\(\Theta_{ff}\)</span> if there is inbreeding). Including these terms gives:</p>
+<p><span class="math display">\[\begin{equation}
+  \Theta_{xy} = \frac{1}{4}(\Theta_{mm} + \Theta_{ff}) = \frac{1}{4}(\frac{1 + f_m}{2} + \frac{1 + f_f}{2}) = \frac{1}{8}(2 + f_m + f_f) \notag
+\end{equation}\]</span></p>
+<p>By taking into account inbreeding coefficients of kids, we end up with:</p>
+<p><span class="math display" id="eq:coef-coan-full-sibs">\[\begin{equation}
+  \Theta_{xy} = \frac{1}{8}(2 + f_m + f_f + 4\Theta_{mf}) \notag
+  \tag{7.5}
+\end{equation}\]</span></p>
+<p>Under random mating <span class="math inline">\(\Theta_{xy} = 1/4\)</span>.</p>
+<p>These techniques can be extended to more distant relatives and more complicated schemes of relatedness. The coefficient of coancestry is always the sum of a series of two types of paths between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. The first type of path leads from a single common ancestor to the two individuals of interest, while the second type passes through two remote ancestors that are related to each other. Neither type of path is allowed to pass through the same ancestor more than once. This procedure is summarised by equation <a href="resemblance-between-relatives.html#eq:coef-coan-xy-autosomes">(7.6)</a> below.</p>
+<p><span class="math display" id="eq:coef-coan-xy-autosomes">\[\begin{equation}
+  \Theta_{xy} = \sum_{i}\Theta_{ii}(\frac{1}{2})^{n_i - 1} + \sum_{j}\sum_{j \ne k}\Theta_{jk}(\frac{1}{2})^{n_{jk} - 2}
+  \tag{7.6}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(n_i\)</span> is the number of individuals (including <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>) in the path leading from common ancestor <span class="math inline">\(i\)</span>, and <span class="math inline">\(n_{jk}\)</span> is the number of individuals (including <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>) on the path leading from two different but related ancestors, <span class="math inline">\(j\)</span> and <span class="math inline">\(k\)</span>.</p>
+<p>Been assuming autosomal genes until this point! Sex-linked genes means we have to change things a bit. See book for deets (only 1 paragraph).</p>
+</div>
+<div id="the-coefficient-of-fraternity" class="section level3" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> The coefficient of fraternity</h3>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="an-overview-of-quantitative-genetics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="covariance-regression-and-correlation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sources-of-environmental-variation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="questions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
