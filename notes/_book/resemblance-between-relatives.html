@@ -24,7 +24,7 @@
 <meta name="author" content="Thomas Battram" />
 
 
-<meta name="date" content="2020-05-28" />
+<meta name="date" content="2020-06-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -143,6 +143,18 @@
 <li class="chapter" data-level="7.1.2" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#coefficients-of-coancestry-and-inbreeding"><i class="fa fa-check"></i><b>7.1.2</b> Coefficients of coancestry and inbreeding</a></li>
 <li class="chapter" data-level="7.1.3" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#the-coefficient-of-fraternity"><i class="fa fa-check"></i><b>7.1.3</b> The coefficient of fraternity</a></li>
 </ul></li>
+<li class="chapter" data-level="7.2" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#the-genetic-covariance-between-relatives"><i class="fa fa-check"></i><b>7.2</b> The genetic covariance between relatives</a></li>
+<li class="chapter" data-level="7.3" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#the-effect-of-linkage-and-gametic-phase-disequilibrium"><i class="fa fa-check"></i><b>7.3</b> The effect of linkage and gametic phase disequilibrium</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#gametic-phase-disequilibrium"><i class="fa fa-check"></i><b>7.3.1</b> Gametic phase disequilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#assortative-mating"><i class="fa fa-check"></i><b>7.4</b> Assortative mating</a></li>
+<li class="chapter" data-level="7.5" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#polyploidy-1"><i class="fa fa-check"></i><b>7.5</b> Polyploidy</a></li>
+<li class="chapter" data-level="7.6" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#environmental-sources-of-covariance-between-relatives"><i class="fa fa-check"></i><b>7.6</b> Environmental sources of covariance between relatives</a></li>
+<li class="chapter" data-level="7.7" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#the-heritability-concept"><i class="fa fa-check"></i><b>7.7</b> The heritability concept</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#evolvability"><i class="fa fa-check"></i><b>7.7.1</b> Evolvability</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="questions.html"><a href="questions.html"><i class="fa fa-check"></i>Questions</a>
 <ul>
@@ -181,7 +193,7 @@
   \sigma_z(x, y) = \sigma_G(x, y) + \sigma_{E}(x, y)
   \tag{7.2}
 \end{equation}\]</span></p>
-<p><span class="math inline">\(\sigma_G(x, y)\)</span> will be the focus of things to come! Like genetic variance, the covariance can be split into components attributable to additive, dominance, and epistatic effects. Each term is simply one of the terms used to describe genetic variance (e.g. equation <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:multilocus-genetic-variance">(5.5)</a>), weighted by a coefficient that describes the joint distribution of effects in pairs of relatives.</p>
+<p><span class="math inline">\(\sigma_G(x, y)\)</span> will be the focus of things to come! Like genetic variance, the covariance can be split into components attributable to additive, dominance, and epistatic effects. Each term is simply one of the terms used to describe genetic variance (e.g. equation <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:multilocus-genetic-variance">(5.6)</a>), weighted by a coefficient that describes the joint distribution of effects in pairs of relatives.</p>
 <p>Complications of estimating these coefficients include, non-random mating, LD, assortative mating, sex-linkage, maternal genetic effects and inbreeding.</p>
 <div id="measures-of-relatedness" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Measures of relatedness</h2>
@@ -204,6 +216,7 @@
   \Theta_{xx} = \frac{1}{4}(1 + f_x + f_x + 1) = \frac{1}{2}(1 + f_x)
   \tag{7.3}
 \end{equation}\]</span></p>
+<p>Something to note, the fact this coefficient increases with inbreeding is used (kind of) in current SNP-heritability estimations. After creating a kinship matrix, the diagonal of the matrix represents <span class="math inline">\(2\Theta_{xx}\)</span>. Due to the software, it will always be centred on one (mean of one) and without inbreeding expect a normal distribution with small variation around the mean, and with inbreeding this distribution would be right-skewed and you can identify inbred individuals by assessing which individuals diagonal elements are significantly larger than one.</p>
 <p>Parent (<span class="math inline">\(p\)</span>) and offspring (<span class="math inline">\(o\)</span>) scenario now!! If neither are inbred (<span class="math inline">\(p\)</span>’s parents unrelated and they are unrelated to their mate), then that makes things simple. When drawing one of the two alleles from the mother and then one of the two alleles from the offspring, there is only one scenario in which they are the same. As each scenario has an equal probability of occurring, <span class="math inline">\(\Theta_{po} = \frac{1}{4}\)</span>. If <span class="math inline">\(p\)</span> is inbred, probability of their alleles being identical by descent is <span class="math inline">\(f_p\)</span>. This is the same as the probability of the offspring allele being identical by descent to the maternal allele the offspring did not inherit. Probability of drawing inherited allele from offspring and allele not passed on from parent is (like the others) 1/4. Therfore, inbreeding inflates the coefficient of coancestry to <span class="math inline">\(\Theta_{po} = \frac{f_p}{4} + \frac{1}{4} = \frac{1 + f_p}{4}\)</span>. Complete inbreeding means <span class="math inline">\(f_p = 1\)</span> so <span class="math inline">\(\Theta_{po} = \frac{1}{2}\)</span>. By thinking about probability of picking paternally derived allele and stuff you can add in <span class="math inline">\(f_o\)</span> (see book page 136) and the general expression is given in equation <a href="resemblance-between-relatives.html#eq:coef-coan-parent-offspring">(7.4)</a> below.</p>
 <p><span class="math display" id="eq:coef-coan-parent-offspring">\[\begin{equation}
   \Theta_{po} = \frac{1}{4}(1 + f_p + 2f_o)
@@ -230,6 +243,144 @@
 </div>
 <div id="the-coefficient-of-fraternity" class="section level3" number="7.1.3">
 <h3><span class="header-section-number">7.1.3</span> The coefficient of fraternity</h3>
+<p>Before we were focusing on single alleles, but it is also of importance to consider the probability that two individuals (again <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>) contain genotypes that are identical by descent, this is called the coefficient of fraternity, <span class="math inline">\(\Delta_{xy}\)</span>. Mother of <span class="math inline">\(x\)</span> = <span class="math inline">\(m_x\)</span> and father of <span class="math inline">\(y\)</span> = <span class="math inline">\(f_y\)</span> etc. There are four combinations of parents (excluding the current combination). There are two ways in which the genotype of <span class="math inline">\(x\)</span> can match the genotype of <span class="math inline">\(y\)</span> (1) If allele from <span class="math inline">\(m_x\)</span> and <span class="math inline">\(m_y\)</span> are identical by descent and the allele from <span class="math inline">\(f_x\)</span> and <span class="math inline">\(f_y\)</span> are identical by descent (2) allele from <span class="math inline">\(m_x\)</span> is identical by descent with allele from <span class="math inline">\(f_y\)</span> and allele from <span class="math inline">\(f_x\)</span> is identical by descent with that from <span class="math inline">\(m_y\)</span>. So the coefficient of fraternity can be defined as</p>
+<p><span class="math display" id="eq:coef-frat">\[\begin{equation}
+  \Delta_{xy} = \Theta_{m_{x}m_{y}}\Theta_{f_{x}f_{y}} + \Theta_{m_{x}f_{y}}\Theta_{f_{x}m_{y}}
+  \tag{7.7}
+\end{equation}\]</span></p>
+<p>For full sibs (<span class="math inline">\(m_x\)</span> = <span class="math inline">\(m_y\)</span> = <span class="math inline">\(m\)</span> and <span class="math inline">\(f_x\)</span> = <span class="math inline">\(f_y\)</span> = <span class="math inline">\(f\)</span>) equation <a href="resemblance-between-relatives.html#eq:coef-frat">(7.7)</a> reduces to:</p>
+<p><span class="math display" id="eq:coef-frat-full-sibs">\[\begin{equation}
+  \Delta_{xy} = \Theta_{mm}\Theta_{ff} + \Theta^2_{mf}
+  \tag{7.8}
+\end{equation}\]</span></p>
+<p>If the parents are unrelated <span class="math inline">\(\Theta_{mf} = 0\)</span>; and if the parents are not inbred <span class="math inline">\(\Theta_{mm} = \Theta_{ff} = 1/2\)</span> so <span class="math inline">\(\Delta_{xy} = 1/4\)</span>. Now for paternal half-sibs, where fathers are the same (i.e. <span class="math inline">\(f_x\)</span> = <span class="math inline">\(f_y\)</span> = <span class="math inline">\(f\)</span>).</p>
+<p><span class="math display" id="eq:coef-frat-half-sibs">\[\begin{equation}
+  \Delta_{xy} = \Theta_{m_{x}m_{y}}\Theta_{ff} + \Theta_{m_{x}f}\Theta_{fm_{y}}
+  \tag{7.9}
+\end{equation}\]</span></p>
+<p>If parents are unrelated then <span class="math inline">\(\Theta_{ff} = 1/2\)</span> and <span class="math inline">\(\Theta_{m_{x}m_{y}} = \Theta_{m_{x}f} = \Theta_{fm_{y}} = 0\)</span> so <span class="math inline">\(\Delta_{xy} = 0\)</span>. So the genotypes of two individuals can’t be identical by descent if their maternally (or paternally) derived alleles come from unrelated individuals.</p>
+</div>
+</div>
+<div id="the-genetic-covariance-between-relatives" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> The genetic covariance between relatives</h2>
+<p>To assess genetic covariance between individuals we must use what we learnt from partitioning genetic variance in Chapter 5. To start with we’ll make a lot of assumptions:</p>
+<ol style="list-style-type: decimal">
+<li>diploid autosomal loci only</li>
+<li>random mating</li>
+<li>loci are unlinked and are not in LD</li>
+<li>no genetic variation for maternal effects</li>
+<li>no GxE or genotype-environment covariance</li>
+<li>no sexual dimorphism</li>
+<li>no selection</li>
+</ol>
+<p>Recalling equation <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:complete-genotypic-value">(5.5)</a>, we can see the complete genotypic value for two loci, which will be the same for individuals <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. The multilocus genetic variance for each individual is then given in equation <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:multilocus-genetic-variance">(5.6)</a>. As different types of effects (e.g. additive and dominance) are uncorrelated within individuals, they’re also uncorrelated between individuals. So the genetic covariance is simply:</p>
+<p><span class="math display" id="eq:multilocus-genetic-covariance">\[\begin{equation}
+  \sigma_G(x, y) = \sigma_A(x, y) + \sigma_D(x, y) + \sigma_{AA}(x, y) + \sigma_{AD}(x, y) + \sigma_{DD}(x, y) + ...
+  \tag{7.10}
+\end{equation}\]</span></p>
+<p>Remember <span class="math inline">\(\sigma^2(x) == \sigma(x,x)\)</span></p>
+<p>Then the book expresses terms in equation <a href="resemblance-between-relatives.html#eq:multilocus-genetic-covariance">(7.10)</a> in terms of variance components and coefficients of relationships. Confusing, come back to this!</p>
+<p>The genetic covariance between relatives becomes (equation 7.12 in book):</p>
+<p><span class="math display" id="eq:multilocus-genetic-covariance-relatives">\[\begin{equation}
+\begin{split}
+  \sigma_{G}(x, y) &amp;= \sum(2\Theta_{xy})^n \Delta^{m}_{xy}\sigma^2_{A^{n}D^{m}} \\
+  &amp; = 2\Theta_{xy}\sigma^2_A + \Delta_{xy}\sigma^2_{D} + (2\Theta_{xy})^2\sigma^2_{AA} + 2\Theta_{xy}\Delta_{xy}\sigma^2_{AD} + \Delta^2_{xy}\sigma^2_{DD} + (2\Theta_{xy})^3\sigma^2_{AAA} + ...
+\end{split}
+\tag{7.11}
+\end{equation}\]</span></p>
+<p>Using values from Table 7.1 in the book you can then derive explicit expressions for the genetic covariances among common types of relative - these are in Table 7.2!</p>
+<p>These values show some interesting things:</p>
+<ul>
+<li>Gene action involving dominance only rarely contributes to the covariance between relatives. It requires that each parent of <span class="math inline">\(x\)</span> be related to a different parent of <span class="math inline">\(y\)</span>. Such relationships (full sibs, double first cousins, and monozygotic twins) are said to be collateral.</li>
+<li>The coefficient for ^2_{AA} declines more rapidly with the distance of the relationship than does that for ^2_{A}.</li>
+</ul>
+<p>In the same way that the lack of variance that dominance and epistatic effects contribute to total genetic variance, doesn’t tell us anything about how the genes being measured function, the lack of variance dominance and epistatic effects contribute to the genetic covariance between relatives tells us nothing about how the function of the measured genes contributes to resemblance between relatives.</p>
+<p>WRITE THESE DOWN!</p>
+</div>
+<div id="the-effect-of-linkage-and-gametic-phase-disequilibrium" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> The effect of linkage and gametic phase disequilibrium</h2>
+<p>Under the assumption of linkage equilibrium, linkage influences on the epistatic components of genetic covariance.</p>
+<p>COME BACK TO THIS SECTION… if only epistatic components relavent, then I don’t really care tbh</p>
+<div id="gametic-phase-disequilibrium" class="section level3" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Gametic phase disequilibrium</h3>
+<p>Somehow (work this out later), the book extrapolates from equations <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:additve-var-LD">(5.11)</a> and <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:dominance-var-LD">(5.12)</a> to give the total genetic variance in the presence of ld:</p>
+<p><span class="math display" id="eq:total-genetic-variance-ld">\[\begin{equation}
+    \sigma^2_{G} = \sigma^2_{A} + \sigma_{A,A} + \sigma^2_{D} + \sigma_{D,D}
+    \tag{7.12}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\sigma_{A,A}\)</span> is the contribution due to covariance of additive effects of nonalleles within gametes (the additive disequilibrium covariance), and <span class="math inline">\(\sigma_{D,D}\)</span> is the contribution of covariance due to dominance effects of different loci within individuals (the dominance disequilibrium covariance).</p>
+<p>For situations in which the study population is being maintained in a steady state of disequilibrium from generation to generation (by processes such as natural selection, migration, and/or non-random mating), the modifications needed to estimate genetic covariance between relatives is simple - just reokace <span class="math inline">\(\sigma^2_{A}\)</span> with <span class="math inline">\(\sigma^2_{A} + \sigma_{A,A}\)</span> and <span class="math inline">\(\sigma^2_{D}\)</span> with <span class="math inline">\(\sigma^2_{D} + \sigma_{D,D}\)</span>. However, when mating is random and forces acting on the maintenance of disequilibria are dampened, then covariance between relatives changes with time as the recombination frequency (REMEMBER THAT BAD BOY FROM CHAPTER 5) causes a gradual decay of disequilibrium.</p>
+<p>Now we consider two loci, remember the pair of alleles (here <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> or <span class="math inline">\(k\)</span> and <span class="math inline">\(l\)</span>) are inherited from different gametes. The additive genetic variance is simply:</p>
+<p><span class="math display" id="eq:additive-genetic-variance-as-expectations">\[\begin{equation}
+    \sigma^2_{A} = E(\alpha^2_i) + E(\alpha^2_j) + E(\alpha^2_k) + E(\alpha^2_l)
+    \tag{7.13}
+\end{equation}\]</span></p>
+<p>additive disequilibrium covariance in the base population is:</p>
+<p><span class="math display" id="eq:additive-disequilibrium-covariance-as-expectations">\[\begin{equation}
+    \sigma_{A,A}(0) = 2E(\alpha_i\alpha_k) + 2E(\alpha_j\alpha_l)
+    \tag{7.14}
+\end{equation}\]</span></p>
+<p>Under the assumption of random mating <span class="math inline">\(E(\alpha_i\alpha_j)\)</span> and <span class="math inline">\(E(\alpha_k\alpha_l)\)</span> would be zero because there should be no correlation between the gametes of random, unrelated mates. As we’re assuming no forces are acting to maintain ld between alleles, we can assume it decays as given by <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:LD-decay">(5.9)</a>. Thus, the decay of the additive disequilibrium covariance can be given by:</p>
+<p><span class="math display" id="eq:additive-disequilibrium-covariance-decay">\[\begin{equation}
+  \sigma_{A,A}(t) = (1 - c)^{t}\sigma_{A,A}(0)
+  \tag{7.15}
+\end{equation}\]</span></p>
+<p>Unclear how the book then gets equation 7.15D, but then goes on to say that the additive disequilibrium covariance between relatives is given by:</p>
+<p><span class="math display" id="eq:additive-disequilibrium-covariance-between-relatives">\[\begin{equation}
+  \sigma_{A,A}(x, y, t) = 2\Theta_{xy}(1 - c)^{t}\sigma_{A,A}(0)
+  \tag{7.16}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(t\)</span> denotes the number of generations that the common ancestors are removed from the base population. Thus, for example, the parent-offspring covariance (_{xy} = 1/4) resulting from additive disequilibrium covariance is <span class="math inline">\(\sigma_{A,A}(0)/2\)</span> if the parents are from the base population. Then for each generation down the parents are thne multiply that by <span class="math inline">\((1 - c)\)</span>, so if they were fourth generation it’d be <span class="math inline">\((1-c)^3\sigma_{A,A}(0)/2\)</span>. Derivation of the covariance between relatives resulting from dominance disequilibrium covariance follows the same logic just presented. However, in this case, the dominance disequilibrium covariance declines each generation to <span class="math inline">\((1 - c)^2\)</span> it’s previous value. See book for why COME BACK TO THIS!</p>
+<p>See Table 7.3 in the book for disequilibrium covariances of the base-population among relatives. COME BACK TO FINAL PAGE OF THIS SECTION!</p>
+</div>
+</div>
+<div id="assortative-mating" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Assortative mating</h2>
+<p>Assortative mating isn’t uncommon, especially positive assortative mating, whereby individuals choose mates that have phenotypes that resemble their own. Lots of examples of this in human populations.</p>
+<p>Many assortative mating systems are selective, such that some phenotypes of one or both sexes have a greater ability to attract mates than others, but this is beyond the scope of this book. Here we assume all individuals have an equal opportunity to reproduce, the only limitation being the phenotypic distribution of available mates (i.e. nonselective assortative mating). Difference between inbreeding and assortative mating: inbreeding is choice of mates by similar genotypes and assortative mating is choice of mate by similar phenotypes. Of course, if the trait being assorted on has some genetic component (i.e. every fucking trait), then assortative mating will increase the chances that mates share identical alleles, BUT in all practical scenarios (especially for humans), it won’t cause extreme genetic structures like a completely homozygous population, like inbreeding can.</p>
+<p>Inbreeding can inflate the genetic variance of a population up to twofold in the abscence of epistasis (<a href="properties-of-single-loci.html#properties-of-single-loci">Properties of single loci</a>), but strong assortative mating can cause an even larger increase (of course disassortative mating induces a reduction of the genetic variance). Positive assortative mating increases the coupling of genes with similar effects.</p>
+<p><strong>How assortative mating influences additive genetic variance:</strong></p>
+<p>Let’s define <span class="math inline">\(\rho_z\)</span> and <span class="math inline">\(\rho_g\)</span> to be the phenotypic and genetic correlations between mates and assume the regression of phenotypes of mates is linear. We also suppose that there are <span class="math inline">\(n\)</span> loci, each contributing equally to the genetic variance of the trait and define the parameter <span class="math inline">\(\gamma = 1 - [1/(2n)]\)</span>. With a random-mating base population with no LD and additive genetic variance <span class="math inline">\(\sigma^2_{A}\)</span>, a single generation of assortative mating will shift the additive genetic variance to:</p>
+<p><span class="math display" id="eq:additive-genvar-onegen-AM">\[\begin{equation}
+    \sigma^2_A(1) = (1 + \frac{\rho_z h^2} {2}) \sigma^2_A
+    \tag{7.17}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(h^2 = \frac{\sigma^2_A} {\sigma^2_z}\)</span>. With continued assortative mating the variance asymptotically approaches the equilibrium:</p>
+<p><span class="math display" id="eq:additive-genvar-onegen-AM">\[\begin{equation}
+    \hat{\sigma}^2_A = \frac{\sigma^2_A} {1 - \gamma\hat{\rho_g}}
+    \tag{7.17}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\hat{\rho_g} = \rho_{z}\hat{\sigma}^2_A/\hat{\sigma}^2_z\)</span> is the equilibrium genetic correlation between mates. This can be re-written as:</p>
+<p><span class="math display">\[\begin{equation}
+    TO-DO!!!
+\end{equation}\]</span></p>
+<p>which gives the inflation of the additive equilibrium genetic variance relative to that in the random-mating base population (RECREATE FIGURE 7.7!).</p>
+<p>The difference <span class="math inline">\(\hat{\sigma}^2_A - \sigma^2_A\)</span> is the additive disequilibrium covariance, _{A,A}, maintained by assortative mating. (UNCLEAR AS TO WHY!)</p>
+<p>You can see from the figure, assortative mating must be fairly strong (<span class="math inline">\(\hat{\rho_g} \ge 0.2\)</span>) and combined with high <span class="math inline">\(h^2\)</span> to induce much change in the variance. Also, the effective number of loci has a negligible effect unless it is very small.</p>
+<p>When only two loci contribute to the trait, <span class="math inline">\(\sigma^2_D\)</span> can change with assortative mating, but if the number of loci is even “moderate” the effect will be negligible so can be ignored for all complex human phenotypes for sure!</p>
+<p>In addition to creating LD, assortative mating causes genotype frequencies for the selected trait to deviate from the Hardy-Weinberg expectations. Positive assortative mating leads to an increase in homozygosity and negative assortative mating has the opposite effect. However, <span class="math inline">\(\rho_z\)</span> and <span class="math inline">\(h^2\)</span> need to be very large to cause any major deviations from HWE. This implies the vast majority of genetic variance change induced by assortative mating comes in the form of increased LD, not changes in HWE, i.e. allelic association within rather than between gametes.</p>
+<p>Table 7.4 in the book gives changes in additive and dominance components of covariance between relatives for an equilibrium population undergoing assortative mating.</p>
+</div>
+<div id="polyploidy-1" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Polyploidy</h2>
+<p>BORWANG!!! Ignoring!</p>
+</div>
+<div id="environmental-sources-of-covariance-between-relatives" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Environmental sources of covariance between relatives</h2>
+<p>This section essentially uses logic derived from path analysis to try and derive expressions for the environmental sources of covariance between various relatives including twins, full sibs and half sibs. To best follow the logic a deeper a look at path analysis and more time on the maths is likely required. COME BACK TO THIS!</p>
+</div>
+<div id="the-heritability-concept" class="section level2" number="7.7">
+<h2><span class="header-section-number">7.7</span> The heritability concept</h2>
+<p>Recalling that the first term in any genetic covariance expression is <span class="math inline">\(2\Theta_{xy}\sigma^2_{A}\)</span>. Thus, under the assumption that additive genetic variance is the dominant source of phenotypic covariance,</p>
+<p><span class="math display" id="eq:approximate-narrow-sense-heritability">\[\begin{equation}
+    h^2 = \frac{\sigma(z_x, z_y)} {2\Theta_{xy} \sigma^2_z}
+    \tag{7.18}
+\end{equation}\]</span></p>
+<p>should provide a good approximation to the heritability. Violations of assumptions usually cause <span class="math inline">\(\sigma(z_x, z_y) / 2\Theta_{xy}\)</span> to be an upwardly biased estimator of <span class="math inline">\(\sigma^2_A\)</span>. A simple means of evaluating the likelihood of bias in heritability estimates arises when estimates of the phenotypic covariance are available for more than one type of relative (the book provides a couple of examples). The book also discusses lab vs. natural population estimates of heritability and gives examples. Conclusion: heritabilities respond to environmental change, and that substantial care should be taken in extrapolating results beyond the environment in which they are obtained!</p>
+<p>EVERY TRAIT IS HERITABLE INIT! (pretty much)</p>
+<p>In general, morphological characteristics tend to have higher heritabilities than life-history traits, with behavioural and physiological traits having intermediate heritabilites. Although there are plenty of exceptions of course.</p>
+<div id="evolvability" class="section level3" number="7.7.1">
+<h3><span class="header-section-number">7.7.1</span> Evolvability</h3>
 
 </div>
 </div>

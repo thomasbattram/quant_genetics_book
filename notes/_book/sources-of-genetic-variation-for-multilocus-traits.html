@@ -24,7 +24,7 @@
 <meta name="author" content="Thomas Battram" />
 
 
-<meta name="date" content="2020-05-28" />
+<meta name="date" content="2020-06-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -143,6 +143,18 @@
 <li class="chapter" data-level="7.1.2" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#coefficients-of-coancestry-and-inbreeding"><i class="fa fa-check"></i><b>7.1.2</b> Coefficients of coancestry and inbreeding</a></li>
 <li class="chapter" data-level="7.1.3" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#the-coefficient-of-fraternity"><i class="fa fa-check"></i><b>7.1.3</b> The coefficient of fraternity</a></li>
 </ul></li>
+<li class="chapter" data-level="7.2" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#the-genetic-covariance-between-relatives"><i class="fa fa-check"></i><b>7.2</b> The genetic covariance between relatives</a></li>
+<li class="chapter" data-level="7.3" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#the-effect-of-linkage-and-gametic-phase-disequilibrium"><i class="fa fa-check"></i><b>7.3</b> The effect of linkage and gametic phase disequilibrium</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#gametic-phase-disequilibrium"><i class="fa fa-check"></i><b>7.3.1</b> Gametic phase disequilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#assortative-mating"><i class="fa fa-check"></i><b>7.4</b> Assortative mating</a></li>
+<li class="chapter" data-level="7.5" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#polyploidy-1"><i class="fa fa-check"></i><b>7.5</b> Polyploidy</a></li>
+<li class="chapter" data-level="7.6" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#environmental-sources-of-covariance-between-relatives"><i class="fa fa-check"></i><b>7.6</b> Environmental sources of covariance between relatives</a></li>
+<li class="chapter" data-level="7.7" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#the-heritability-concept"><i class="fa fa-check"></i><b>7.7</b> The heritability concept</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#evolvability"><i class="fa fa-check"></i><b>7.7.1</b> Evolvability</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="questions.html"><a href="questions.html"><i class="fa fa-check"></i>Questions</a>
 <ul>
@@ -194,11 +206,15 @@
   \tag{5.4}
 \end{equation}\]</span></p>
 <p>So <span class="math inline">\(\left(\alpha\alpha\right)_{ik}\)</span> is the deviation of the conditional mean <span class="math inline">\(G_{i.k.}\)</span> from the expectation based on the population mean <span class="math inline">\(\mu_{G}\)</span> and the additive effects <span class="math inline">\(\alpha_{i}\)</span> and <span class="math inline">\(\alpha_{k}\)</span>. An additive x dominance effect measures the interaction between an allele at one locus with a genotype of another locus (see equation 5.5 in book) and the dominance x dominance effect involves an interaction between the genotypes at each locus (see equation 5.6 in book).</p>
+<p><span class="math display" id="eq:complete-genotypic-value">\[\begin{equation}
+  TO DO
+  \tag{5.5}
+\end{equation}\]</span></p>
 <p>The complete genotypic value, <span class="math inline">\(G_{ijkl...}\)</span> can be found in equation 5.7 in the book. These parameters depend on genotype frequencies in the population, but the mean value of each type of effect is always equal to zero.</p>
 <p>The genotypic value of an individual is often impossible to quantify because of variation in the phenotype due to the environment, but the genotypic value for an individual equation can be extended to populations. Providing mating is random and segregation of loci is independent, there is no statistical relationship between the genes found within or among loci. So the total genetic variance is just the sum of the variance of the individual effects, simplified this is:</p>
 <p><span class="math display" id="eq:multilocus-genetic-variance">\[\begin{equation}
   \sigma^{2}_{G} = \sigma^{2}_{A} + \sigma^{2}_{D} + \sigma^{2}_{AA} + \sigma^{2}_{AD} + \sigma^{2}_{DD} + ...
-  \tag{5.5}
+  \tag{5.6}
 \end{equation}\]</span></p>
 <p>… here and in other cases just symbolises more terms can be added if more than two loci are used.</p>
 <p>Epistatic effects are expected to be common throughout the genome and Wright thought they were the rule, rather than exception. See example two in the book for calculations of epistatic effects and how much variance they contribute to the overall genetic variance component. Overall, it is clear that even with large epistatic effects, additive genetic variance, <span class="math inline">\(\sigma^{2}_{A}\)</span> will pretty much always (if not always) contribute to the vast majority of overall genetic variance <span class="math inline">\(\sigma^{2}_{G}\)</span>. This is important for two reasons:</p>
@@ -219,17 +235,17 @@
 <p>Loci are linked if they tend to be inherited together. If loci are correlated for any reason (don’t need to be inherited together), they are in linkage disequilibrium. The census units for measuring linkage are gamete frequencies, so you can use an individual to estimate this. LD is measured across a population.</p>
 <p>Can get linkage without LD, can get linkage and LD, and can get two correlated loci (LD) that aren’t linked.</p>
 <hr />
-<p>Even though you can get correlated loci for reasons other than linkage, the LD between linked loci are more likely to persist over time as seen in <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:LD-decay">(5.8)</a>.</p>
+<p>Even though you can get correlated loci for reasons other than linkage, the LD between linked loci are more likely to persist over time as seen in <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:LD-decay">(5.9)</a>.</p>
 <p>Under linkage equilibrium, the frequency of gametes is the product of allele frequencies, so for loci <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>,</p>
 <p><span class="math display" id="eq:linkage-equilibrium">\[\begin{equation}
   Freq(AB) = Freq(A) * Freq(B)
-  \tag{5.6}
+  \tag{5.7}
 \end{equation}\]</span></p>
 <p>So A and B are independent of each other.</p>
 <p>Measure of disequilibrium is just the departure from this:</p>
 <p><span class="math display" id="eq:LD-D">\[\begin{equation}
   D_{AB} = Freq(AB) - Freq(A) * Freq(B)
-  \tag{5.7}
+  \tag{5.8}
 \end{equation}\]</span></p>
 <p><span class="math inline">\(D_{AB}\)</span> can be positive or negative depending on whether <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are in coupling (<span class="math inline">\(AB\)</span> gametes are overrepresented) or repulsion (<span class="math inline">\(AB\)</span> gametes are underrepresented) disequilibrium. <span class="math inline">\(D\)</span> is often referred to as the coefficient of linkage disequilibrium (although can be non-zero without linkage!).</p>
 <p>Selection, migration, mutation and drift can help maintain LD. Even without these forces, once LD is established it can be maintained for many generations (especially if loci are more tightly linked!).</p>
@@ -237,7 +253,7 @@
 <p>If recombination frequency between the <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> loci is <span class="math inline">\(c\)</span>, the disequilibrium in generation <span class="math inline">\(t\)</span> is given by:</p>
 <p><span class="math display" id="eq:LD-decay">\[\begin{equation}
   D(t) = (1 - c)^{t}D(0)
-  \tag{5.8}
+  \tag{5.9}
 \end{equation}\]</span></p>
 <p>This equation is graphically displayed in <a href="sources-of-genetic-variation-for-multilocus-traits.html#fig:ld-decay">5.1</a>.</p>
 
@@ -250,7 +266,7 @@ Figure 5.1: The decline, under random mating, of linkage disequilibrium when the
 <p>To estimate <span class="math inline">\(D\)</span> you can directly count gamete frequencies of an individual. This is not possible for most organisms though and usually you have to make-do with measured multilocus genotypes across a population. You can then workout gametes used to produce the genotypes (e.g. someone with an <span class="math inline">\(AABb\)</span> genotype would be formed from a <span class="math inline">\(AB\)</span> gamete and <span class="math inline">\(aB\)</span> gamete). However, with double heterozygotes you can’t be sure if an <span class="math inline">\(ABab\)</span> individual was formed from <span class="math inline">\(AB\)</span> and <span class="math inline">\(ab\)</span> gametes or from <span class="math inline">\(Ab\)</span> and <span class="math inline">\(aB\)</span> gametes. Under random mating, it’s not necessary to distinguish between coupling and repulsion heterozygotes so this doesn’t really matter. In this case an estimate of <span class="math inline">\(D\)</span> is given by:</p>
 <p><span class="math display" id="eq:LD-from-genotypes">\[\begin{equation}
   \hat{D_{AB}} = \frac{N} {N - 1} [\frac{4N_{AABB} + 2(N_{AABb} + N_{AaBB}) + N_{AbBb}} {2N} -2\hat{p_{A}}\hat{p_{B}}]
-  \tag{5.9}
+  \tag{5.10}
 \end{equation}\]</span></p>
 <p>The equation for the sampling variance of <span class="math inline">\(D\)</span> is shown on page 99.</p>
 <p>Ideally you’d have 1000s of samples to achieve reasonable statistical power when estimating <span class="math inline">\(D\)</span> using multilocus genotype frequencies.</p>
@@ -260,8 +276,8 @@ Figure 5.1: The decline, under random mating, of linkage disequilibrium when the
 <p>The aggregate effects of gametic phase disequilibrium might be extensive for quantitative traits whose expression is based on large numbers of loci, even if the average level of disequilibrium between pairs of loci is relatively small. If genes with a positive influence on a character tend to be associated on some chromosomes, and those with a negative influence on others (coupling disequilbrium), the observed genetic variation will be inflated relative to the expectation under random assortment. The opposite will occur if “plus” alleles at one locus tend to be associated with “minus” alleles at another (repulsion disequilibrium). This is illustrated nicely by figure 5.6 in the book. Think of it this way, you’re studying gene <span class="math inline">\(A\)</span>, gene <span class="math inline">\(B\)</span> and phenotype <span class="math inline">\(X\)</span>. If upregulation of <span class="math inline">\(A\)</span> leads to an increase in <span class="math inline">\(X\)</span> and an upregulation of <span class="math inline">\(B\)</span> leads to an increase in <span class="math inline">\(X\)</span> by the same proportions, then if genetic variation always occurs so that whenever <span class="math inline">\(A\)</span> is upregulated, <span class="math inline">\(B\)</span> is downregulated by the same amount, then what will be observed at both of the loci is that variation at them is not associated with variation in <span class="math inline">\(X\)</span>. This situation described is complete repulsion linkage (again, see figure 5.6 in book). This is assuming additive effects across loci. When there is no disequilibrium between loci, the variance at each locus is just <span class="math inline">\(2pqa^{2}\)</span>, see <a href="properties-of-single-loci.html#eq:additive-var">(4.10)</a>.</p>
 <p>As always, dominance effects muddy the waters, but here are the formalized multilocus analogs of <a href="properties-of-single-loci.html#eq:additive-var">(4.10)</a> and <a href="properties-of-single-loci.html#eq:dominance-var">(4.11)</a>:</p>
 <p><span class="math display" id="eq:dominance-var-LD" id="eq:additve-var-LD">\[\begin{align}
-  \sigma^2_A &amp;= 2\sum_{i=1}^{n} \alpha(i)^{2}p_{i}q_{i} + 2\sum_{i=1}^{n} \sum_{j\ne1}^{n} \alpha(i)\alpha(j)D_{ij} \tag{5.10} \\ 
-  \sigma^2_D &amp;= 4\sum_{i=1}^{n} (a_{i}k_{i}p_{i}q_{i})^{2} + 4\sum_{i=1}^{n} \sum_{j\ne1}^{n} a_{i}a_{j}k_{i}k_{j}D^2_{ij} \tag{5.11}
+  \sigma^2_A &amp;= 2\sum_{i=1}^{n} \alpha(i)^{2}p_{i}q_{i} + 2\sum_{i=1}^{n} \sum_{j\ne1}^{n} \alpha(i)\alpha(j)D_{ij} \tag{5.11} \\ 
+  \sigma^2_D &amp;= 4\sum_{i=1}^{n} (a_{i}k_{i}p_{i}q_{i})^{2} + 4\sum_{i=1}^{n} \sum_{j\ne1}^{n} a_{i}a_{j}k_{i}k_{j}D^2_{ij} \tag{5.12}
 \end{align}\]</span></p>
 <p>where <span class="math inline">\(\alpha(i)\)</span> is the average effect of allelic substitution at the <span class="math inline">\(i\)</span>th locus (defined in equation <a href="properties-of-single-loci.html#eq:allelic-sub-effect">(4.7)</a>).</p>
 <p>Epistatic interactions make things crazy complicated!</p>
@@ -286,7 +302,7 @@ Figure 5.1: The decline, under random mating, of linkage disequilibrium when the
 <li>What is the relationship between linkage and LD over time?</li>
 <li>Give two methods of estimating <span class="math inline">\(D\)</span></li>
 <li>What are coupling disequlibrium and repulsion disequilibrium and how do they effect genetic variance?</li>
-<li>Explain equations <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:additve-var-LD">(5.10)</a> and <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:dominance-var-LD">(5.11)</a></li>
+<li>Explain equations <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:additve-var-LD">(5.11)</a> and <a href="sources-of-genetic-variation-for-multilocus-traits.html#eq:dominance-var-LD">(5.12)</a></li>
 <li>What is hidden genetic variance?</li>
 <li>How is stabilising selection thought to influence hidden genetic variance? Why?</li>
 </ol>

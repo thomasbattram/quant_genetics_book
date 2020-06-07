@@ -37,6 +37,11 @@ Epistatic effect terms proceed in a similar fashion. Letting $G_{i.k.}$ be the m
 
 So $\left(\alpha\alpha\right)_{ik}$ is the deviation of the conditional mean $G_{i.k.}$ from the expectation based on the population mean $\mu_{G}$ and the additive effects $\alpha_{i}$ and $\alpha_{k}$. An additive x dominance effect measures the interaction between an allele at one locus with a genotype of another locus (see equation 5.5 in book) and the dominance x dominance effect involves an interaction between the genotypes at each locus (see equation 5.6 in book). 
 
+\begin{equation}
+  TO DO
+  (\#eq:complete-genotypic-value)
+\end{equation}
+
 The complete genotypic value, $G_{ijkl...}$ can be found in equation 5.7 in the book. These parameters depend on genotype frequencies in the population, but the mean value of each type of effect is always equal to zero.
 
 The genotypic value of an individual is often impossible to quantify because of variation in the phenotype due to the environment, but the genotypic value for an individual equation can be extended to populations. Providing mating is random and segregation of loci is independent, there is no statistical relationship between the genes found within or among loci. So the total genetic variance is just the sum of the variance of the individual effects, simplified this is:
