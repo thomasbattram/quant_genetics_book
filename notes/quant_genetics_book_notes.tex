@@ -70,7 +70,7 @@
 
 \title{Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits}
 \author{Thomas Battram}
-\date{2020-06-07}
+\date{2020-06-08}
 
 \begin{document}
 \maketitle
@@ -1307,6 +1307,24 @@ In general, morphological characteristics tend to have higher heritabilities tha
 
 \hypertarget{evolvability}{%
 \subsection{Evolvability}\label{evolvability}}
+
+Useful to have a dimensionless parameter to compare evolvability of traits/species, and one such measure is the heriability. Remember equation \eqref{eq:breeders-equation-with-h2}. The change in the mean relative to the phenotypic standard deviation provides another useful descriptor of evolvability,
+
+\begin{equation}
+    \frac{\Delta\mu} {\sigma_z} = h^2i
+    \label{eq:breeders-divided-by-phenotypic-sd}
+\end{equation}
+
+where \(i = S / \sigma_z\) is the standardised selection differential, i.e.~the change in the mean caused by selection in units of phenotypic standard deviations. Like in equation \eqref{eq:breeders-equation-with-h2}, the heritability here provides a measure of the efficiency of response to selection.
+
+There are several ways to measure evolvability, each of which has its own merits in particular contexts. All are interchangable given phenotypic variance, additive genetic variance, and mean phenotype. Here, Fisher's fundamental theorem of natural selection is derived by dividing both sides of equation \eqref{eq:breeders-equation-with-h2} by \(\mu\) and substituting in \(i\), and considering the case in which the trait of interest is fitness (\(W\)). Remember, the selection differential is equivalent to the phenotypic covariance between the character and relative fitness (\$w = W/\bar\{W\}), i.e.~\eqref{eq:selection-differential2}, where \(\bar{W}\) is mean fitness on an absolute scale. If \(z\) is fitness then \(S = \sigma^2_z(W)\), where \(\sigma^2_z(W)\) is the phenotypic variance of fitness and we can say:
+
+\begin{equation}
+    \frac{\Delta\bar{W}} {\bar{W}} = \frac{\sigma^2_A(W)} {\bar{W}^2} = \sigma^2_A(w)
+    \label{eq:fishers-fundamental-theorem-of-natural-selection}
+\end{equation}
+
+where \(\sigma^2_A(W)\) and \(\sigma^2_A(w)\) are the additive genetic variances of absolute and relative fitness. Thus, the proportional rate of evolution in mean fitness is equal to the squared coefficient of additive genetic variation of absolute fitness, or equivalently, to the additive genetic variance of relative fitness.
 
 \hypertarget{questions}{%
 \chapter*{Questions}\label{questions}}
