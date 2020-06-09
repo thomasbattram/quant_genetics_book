@@ -1,0 +1,73 @@
+# Introduction to Matrix Algebra and Linear Models
+
+$$\newcommand{\mx}[1]{\mathbf{#1}}$$
+
+## Multiple regression
+
+Simple multiple regression equation:
+
+\begin{equation}
+	y = \alpha + \beta_1z_1 + \beta_2z_2 + ... + \beta_nz_n + e
+	(\#eq:simple-multiple-regression)
+\end{equation}
+
+$y$ = dependent/response variable, $z_1, z_2, z_n$ = predictors, $e$ = residual error, $\alpha$ is a constant as are $\beta_1, \beta_2, \beta_n$ to be estimated.
+
+Recall from Chapter 3 that the goal of least-squares regression is to find a set of constants ($\alpha$ and the $\beta$s) that minimise the squared differences between observed and expected values, with expected values is anything that fits on the "line of best fit". Also, recall equation \@ref(eq:intercept-and-slope), to see the relationship between $y$, $z_n$ ($x$ in the equation) and $b$. For multiple regression there are many "$b$" terms and each of them can be estimated by dividing the covariance of the dependent variable and the predictor ($\sigma(y, z_n)$) by the covariance of the predictor with all other predictors in the model. When $n = 1$, the model reduces to a simple linear regression and we return to equation \@ref(eq:intercept-and-slope). This can be represented in matrix form like so:
+
+\begin{equation}
+	\begin{pmatrix}
+		\sigma^2(z_1) & \sigma(z_1, z_n) & \dots & \sigma(z_1, z_n) \\
+		\sigma(z_1, z_1) & \sigma^2(z_2) & \dots & \sigma(z_2, z_n) \\
+		\vdots & \vdots & \ddots & \vdots \\
+		\sigma(z_1, z_n) & \sigma(z_2, z_n) & \dots & \sigma^2(z_n)
+	\end{pmatrix}
+	\begin{pmatrix}
+		\beta_1 \\
+		\beta_2 \\
+		\vdots \\
+		\beta_n
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		\sigma(y, z_1) \\
+		\sigma(y, z_2) \\
+		\vdots \\
+		\sigma(y, z_n)
+	\end{pmatrix}
+	(\#eq:multiple-regression-matrix-form)
+\end{equation}
+
+When estimating each response variable-predictor covariance term, it is the sum of predictor covariance multiplied by beta.
+
+If the covariance matrix and the vectors of \@ref(eq:multiple-regression-matrix-form) are written as $\mx{V}$, $\mx{\beta}$ and $\mx{c}$ respectively, then the equation can be re-written as:
+
+\begin{equation}
+	\mx{V\beta} = \mx{c}
+	(\#eq:abbreviated-multiple-regression)
+\end{equation}
+
+__NOTE__: It is standard procedure to denote matrices as bold capital letters and vectors as bold lower case letters.
+
+Before going onto matrix methods in more detail, here is an application of \@ref(eq:simple-multiple-regression) in quantitative genetics.
+
+### An application to multivariate selection
+
+Suppose that a large number of individuals in a population have been measured for $n$ characters and for fitness. Individual fitness can then be approximated by the linear model
+
+\begin{equation}
+	w = \alpha + \beta_1z_1 + \beta_2z_2 + ... + \beta_nz_n + e
+	(\#eq:fitness-linear-model)
+\end{equation}
+
+where $w$ is the relative fitness (observed fitness divided by the mean fitness in the population). In Chapter 3, we learnt that the selection differential for the $i$th trait is defined as the covariance between phenotype and relative fitness, $S_i = \sigma(z_i, w)$. Therefore, if we use multiple regression to estimate $S_i$ we'd end up with:
+
+\begin{equation}
+	S_i = \beta_i\sigma^2(z_i) + \sum^n_{j \neq i} {\beta_j\sigma(z_i, z_j)}
+	(\#eq:ith-selection-differential) 
+\end{equation}
+
+Simple!
+
+## Elementary matrix algebra
+

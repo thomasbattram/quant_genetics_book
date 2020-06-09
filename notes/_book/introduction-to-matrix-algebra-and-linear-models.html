@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 An overview of quantitative genetics | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</title>
-  <meta name="description" content="Chapter 1 An overview of quantitative genetics | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <title>Chapter 8 Introduction to Matrix Algebra and Linear Models | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits</title>
+  <meta name="description" content="Chapter 8 Introduction to Matrix Algebra and Linear Models | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
   <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 An overview of quantitative genetics | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <meta property="og:title" content="Chapter 8 Introduction to Matrix Algebra and Linear Models | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 An overview of quantitative genetics | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
+  <meta name="twitter:title" content="Chapter 8 Introduction to Matrix Algebra and Linear Models | Notes for: Walsh and Lynch. Genetics and Analysis of Quantitative Traits" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="properties-of-distributions.html"/>
+<link rel="prev" href="resemblance-between-relatives.html"/>
+<link rel="next" href="questions.html"/>
 <script src="libs/header-attrs-2.1.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -186,19 +186,75 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="an-overview-of-quantitative-genetics" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> An overview of quantitative genetics</h1>
-<p>BORWANG!!!</p>
-<p>This chapter just introduces the book and some simple concepts.</p>
+<div id="introduction-to-matrix-algebra-and-linear-models" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Introduction to Matrix Algebra and Linear Models</h1>
+<p><span class="math display">\[\newcommand{\mx}[1]{\mathbf{#1}}\]</span></p>
+<div id="multiple-regression" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Multiple regression</h2>
+<p>Simple multiple regression equation:</p>
+<p><span class="math display" id="eq:simple-multiple-regression">\[\begin{equation}
+    y = \alpha + \beta_1z_1 + \beta_2z_2 + ... + \beta_nz_n + e
+    \tag{8.1}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(y\)</span> = dependent/response variable, <span class="math inline">\(z_1, z_2, z_n\)</span> = predictors, <span class="math inline">\(e\)</span> = residual error, <span class="math inline">\(\alpha\)</span> is a constant as are <span class="math inline">\(\beta_1, \beta_2, \beta_n\)</span> to be estimated.</p>
+<p>Recall from Chapter 3 that the goal of least-squares regression is to find a set of constants (<span class="math inline">\(\alpha\)</span> and the <span class="math inline">\(\beta\)</span>s) that minimise the squared differences between observed and expected values, with expected values is anything that fits on the “line of best fit”. Also, recall equation <a href="covariance-regression-and-correlation.html#eq:intercept-and-slope">(3.6)</a>, to see the relationship between <span class="math inline">\(y\)</span>, <span class="math inline">\(z_n\)</span> (<span class="math inline">\(x\)</span> in the equation) and <span class="math inline">\(b\)</span>. For multiple regression there are many “<span class="math inline">\(b\)</span>” terms and each of them can be estimated by dividing the covariance of the dependent variable and the predictor (<span class="math inline">\(\sigma(y, z_n)\)</span>) by the covariance of the predictor with all other predictors in the model. When <span class="math inline">\(n = 1\)</span>, the model reduces to a simple linear regression and we return to equation <a href="covariance-regression-and-correlation.html#eq:intercept-and-slope">(3.6)</a>. This can be represented in matrix form like so:</p>
+<p><span class="math display" id="eq:multiple-regression-matrix-form">\[\begin{equation}
+    \begin{pmatrix}
+        \sigma^2(z_1) &amp; \sigma(z_1, z_n) &amp; \dots &amp; \sigma(z_1, z_n) \\
+        \sigma(z_1, z_1) &amp; \sigma^2(z_2) &amp; \dots &amp; \sigma(z_2, z_n) \\
+        \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        \sigma(z_1, z_n) &amp; \sigma(z_2, z_n) &amp; \dots &amp; \sigma^2(z_n)
+    \end{pmatrix}
+    \begin{pmatrix}
+        \beta_1 \\
+        \beta_2 \\
+        \vdots \\
+        \beta_n
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \sigma(y, z_1) \\
+        \sigma(y, z_2) \\
+        \vdots \\
+        \sigma(y, z_n)
+    \end{pmatrix}
+    \tag{8.2}
+\end{equation}\]</span></p>
+<p>When estimating each response variable-predictor covariance term, it is the sum of predictor covariance multiplied by beta.</p>
+<p>If the covariance matrix and the vectors of <a href="introduction-to-matrix-algebra-and-linear-models.html#eq:multiple-regression-matrix-form">(8.2)</a> are written as <span class="math inline">\(\mx{V}\)</span>, <span class="math inline">\(\mx{\beta}\)</span> and <span class="math inline">\(\mx{c}\)</span> respectively, then the equation can be re-written as:</p>
+<p><span class="math display" id="eq:abbreviated-multiple-regression">\[\begin{equation}
+    \mx{V\beta} = \mx{c}
+    \tag{8.3}
+\end{equation}\]</span></p>
+<p><strong>NOTE</strong>: It is standard procedure to denote matrices as bold capital letters and vectors as bold lower case letters.</p>
+<p>Before going onto matrix methods in more detail, here is an application of <a href="introduction-to-matrix-algebra-and-linear-models.html#eq:simple-multiple-regression">(8.1)</a> in quantitative genetics.</p>
+<div id="an-application-to-multivariate-selection" class="section level3" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> An application to multivariate selection</h3>
+<p>Suppose that a large number of individuals in a population have been measured for <span class="math inline">\(n\)</span> characters and for fitness. Individual fitness can then be approximated by the linear model</p>
+<p><span class="math display" id="eq:fitness-linear-model">\[\begin{equation}
+    w = \alpha + \beta_1z_1 + \beta_2z_2 + ... + \beta_nz_n + e
+    \tag{8.4}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(w\)</span> is the relative fitness (observed fitness divided by the mean fitness in the population). In Chapter 3, we learnt that the selection differential for the <span class="math inline">\(i\)</span>th trait is defined as the covariance between phenotype and relative fitness, <span class="math inline">\(S_i = \sigma(z_i, w)\)</span>. Therefore, if we use multiple regression to estimate <span class="math inline">\(S_i\)</span> we’d end up with:</p>
+<p><span class="math display" id="eq:ith-selection-differential">\[\begin{equation}
+    S_i = \beta_i\sigma^2(z_i) + \sum^n_{j \neq i} {\beta_j\sigma(z_i, z_j)}
+    \tag{8.5} 
+\end{equation}\]</span></p>
+<p>Simple!</p>
+</div>
+</div>
+<div id="elementary-matrix-algebra" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Elementary matrix algebra</h2>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="properties-of-distributions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="resemblance-between-relatives.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="questions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
