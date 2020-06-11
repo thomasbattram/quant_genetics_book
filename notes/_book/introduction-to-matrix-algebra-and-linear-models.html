@@ -24,7 +24,7 @@
 <meta name="author" content="Thomas Battram" />
 
 
-<meta name="date" content="2020-06-09" />
+<meta name="date" content="2020-06-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -162,7 +162,15 @@
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#an-application-to-multivariate-selection"><i class="fa fa-check"></i><b>8.1.1</b> An application to multivariate selection</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#elementary-matrix-algebra"><i class="fa fa-check"></i><b>8.2</b> Elementary matrix algebra</a></li>
+<li class="chapter" data-level="8.2" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#elementary-matrix-algebra"><i class="fa fa-check"></i><b>8.2</b> Elementary matrix algebra</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#basic-notation"><i class="fa fa-check"></i><b>8.2.1</b> Basic notation</a></li>
+<li class="chapter" data-level="8.2.2" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#partitioned-matrices"><i class="fa fa-check"></i><b>8.2.2</b> Partitioned matrices</a></li>
+<li class="chapter" data-level="8.2.3" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#addition-and-subtraction"><i class="fa fa-check"></i><b>8.2.3</b> Addition and subtraction</a></li>
+<li class="chapter" data-level="8.2.4" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#multiplication"><i class="fa fa-check"></i><b>8.2.4</b> Multiplication</a></li>
+<li class="chapter" data-level="8.2.5" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#transposition"><i class="fa fa-check"></i><b>8.2.5</b> Transposition</a></li>
+<li class="chapter" data-level="8.2.6" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#inverses-and-solutions-to-systems-of-equations"><i class="fa fa-check"></i><b>8.2.6</b> Inverses and solutions to systems of equations</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="questions.html"><a href="questions.html"><i class="fa fa-check"></i>Questions</a>
 <ul>
@@ -193,11 +201,11 @@
 <h2><span class="header-section-number">8.1</span> Multiple regression</h2>
 <p>Simple multiple regression equation:</p>
 <p><span class="math display" id="eq:simple-multiple-regression">\[\begin{equation}
-    y = \alpha + \beta_1z_1 + \beta_2z_2 + ... + \beta_nz_n + e
+    y = \alpha + \beta_1z_1 + \beta_2z_2 + \dots + \beta_nz_n + e
     \tag{8.1}
 \end{equation}\]</span></p>
 <p><span class="math inline">\(y\)</span> = dependent/response variable, <span class="math inline">\(z_1, z_2, z_n\)</span> = predictors, <span class="math inline">\(e\)</span> = residual error, <span class="math inline">\(\alpha\)</span> is a constant as are <span class="math inline">\(\beta_1, \beta_2, \beta_n\)</span> to be estimated.</p>
-<p>Recall from Chapter 3 that the goal of least-squares regression is to find a set of constants (<span class="math inline">\(\alpha\)</span> and the <span class="math inline">\(\beta\)</span>s) that minimise the squared differences between observed and expected values, with expected values is anything that fits on the “line of best fit”. Also, recall equation <a href="covariance-regression-and-correlation.html#eq:intercept-and-slope">(3.6)</a>, to see the relationship between <span class="math inline">\(y\)</span>, <span class="math inline">\(z_n\)</span> (<span class="math inline">\(x\)</span> in the equation) and <span class="math inline">\(b\)</span>. For multiple regression there are many “<span class="math inline">\(b\)</span>” terms and each of them can be estimated by dividing the covariance of the dependent variable and the predictor (<span class="math inline">\(\sigma(y, z_n)\)</span>) by the covariance of the predictor with all other predictors in the model. When <span class="math inline">\(n = 1\)</span>, the model reduces to a simple linear regression and we return to equation <a href="covariance-regression-and-correlation.html#eq:intercept-and-slope">(3.6)</a>. This can be represented in matrix form like so:</p>
+<p>Recall from Chapter 3 that the goal of least-squares regression is to find a set of constants (<span class="math inline">\(\alpha\)</span> and the <span class="math inline">\(\beta\)</span>s) that minimise the squared differences between observed and expected values, with expected values is anything that fits on the “line of best fit”. Also, recall equation <a href="#eq:intercept-and-slope">(<strong>??</strong>)</a>, to see the relationship between <span class="math inline">\(y\)</span>, <span class="math inline">\(z_n\)</span> (<span class="math inline">\(x\)</span> in the equation) and <span class="math inline">\(b\)</span>. For multiple regression there are many “<span class="math inline">\(b\)</span>” terms and each of them can be estimated by dividing the covariance of the dependent variable and the predictor (<span class="math inline">\(\sigma(y, z_n)\)</span>) by the covariance of the predictor with all other predictors in the model. When <span class="math inline">\(n = 1\)</span>, the model reduces to a simple linear regression and we return to equation <a href="#eq:intercept-and-slope">(<strong>??</strong>)</a>. This can be represented in matrix form like so:</p>
 <p><span class="math display" id="eq:multiple-regression-matrix-form">\[\begin{equation}
     \begin{pmatrix}
         \sigma^2(z_1) &amp; \sigma(z_1, z_n) &amp; \dots &amp; \sigma(z_1, z_n) \\
@@ -245,7 +253,220 @@
 </div>
 <div id="elementary-matrix-algebra" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Elementary matrix algebra</h2>
+<div id="basic-notation" class="section level3" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Basic notation</h3>
+<p>Vectors and matrices in mathematics are just like those in R. A matrix with the same number of rows and columns is called a square matrix. Vectors written vertically are called column vectors, e.g. </p>
+<p><span class="math display">\[\begin{equation}
+    \mx{a} = 
+    \begin{pmatrix}
+        12 \\
+        13 \\
+        47
+    \end{pmatrix}
+    \notag
+\end{equation}\]</span></p>
+<p>and those that are written horizontally are called row vectors, e.g. </p>
+<p><span class="math display">\[\begin{equation}
+    \mx{b} = 
+    \begin{pmatrix}
+        12 &amp; 13 &amp; 47
+    \end{pmatrix}
+    \notag
+\end{equation}\]</span></p>
+<p>Single numbers by themselves are often referred to as scalars.</p>
+<p>A matrix can be described by the elements that comprise it, with <span class="math inline">\(M_ij\)</span> denoting the element in the <span class="math inline">\(i\)</span>th row and <span class="math inline">\(j\)</span>th column of matrix <span class="math inline">\(\mx{M}\)</span>.</p>
+</div>
+<div id="partitioned-matrices" class="section level3" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Partitioned matrices</h3>
+<p>It is often useful to work with partitioned matrices wherein each element in a matrix is itself a matrix. There are several ways to partition a matrix, for example:</p>
+<p><span class="math display">\[\begin{equation}
+    \mx{c} = 
+    \begin{pmatrix}
+        3 &amp; 1 &amp; 2 \\
+        2 &amp; 5 &amp; 4 \\
+        1 &amp; 1 &amp; 2
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        3 &amp; \vdots &amp; 1 &amp; 2 \\
+        \dots &amp; \dots &amp; \dots &amp; \dots \\
+        2 &amp; \vdots &amp; 5 &amp; 4 \\
+        1 &amp; \vdots &amp; 1 &amp; 2
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \mx{a} &amp; \mx{b} \\
+        \mx{d} &amp; \mx{B}
+    \end{pmatrix}
+    \notag
+\end{equation}\]</span></p>
+<p>where</p>
+<p><span class="math display">\[\begin{equation}
+    \mx{a} = 
+    \begin{pmatrix}
+        3
+    \end{pmatrix}
+    , 
+    \mx{b} = 
+    \begin{pmatrix}
+        1 &amp; 2
+    \end{pmatrix}
+    ,
+    \mx{d} = 
+    \begin{pmatrix}
+        2 \\
+        1
+    \end{pmatrix}
+    ,
+    \mx{B}
+    \begin{pmatrix}
+        5 &amp; 4 \\
+        1 &amp; 2
+    \end{pmatrix}
+    \notag
+\end{equation}\]</span></p>
+<p>There are also other simple ways to partition matrices.</p>
+</div>
+<div id="addition-and-subtraction" class="section level3" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> Addition and subtraction</h3>
+<p>To add matrices, they must have the same dimensions. Just add the corresponding elelments, so for adding matrices <span class="math inline">\(\mx{A}\)</span>, and <span class="math inline">\(\mx{B}\)</span> to make <span class="math inline">\(\mx{C}\)</span>, it is simply <span class="math inline">\(C_ij = A_ij + B_ij\)</span>. Subtraction is defined similarly.</p>
+<p><strong>Can add examples here if you really want to</strong></p>
+</div>
+<div id="multiplication" class="section level3" number="8.2.4">
+<h3><span class="header-section-number">8.2.4</span> Multiplication</h3>
+<p>To multiply matrix <span class="math inline">\(\mx{M}\)</span> by scalar <span class="math inline">\(a\)</span>, then just multiply each element of <span class="math inline">\(\mx{M}\)</span> by <span class="math inline">\(a\)</span>.</p>
+<p>Dot product of two vectors, <span class="math inline">\(\mx{a} \cdot \mx{b}\)</span>, is a scalar given by</p>
+<p><span class="math display">\[\begin{equation}
+    \mx{a} \cdot \mx{b} = \sum^n_{i=1} {a_ib_i} \notag
+\end{equation}\]</span></p>
+<p>For example, for the two vectors given by</p>
+<p><span class="math display">\[\begin{equation}
+    \mx{a} = 
+    \begin{pmatrix}
+        1 \\
+        2 \\
+        3 \\ 
+        4
+    \end{pmatrix} 
+    \notag
+\end{equation}\]</span>
+and
+<span class="math display">\[\begin{equation}
+    \mx{b} = 
+    \begin{pmatrix}
+        4 &amp; 5 &amp; 7 &amp; 9
+    \end{pmatrix}
+    \notag
+\end{equation}\]</span></p>
+<p>the dot product <span class="math inline">\(\mx{a} \cdot \mx{b}\)</span> = (1 x 4) + (2 x 5) + (3 x 7) + (4 x 9) = 71. Dot product is not defined if the vectors have different lengths.</p>
+<p>Now consider the matrix <span class="math inline">\(\mx{L} = \mx{M}\mx{N}\)</span> produced by multiplying the <span class="math inline">\(r\)</span> x <span class="math inline">\(c\)</span> matrix <span class="math inline">\(\mx{M}\)</span> by the <span class="math inline">\(c\)</span> x <span class="math inline">\(b\)</span> matrix <span class="math inline">\(\mx{N}\)</span>. Partioning <span class="math inline">\(\mx{M}\)</span> as a column vector of <span class="math inline">\(r\)</span> row vectors,</p>
+<p><span class="math display">\[\begin{equation}
+    \mx{M} = 
+    \begin{pmatrix}
+        \mx{m_1} \\
+        \mx{m_2} \\
+        \vdots \\
+        \mx{m_r}
+    \end{pmatrix} 
+    where 
+    \mx{m_i} = 
+    \begin{pmatrix}
+        M_{i1} &amp; M_{i2} &amp; \dots &amp; M_{ic}
+    \end{pmatrix}
+    \notag
+\end{equation}\]</span></p>
+<p>and <span class="math inline">\(\mx{N}\)</span> as a row vector of <span class="math inline">\(b\)</span> column vectors,</p>
+<p><span class="math display">\[\begin{equation}
+    \mx{N} = 
+    \begin{pmatrix}
+        \mx{n_1} &amp; \mx{n_2} &amp; \dots &amp; \mx{n_b}
+    \end{pmatrix}
+    where 
+    \mx{n_j} = 
+    \begin{pmatrix}
+        N_{1j} \\
+        N_{2j} \\
+        \vdots \\
+        N_{cj} \\
+    \end{pmatrix} 
+    \notag
+\end{equation}\]</span></p>
+<p>the <span class="math inline">\(ij\)</span>th element of <span class="math inline">\(\mx{L}\)</span> is given by the dot product</p>
+<p><span class="math display" id="eq:matrix-multiplication-L">\[\begin{equation}
+    L_{ij} = \mx{m_i} \cdot \mx{n_j} = \sum^c_{k=1} {M_{ik}N_{kj}}
+    \tag{8.6}
+\end{equation}\]</span></p>
+<p>Use this to write out matrix <span class="math inline">\(\mx{L}\)</span> – cba right now…</p>
+<p>To be definied, the number of columns in the first matrix must equal the number of rows in the second matrix. This means that unless the two matrices are square, it is only possible to multiply them together one way round and not the other (e.g. <span class="math inline">\(\mx{M}\mx{N}\)</span> may be defined, but <span class="math inline">\(\mx{N}\mx{M}\)</span> won’t). Writing <span class="math inline">\(\mx{M}_{r \times c}\mx{N}_{c \times b} = \mx{L}_{r \times b}\)</span> shows the inner indices must match, while the outer indices give the number of rows and columns of the resulting matrix. Even if the matrices being multiplied are square, the order in which they are multiplied is important, i.e. multiplying <span class="math inline">\(\mx{A}\)</span> by <span class="math inline">\(\mx{B}\)</span> is not the same as <em>vice versa</em>. So there is terminology to help differentiate what is being multiplied by what. In the example just given, one would say matrix <span class="math inline">\(\mx{B}\)</span> is premultiplied by matrix <span class="math inline">\(\mx{A}\)</span>, or that matrix <span class="math inline">\(\mx{A}\)</span> is postmultiplied by matrix <span class="math inline">\(\mx{B}\)</span>.</p>
+</div>
+<div id="transposition" class="section level3" number="8.2.5">
+<h3><span class="header-section-number">8.2.5</span> Transposition</h3>
+<p>The transpose of a matrix <span class="math inline">\(\mx{A}\)</span> is written as <span class="math inline">\(\mx{A}^T\)</span> or <span class="math inline">\(\mx{A}&#39;\)</span>. It is obtained by simply switching the rows and columns of the matrix.</p>
+<p><strong>Add example here if you want</strong></p>
+<p>A useful identity is</p>
+<p><span class="math display" id="eq:transpose-of-ABC">\[\begin{equation}
+    (\mx{A}\mx{B}\mx{C})^T = \mx{C}^T\mx{B}^T\mx{A}^T
+    \tag{8.7}
+\end{equation}\]</span></p>
+<p>which holds for any number of matrices.</p>
+<p>Vectors tend to be written as column vectors, and therefore will be written as such henceforth, and as lowercase bold letters, e.g. <span class="math inline">\(\mx{a}\)</span>, for a column vector and <span class="math inline">\(\mx{a}^T\)</span> for the corresponding row vector. Further, when multiplying vectors we can assess the inner product (dot product), which yields a scalar and the outer product, which yields a matrix. For the two <span class="math inline">\(n\)</span>-dimensional column vectors <span class="math inline">\(\mx{a}\)</span> and <span class="math inline">\(\mx{b}\)</span>,</p>
+<p><span class="math display">\[\begin{equation}
+    \mx{a} = 
+    \begin{pmatrix}
+    a_1 \\
+    \vdots \\
+    a_n
+    \end{pmatrix}
 
+    \mx{b} = 
+    \begin{pmatrix}
+    b_1 \\
+    \vdots \\
+    b_n
+    \end{pmatrix}
+    \notag
+\end{equation}\]</span></p>
+<p>the inner product is given by</p>
+<p><span class="math display" id="eq:inner-product">\[\begin{equation}
+    \begin{pmatrix}
+    a_1 &amp; \dots &amp; a_n
+    \end{pmatrix}
+    \begin{pmatrix}
+    b_1 \\
+    \vdots \\
+    b_n
+    \end{pmatrix}
+     
+    = \mx{a}^T\mx{b} = \sum^n_{i=1} {a_ib_i}
+    \tag{8.8}
+\end{equation}\]</span></p>
+<p>while the outer product yields an <span class="math inline">\(n \times n\)</span> matrix</p>
+<p><span class="math display" id="eq:outer-product">\[\begin{equation}
+    \begin{pmatrix}
+        a_1 \\
+        \vdots \\
+        a_n
+    \end{pmatrix}
+    \begin{pmatrix}
+        b_1 &amp; \dots &amp; b_n
+    \end{pmatrix}
+
+    = \mx{a}\mx{b}^T = 
+
+    \begin{pmatrix}
+        a_1b_1 &amp; a_1b_2 &amp; \dots &amp; a_1b_n \\
+        a_2b_1 &amp; a_2b_2 &amp; \dots &amp; a_2b_n \\
+        \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_nb_1 &amp; a_nb_2 &amp; \dots &amp; a_nb_n
+    \end{pmatrix}
+    \tag{8.9}
+\end{equation}\]</span></p>
+</div>
+<div id="inverses-and-solutions-to-systems-of-equations" class="section level3" number="8.2.6">
+<h3><span class="header-section-number">8.2.6</span> Inverses and solutions to systems of equations</h3>
+<p>Inverting a matrix is an operation similar to division of scalars. Multiplying an matrix by its inverse gives the identity matrix, <span class="math inline">\(\mx{I}\)</span>, which is a matrix where the diagonals are 1 and all other elements are 0. This plays the same role as the number 1 in scalar multiplication and division. The notation for the inverse of matrix <span class="math inline">\(\mx{A}\)</span> would be <span class="math inline">\(\mx{A}^-1\)</span> and <span class="math inline">\(\mx{A}\mx{A}^-1 = \mx{I}\)</span>. This is useful for solving equations containing matrices, e.g. if you want to divide both sides of the equation by a matrix. A matrix is called nonsingular if its inverse exists. A useful property of inverses is that if the matrix product <span class="math inline">\(\mx{AB}\)</span></p>
+
+</div>
 </div>
 </div>
             </section>
