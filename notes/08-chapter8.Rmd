@@ -131,18 +131,18 @@ where
 	\begin{pmatrix}
 		3
 	\end{pmatrix}
-	, 
+	,\  
 	\mx{b} = 
 	\begin{pmatrix}
 		1 & 2
 	\end{pmatrix}
-	,
+	,\ 
 	\mx{d} = 
 	\begin{pmatrix}
 		2 \\
 		1
 	\end{pmatrix}
-	,
+	,\ 
 	\mx{B}
 	\begin{pmatrix}
 		5 & 4 \\
@@ -155,7 +155,7 @@ There are also other simple ways to partition matrices.
 
 ### Addition and subtraction
 
-To add matrices, they must have the same dimensions. Just add the corresponding elelments, so for adding matrices $\mx{A}$, and $\mx{B}$ to make $\mx{C}$, it is simply $C_ij = A_ij + B_ij$. Subtraction is defined similarly.
+To add matrices, they must have the same dimensions. Just add the corresponding elelments, so for adding matrices $\mx{A}$, and $\mx{B}$ to make $\mx{C}$, it is simply $C_{ij} = A_{ij} + B_{ij}$. Subtraction is defined similarly.
 
 __Can add examples here if you really want to__
 
@@ -174,25 +174,22 @@ For example, for the two vectors given by
 \begin{equation}
 	\mx{a} = 
 	\begin{pmatrix}
-		1 \\
-		2 \\
-		3 \\ 
-		4
+		1 & 2 & 3 & 4
 	\end{pmatrix} 
-	\notag
-\end{equation}
-and 
-\begin{equation}
+\ \ \ \mathrm{and} \ \ \ 
 	\mx{b} = 
 	\begin{pmatrix}
-		4 & 5 & 7 & 9
+		4 \\
+		5 \\
+		7 \\
+		9
 	\end{pmatrix}
 	\notag
 \end{equation}
 
 the dot product $\mx{a} \cdot \mx{b}$ = (1 x 4) + (2 x 5) + (3 x 7) + (4 x 9) = 71. Dot product is not defined if the vectors have different lengths.
 
-Now consider the matrix $\mx{L} = \mx{M}\mx{N}$ produced by multiplying the $r$ x $c$ matrix $\mx{M}$ by the $c$ x $b$ matrix $\mx{N}$. Partioning $\mx{M}$ as a column vector of $r$ row vectors,
+Now consider the matrix $\mx{L} = \mx{M}\mx{N}$ produced by multiplying the $r$ x $c$ matrix $\mx{M}$ by the $c$ x $b$ matrix $\mx{N}$. Partitioning $\mx{M}$ as a column vector of $r$ row vectors,
 
 \begin{equation}
 	\mx{M} = 
@@ -202,7 +199,7 @@ Now consider the matrix $\mx{L} = \mx{M}\mx{N}$ produced by multiplying the $r$ 
 		\vdots \\
 		\mx{m_r}
 	\end{pmatrix} 
-	where 
+	\ \ \ \mathrm{where}\ \ \ 
 	\mx{m_i} = 
 	\begin{pmatrix}
 		M_{i1} & M_{i2} & \dots & M_{ic}
@@ -217,7 +214,7 @@ and $\mx{N}$ as a row vector of $b$ column vectors,
 	\begin{pmatrix}
 		\mx{n_1} & \mx{n_2} & \dots & \mx{n_b}
 	\end{pmatrix}
-	where 
+	\ \ \ \mathrm{where}\ \ \ 
 	\mx{n_j} = 
 	\begin{pmatrix}
 		N_{1j} \\
@@ -263,7 +260,7 @@ Vectors tend to be written as column vectors, and therefore will be written as s
 	\vdots \\
 	a_n
 	\end{pmatrix}
-
+	\ \ \ 
 	\mx{b} = 
 	\begin{pmatrix}
 	b_1 \\
@@ -349,17 +346,12 @@ Second, for any 2 x 2 matrix $\mx{A}$,
 		a & b \\
 		c & d
 	\end{pmatrix}
-	\notag
-\end{equation}
-
-then 
-
-\begin{equation}
+	\ \ \ \mathrm{then}\ \ \ 
 	\mx{A}^{-1}
 	= 
 	\frac{1} {ad - bc}
 	\begin{pmatrix}
-		d & -b
+		d & -b \\
 		-c & a
 	\end{pmatrix}
 	(\#eq:inverse-of-twobytwo-matrix)
@@ -369,9 +361,42 @@ If $ad = bc$, the inverse doesn't exist as division by zero is undefined!
 
 ### Determinants and minors
 
+F0r a $2 \times 2$ matrix, the quantity
 
+\begin{equation}
+	|\mx{A}| = A_{11}A_{22} - A_{12}A_{21}
+	(\#eq:determinant-of-twobytwo-matrix)
+\end{equation}
 
+is called the determinant, which more generally is denoted by det($\mx{A}$) or $|\mx{A}|$. $\mx{A}^{-1}$ only exists for a square matrix $\mx{A}$ if $|\mx{A}| \neq 0$. For square matrices greater than 2, the determinant is obtained recursively from the general expression
 
+\begin{equation}
+	|\mx{A}| = \sum^n_{j=1} {A_ij}(-1)^{i+j}|\mx{A}_{ij}|
+	(\#eq:general-determinant-equation)
+\end{equation}
 
+where $i$ is any fixed row of the matrix and $\mx{A}$ and $\mx{A}_{ij}$ is a submatrix obtained by deleting the $i$th row and $j$th column from $\mx{A}$. Such a submatrix is known as a minor. Essentially you should be left with some $2 \times 2$ matrices at the end of all this. If the matrix is a diagonal, then the determinant is simply the product of the diagonal elements of that matrix, i.e. if
+
+\begin{equation}
+	A_{ij} = 
+	\begin{cases}
+		a_i, & i = j\\
+		0, & i \neq j
+	\end{cases}
+	\ \ \ \mathrm{then} \ \ \ 
+	|\mx{A}| = \prod^n_{i=1}a_{i}
+	\notag
+\end{equation}
+
+### Computing inverses
+
+The general solution of a matrix inverse is 
+
+\begin{equation}
+	A^{-1}_{ij} = \left[\frac{(-1)^{i+j}|\mx{A}_{ij}|} {|\mx{A}|} \right]^T
+	(\#eq:solution-to-matrix-inversion)
+\end{equation}
+
+where $A^{-1}_{ij}$ denotes the $ij$th element of $\mx{A}^{-1}$ and $\mx{A}_{ij}$ denotes the $ij$th minor of $\mx{A}$. From equation \@ref(eq:solution-to-matrix-inversion), division by the determinant is required for inversion, therefore the determinant of a matrix must be nonzero if that matrix can be inverted. Thus, a matrix is singular if its determinant is zero. This occurs whenever a matrix contains a row (or column) that can be written as a weighted sum of any other rows (or columns). In the context of our linear model, \@ref(eq:multiple-regression-matrix-form), this happens if one of the $n$ equations can be written as a combination of the others, a situation that is equivalent to there being $n$ unknowns but less than $n$ independent equations.
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.11)  11 JUN 2020 15:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.11)  12 JUN 2020 11:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -507,77 +507,243 @@ Chapter 2.
 
 ]
 Chapter 3.
-[11] [12
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 108.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 108.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 108.
+
+LaTeX Warning: Reference `eq:cov-rules-contants' on page 11 undefined on input 
+line 120.
+
+[11]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
+69.
+(/Users/tb13101/Library/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [12] [13] [14] [15] [16
 
 ]
 Chapter 4.
-
-Underfull \hbox (badness 1484) in paragraph at lines 167--167
+[17] [18]
+Underfull \hbox (badness 1484) in paragraph at lines 404--404
 []\T1/lmr/bx/n/14.4 Fisher's de-com-po-si-tion of the geno-typic
  []
 
 
-Underfull \hbox (badness 4699) in paragraph at lines 173--173
+Overfull \hbox (37.04927pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 4.4.  CHARACTERISING THE INFLUENCE OF A LOCUS ON THE PHENOTYPE 
+\T1/lmr/m/n/10 19
+ []
+
+[19]
+
+LaTeX Warning: Reference `eq:expected-genotypic-value-2' on page 20 undefined o
+n input line 435.
+
+[20]
+
+LaTeX Warning: Reference `fig:sigma-g-gene-frequency' on page 21 undefined on i
+nput line 492.
+
+<quant_genetics_book_notes_files/figure-latex/sigma-g-gene-frequency-1.pdf, id=
+187, 469.755pt x 325.215pt>
+File: quant_genetics_book_notes_files/figure-latex/sigma-g-gene-frequency-1.pdf
+ Graphic file (type pdf)
+<use quant_genetics_book_notes_files/figure-latex/sigma-g-gene-frequency-1.pdf>
+
+Package pdftex.def Info: quant_genetics_book_notes_files/figure-latex/sigma-g-g
+ene-frequency-1.pdf  used on input line 498.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+
+Underfull \hbox (badness 4699) in paragraph at lines 503--503
 []\T1/lmr/bx/n/14.4 Additive ef-fects, av-er-age ex-cesses and
  []
 
+[21] [22 <./quant_genetics_book_notes_files/figure-latex/sigma-g-gene-frequency
+-1.pdf>]
+Overfull \hbox (22.19148pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 4.9.  EXTENSIONS FOR MULTIPLE ALLELES AND NON RANDOM MATING \T1
+/lmr/m/n/10 23
+ []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[23] [24]
+Overfull \hbox (22.19148pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 4.9.  EXTENSIONS FOR MULTIPLE ALLELES AND NON RANDOM MATING \T1
+/lmr/m/n/10 25
+ []
 
-[13] [14]
+[25] [26]
 Chapter 5.
-[15
+[27
 
 ]
+
+LaTeX Warning: Reference `eq:generalised-genotypic-value-regression' on page 28
+ undefined on input line 681.
+
+
 Overfull \hbox (38.57884pt too wide) has occurred while \output is active
-\T1/lmr/m/n/10 16 \T1/lmr/m/sl/10 CHAPTER 5.  SOURCES OF GENETIC VARIATION FOR 
+\T1/lmr/m/n/10 28 \T1/lmr/m/sl/10 CHAPTER 5.  SOURCES OF GENETIC VARIATION FOR 
 MULTILOCUS TRAITS
  []
 
-[16
+[28]
+
+LaTeX Warning: Reference `eq:LD-decay' on page 29 undefined on input line 746.
+
+[29]
+
+LaTeX Warning: Reference `fig:ld-decay' on page 30 undefined on input line 777.
+
+
+<quant_genetics_book_notes_files/figure-latex/ld-decay-1.pdf, id=290, 469.755pt
+ x 325.215pt>
+File: quant_genetics_book_notes_files/figure-latex/ld-decay-1.pdf Graphic file 
+(type pdf)
+<use quant_genetics_book_notes_files/figure-latex/ld-decay-1.pdf>
+Package pdftex.def Info: quant_genetics_book_notes_files/figure-latex/ld-decay-
+1.pdf  used on input line 783.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+
+LaTeX Warning: Reference `eq:additive-var' on page 30 undefined on input line 8
+01.
+
+
+Overfull \hbox (38.57884pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10 30 \T1/lmr/m/sl/10 CHAPTER 5.  SOURCES OF GENETIC VARIATION FOR 
+MULTILOCUS TRAITS
+ []
+
+[30] [31 <./quant_genetics_book_notes_files/figure-latex/ld-decay-1.pdf>]
+
+LaTeX Warning: Reference `eq:additive-var' on page 32 undefined on input line 8
+03.
+
+
+LaTeX Warning: Reference `eq:dominance-var' on page 32 undefined on input line 
+803.
+
+
+LaTeX Warning: Reference `eq:allelic-sub-effect' on page 32 undefined on input 
+line 810.
+
+
+Overfull \hbox (38.57884pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10 32 \T1/lmr/m/sl/10 CHAPTER 5.  SOURCES OF GENETIC VARIATION FOR 
+MULTILOCUS TRAITS
+ []
+
+[32]
+
+LaTeX Warning: Reference `eq:dom-effects-ij' on page 33 undefined on input line
+ 836.
+
+
+LaTeX Warning: Reference `eq:dom-effects-lk' on page 33 undefined on input line
+ 836.
+
+
+LaTeX Warning: Reference `eq:additve-var-LD' on page 33 undefined on input line
+ 852.
+
+
+LaTeX Warning: Reference `eq:dominance-var-LD' on page 33 undefined on input li
+ne 852.
+
+[33]
+Overfull \hbox (38.57884pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10 34 \T1/lmr/m/sl/10 CHAPTER 5.  SOURCES OF GENETIC VARIATION FOR 
+MULTILOCUS TRAITS
+ []
+
+[34
 
 ]
 Chapter 6.
-[17] [18
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
+82.
+(/Users/tb13101/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [35]
+
+LaTeX Warning: Reference `eq:var-of-sum' on page 36 undefined on input line 902
+.
+
+[36] [37] [38] [39] [40
 
 ]
 Chapter 7.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[19] [20]
-Chapter 8.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 286.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 286.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 286.
-
-LaTeX Warning: Reference `eq:intercept-and-slope' on page 21 undefined on input
- line 300.
+LaTeX Warning: Reference `eq:phenotype-linear-model' on page 41 undefined on in
+put line 1007.
 
 
-LaTeX Warning: Reference `eq:intercept-and-slope' on page 21 undefined on input
- line 300.
+LaTeX Warning: Reference `eq:multilocus-genetic-variance' on page 41 undefined 
+on input line 1024.
 
-[21
+[41] [42]
 
-]
+LaTeX Warning: Reference `eq:coef-coan-itself' on page 43 undefined on input li
+ne 1055.
 
-LaTeX Warning: Reference `eq:multiple-regression-matrix-form' on page 22 undefi
-ned on input line 327.
 
-! Undefined control sequence.
-l.327 ...ression-matrix-form} are written as \(\mx
-                                                  {V}\), \(\mx{\beta}\) and ...
+LaTeX Warning: Reference `eq:coef-coan-parent-offspring' on page 43 undefined o
+n input line 1064.
+
+[43]
+
+LaTeX Warning: Reference `eq:coef-coan-xy-autosomes' on page 44 undefined on in
+put line 1088.
+
+[44pdfTeX warning (ext4): destination with the same identifier (name{equation.7
+.1.5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1096 
+       pdfTeX warning (ext4): destination with the same identifier (name{equati
+on.7.1.5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1096 
+       ]
+
+LaTeX Warning: Reference `eq:coef-frat' on page 45 undefined on input line 1109
+.
+
+[45]
+
+LaTeX Warning: Reference `eq:complete-genotypic-value' on page 46 undefined on 
+input line 1149.
+
+
+LaTeX Warning: Reference `eq:multilocus-genetic-variance' on page 46 undefined 
+on input line 1149.
+
+
+LaTeX Warning: Reference `eq:multilocus-genetic-covariance' on page 46 undefine
+d on input line 1158.
+
+
+Overfull \hbox (58.0666pt too wide) detected at line 1168
+[]
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1179   The coefficient for \sigma
+                                   \^{}2\_\{AA\} declines more rapidly with ...
  
 Here is how much of TeX's memory you used:
- 12489 strings out of 482401
- 184524 string characters out of 5946078
- 460178 words of memory out of 5000000
- 27890 multiletter control sequences out of 15000+600000
- 594258 words of font info for 85 fonts, out of 8000000 for 9000
+ 12797 strings out of 482401
+ 189303 string characters out of 5946078
+ 462178 words of memory out of 5000000
+ 27988 multiletter control sequences out of 15000+600000
+ 598594 words of font info for 131 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,9n,42p,896b,348s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,16n,42p,1657b,404s stack positions out of 5000i,500n,10000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!

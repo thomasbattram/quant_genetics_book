@@ -24,7 +24,7 @@
 <meta name="author" content="Thomas Battram" />
 
 
-<meta name="date" content="2020-06-11" />
+<meta name="date" content="2020-06-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -170,6 +170,8 @@
 <li class="chapter" data-level="8.2.4" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#multiplication"><i class="fa fa-check"></i><b>8.2.4</b> Multiplication</a></li>
 <li class="chapter" data-level="8.2.5" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#transposition"><i class="fa fa-check"></i><b>8.2.5</b> Transposition</a></li>
 <li class="chapter" data-level="8.2.6" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#inverses-and-solutions-to-systems-of-equations"><i class="fa fa-check"></i><b>8.2.6</b> Inverses and solutions to systems of equations</a></li>
+<li class="chapter" data-level="8.2.7" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#determinants-and-minors"><i class="fa fa-check"></i><b>8.2.7</b> Determinants and minors</a></li>
+<li class="chapter" data-level="8.2.8" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#computing-inverses"><i class="fa fa-check"></i><b>8.2.8</b> Computing inverses</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="questions.html"><a href="questions.html"><i class="fa fa-check"></i>Questions</a>
@@ -205,7 +207,7 @@
     \tag{8.1}
 \end{equation}\]</span></p>
 <p><span class="math inline">\(y\)</span> = dependent/response variable, <span class="math inline">\(z_1, z_2, z_n\)</span> = predictors, <span class="math inline">\(e\)</span> = residual error, <span class="math inline">\(\alpha\)</span> is a constant as are <span class="math inline">\(\beta_1, \beta_2, \beta_n\)</span> to be estimated.</p>
-<p>Recall from Chapter 3 that the goal of least-squares regression is to find a set of constants (<span class="math inline">\(\alpha\)</span> and the <span class="math inline">\(\beta\)</span>s) that minimise the squared differences between observed and expected values, with expected values is anything that fits on the “line of best fit”. Also, recall equation <a href="#eq:intercept-and-slope">(<strong>??</strong>)</a>, to see the relationship between <span class="math inline">\(y\)</span>, <span class="math inline">\(z_n\)</span> (<span class="math inline">\(x\)</span> in the equation) and <span class="math inline">\(b\)</span>. For multiple regression there are many “<span class="math inline">\(b\)</span>” terms and each of them can be estimated by dividing the covariance of the dependent variable and the predictor (<span class="math inline">\(\sigma(y, z_n)\)</span>) by the covariance of the predictor with all other predictors in the model. When <span class="math inline">\(n = 1\)</span>, the model reduces to a simple linear regression and we return to equation <a href="#eq:intercept-and-slope">(<strong>??</strong>)</a>. This can be represented in matrix form like so:</p>
+<p>Recall from Chapter 3 that the goal of least-squares regression is to find a set of constants (<span class="math inline">\(\alpha\)</span> and the <span class="math inline">\(\beta\)</span>s) that minimise the squared differences between observed and expected values, with expected values is anything that fits on the “line of best fit”. Also, recall equation <a href="covariance-regression-and-correlation.html#eq:intercept-and-slope">(3.6)</a>, to see the relationship between <span class="math inline">\(y\)</span>, <span class="math inline">\(z_n\)</span> (<span class="math inline">\(x\)</span> in the equation) and <span class="math inline">\(b\)</span>. For multiple regression there are many “<span class="math inline">\(b\)</span>” terms and each of them can be estimated by dividing the covariance of the dependent variable and the predictor (<span class="math inline">\(\sigma(y, z_n)\)</span>) by the covariance of the predictor with all other predictors in the model. When <span class="math inline">\(n = 1\)</span>, the model reduces to a simple linear regression and we return to equation <a href="covariance-regression-and-correlation.html#eq:intercept-and-slope">(3.6)</a>. This can be represented in matrix form like so:</p>
 <p><span class="math display" id="eq:multiple-regression-matrix-form">\[\begin{equation}
     \begin{pmatrix}
         \sigma^2(z_1) &amp; \sigma(z_1, z_n) &amp; \dots &amp; \sigma(z_1, z_n) \\
@@ -306,18 +308,18 @@
     \begin{pmatrix}
         3
     \end{pmatrix}
-    , 
+    ,\  
     \mx{b} = 
     \begin{pmatrix}
         1 &amp; 2
     \end{pmatrix}
-    ,
+    ,\ 
     \mx{d} = 
     \begin{pmatrix}
         2 \\
         1
     \end{pmatrix}
-    ,
+    ,\ 
     \mx{B}
     \begin{pmatrix}
         5 &amp; 4 \\
@@ -329,7 +331,7 @@
 </div>
 <div id="addition-and-subtraction" class="section level3" number="8.2.3">
 <h3><span class="header-section-number">8.2.3</span> Addition and subtraction</h3>
-<p>To add matrices, they must have the same dimensions. Just add the corresponding elelments, so for adding matrices <span class="math inline">\(\mx{A}\)</span>, and <span class="math inline">\(\mx{B}\)</span> to make <span class="math inline">\(\mx{C}\)</span>, it is simply <span class="math inline">\(C_ij = A_ij + B_ij\)</span>. Subtraction is defined similarly.</p>
+<p>To add matrices, they must have the same dimensions. Just add the corresponding elelments, so for adding matrices <span class="math inline">\(\mx{A}\)</span>, and <span class="math inline">\(\mx{B}\)</span> to make <span class="math inline">\(\mx{C}\)</span>, it is simply <span class="math inline">\(C_{ij} = A_{ij} + B_{ij}\)</span>. Subtraction is defined similarly.</p>
 <p><strong>Can add examples here if you really want to</strong></p>
 </div>
 <div id="multiplication" class="section level3" number="8.2.4">
@@ -343,23 +345,20 @@
 <p><span class="math display">\[\begin{equation}
     \mx{a} = 
     \begin{pmatrix}
-        1 \\
-        2 \\
-        3 \\ 
-        4
+        1 &amp; 2 &amp; 3 &amp; 4
     \end{pmatrix} 
-    \notag
-\end{equation}\]</span>
-and
-<span class="math display">\[\begin{equation}
+\ \ \ \mathrm{and} \ \ \ 
     \mx{b} = 
     \begin{pmatrix}
-        4 &amp; 5 &amp; 7 &amp; 9
+        4 \\
+        5 \\
+        7 \\
+        9
     \end{pmatrix}
     \notag
 \end{equation}\]</span></p>
 <p>the dot product <span class="math inline">\(\mx{a} \cdot \mx{b}\)</span> = (1 x 4) + (2 x 5) + (3 x 7) + (4 x 9) = 71. Dot product is not defined if the vectors have different lengths.</p>
-<p>Now consider the matrix <span class="math inline">\(\mx{L} = \mx{M}\mx{N}\)</span> produced by multiplying the <span class="math inline">\(r\)</span> x <span class="math inline">\(c\)</span> matrix <span class="math inline">\(\mx{M}\)</span> by the <span class="math inline">\(c\)</span> x <span class="math inline">\(b\)</span> matrix <span class="math inline">\(\mx{N}\)</span>. Partioning <span class="math inline">\(\mx{M}\)</span> as a column vector of <span class="math inline">\(r\)</span> row vectors,</p>
+<p>Now consider the matrix <span class="math inline">\(\mx{L} = \mx{M}\mx{N}\)</span> produced by multiplying the <span class="math inline">\(r\)</span> x <span class="math inline">\(c\)</span> matrix <span class="math inline">\(\mx{M}\)</span> by the <span class="math inline">\(c\)</span> x <span class="math inline">\(b\)</span> matrix <span class="math inline">\(\mx{N}\)</span>. Partitioning <span class="math inline">\(\mx{M}\)</span> as a column vector of <span class="math inline">\(r\)</span> row vectors,</p>
 <p><span class="math display">\[\begin{equation}
     \mx{M} = 
     \begin{pmatrix}
@@ -368,7 +367,7 @@ and
         \vdots \\
         \mx{m_r}
     \end{pmatrix} 
-    where 
+    \ \ \ \mathrm{where}\ \ \ 
     \mx{m_i} = 
     \begin{pmatrix}
         M_{i1} &amp; M_{i2} &amp; \dots &amp; M_{ic}
@@ -381,7 +380,7 @@ and
     \begin{pmatrix}
         \mx{n_1} &amp; \mx{n_2} &amp; \dots &amp; \mx{n_b}
     \end{pmatrix}
-    where 
+    \ \ \ \mathrm{where}\ \ \ 
     \mx{n_j} = 
     \begin{pmatrix}
         N_{1j} \\
@@ -417,7 +416,7 @@ and
     \vdots \\
     a_n
     \end{pmatrix}
-
+    \ \ \ 
     \mx{b} = 
     \begin{pmatrix}
     b_1 \\
@@ -464,7 +463,75 @@ and
 </div>
 <div id="inverses-and-solutions-to-systems-of-equations" class="section level3" number="8.2.6">
 <h3><span class="header-section-number">8.2.6</span> Inverses and solutions to systems of equations</h3>
-<p>Inverting a matrix is an operation similar to division of scalars. Multiplying an matrix by its inverse gives the identity matrix, <span class="math inline">\(\mx{I}\)</span>, which is a matrix where the diagonals are 1 and all other elements are 0. This plays the same role as the number 1 in scalar multiplication and division. The notation for the inverse of matrix <span class="math inline">\(\mx{A}\)</span> would be <span class="math inline">\(\mx{A}^-1\)</span> and <span class="math inline">\(\mx{A}\mx{A}^-1 = \mx{I}\)</span>. This is useful for solving equations containing matrices, e.g. if you want to divide both sides of the equation by a matrix. A matrix is called nonsingular if its inverse exists. A useful property of inverses is that if the matrix product <span class="math inline">\(\mx{AB}\)</span></p>
+<p>Inverting a matrix is an operation similar to division of scalars. Multiplying an matrix by its inverse gives the identity matrix, <span class="math inline">\(\mx{I}\)</span>, which is a matrix where the diagonals are 1 and all other elements are 0. This plays the same role as the number 1 in scalar multiplication and division. The notation for the inverse of matrix <span class="math inline">\(\mx{A}\)</span> would be <span class="math inline">\(\mx{A}^{-1}\)</span> and <span class="math inline">\(\mx{A}\mx{A}^{-1} = \mx{I}\)</span>. This is useful for solving equations containing matrices, e.g. if you want to divide both sides of the equation by a matrix. A matrix is called nonsingular if its inverse exists. A useful property of inverses is that if the matrix product <span class="math inline">\(\mx{AB}\)</span> is a square matrix (where <span class="math inline">\(\mx{A}\)</span> and <span class="math inline">\(\mx{B}\)</span> are both square), then</p>
+<p><span class="math display" id="eq:inverse-of-square-matrix-product">\[\begin{equation}
+    (\mx{AB})^{-1} = \mx{B}^{-1}\mx{A}^{-1}
+    \tag{8.10}
+\end{equation}\]</span></p>
+<p>When you have a non-square or singular matrix you can still obtain solutions to equations containing the matrix by using generalised inverses, but such solutions are not unique. See appendix 3 in the book for deets.</p>
+<p>Recalling equation <a href="introduction-to-matrix-algebra-and-linear-models.html#eq:abbreviated-multiple-regression">(8.3)</a>, we can see that the solution (<span class="math inline">\(\mx{\beta}\)</span>) can be expressed as</p>
+<p><span class="math display" id="eq:beta-multiple-regression">\[\begin{equation}
+    \mx{\beta} = \mx{V}^{-1}\mx{c}
+    \tag{8.11}
+\end{equation}\]</span></p>
+<p>Likewise, for the Pearson-Lande-Arnold regression giving the best linear prediction of fitness,</p>
+<p><span class="math display" id="eq:beta-pearson-lande-arnold-regression">\[\begin{equation}
+    \mx{\beta} = \mx{P}^{-1}\mx{s}
+    \tag{8.12}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\mx{P}\)</span> is the covariance matrix for phenotypic measures <span class="math inline">\(z_1, ..., z_n\)</span>, and <span class="math inline">\(\mx{s}\)</span> is the vector of selection differentials for the <span class="math inline">\(n\)</span> characters.</p>
+<p>Before going on to the formal expression for inverting a matrix, let’s have a look at some sweet sweet examples of extreme, but hella useful cases that lead to simple expressions for the inverse, shall weeeeee? First up, if the matrix is diagonal (all off-diagonal elements are zero), then the matrix inverse is also diagonal, with <span class="math inline">\(\mx{A}^{-1}_{ii} = 1/A_{ii}\)</span>, i.e. just raise the diagonal elements to the power of negative one. Simple! Of course, if any diagonal elements are el zilcho, then it wonee work as you canee divide by zero (inverse is undefined).</p>
+<p>Second, for any 2 x 2 matrix <span class="math inline">\(\mx{A}\)</span>,</p>
+<p><span class="math display" id="eq:inverse-of-twobytwo-matrix">\[\begin{equation}
+    \mx{A} = 
+    \begin{pmatrix}
+        a &amp; b \\
+        c &amp; d
+    \end{pmatrix}
+    \ \ \ \mathrm{then}\ \ \ 
+    \mx{A}^{-1}
+    = 
+    \frac{1} {ad - bc}
+    \begin{pmatrix}
+        d &amp; -b \\
+        -c &amp; a
+    \end{pmatrix}
+    \tag{8.13}
+\end{equation}\]</span></p>
+<p>If <span class="math inline">\(ad = bc\)</span>, the inverse doesn’t exist as division by zero is undefined!</p>
+</div>
+<div id="determinants-and-minors" class="section level3" number="8.2.7">
+<h3><span class="header-section-number">8.2.7</span> Determinants and minors</h3>
+<p>F0r a <span class="math inline">\(2 \times 2\)</span> matrix, the quantity</p>
+<p><span class="math display" id="eq:determinant-of-twobytwo-matrix">\[\begin{equation}
+    |\mx{A}| = A_{11}A_{22} - A_{12}A_{21}
+    \tag{8.14}
+\end{equation}\]</span></p>
+<p>is called the determinant, which more generally is denoted by det(<span class="math inline">\(\mx{A}\)</span>) or <span class="math inline">\(|\mx{A}|\)</span>. <span class="math inline">\(\mx{A}^{-1}\)</span> only exists for a square matrix <span class="math inline">\(\mx{A}\)</span> if <span class="math inline">\(|\mx{A}| \neq 0\)</span>. For square matrices greater than 2, the determinant is obtained recursively from the general expression</p>
+<p><span class="math display" id="eq:general-determinant-equation">\[\begin{equation}
+    |\mx{A}| = \sum^n_{j=1} {A_ij}(-1)^{i+j}|\mx{A}_{ij}|
+    \tag{8.15}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(i\)</span> is any fixed row of the matrix and <span class="math inline">\(\mx{A}\)</span> and <span class="math inline">\(\mx{A}_{ij}\)</span> is a submatrix obtained by deleting the <span class="math inline">\(i\)</span>th row and <span class="math inline">\(j\)</span>th column from <span class="math inline">\(\mx{A}\)</span>. Such a submatrix is known as a minor. Essentially you should be left with some <span class="math inline">\(2 \times 2\)</span> matrices at the end of all this. If the matrix is a diagonal, then the determinant is simply the product of the diagonal elements of that matrix, i.e. if</p>
+<p><span class="math display">\[\begin{equation}
+    A_{ij} = 
+    \begin{cases}
+        a_i, &amp; i = j\\
+        0, &amp; i \neq j
+    \end{cases}
+    \ \ \ \mathrm{then} \ \ \ 
+    |\mx{A}| = \prod^n_{i=1}a_{i}
+    \notag
+\end{equation}\]</span></p>
+</div>
+<div id="computing-inverses" class="section level3" number="8.2.8">
+<h3><span class="header-section-number">8.2.8</span> Computing inverses</h3>
+<p>The general solution of a matrix inverse is</p>
+<p><span class="math display" id="eq:solution-to-matrix-inversion">\[\begin{equation}
+    A^{-1}_{ij} = \left[\frac{(-1)^{i+j}|\mx{A}_{ij}|} {|\mx{A}|} \right]^T
+    \tag{8.16}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(A^{-1}_{ij}\)</span> denotes the <span class="math inline">\(ij\)</span>th element of <span class="math inline">\(\mx{A}^{-1}\)</span> and <span class="math inline">\(\mx{A}_{ij}\)</span> denotes the <span class="math inline">\(ij\)</span>th minor of <span class="math inline">\(\mx{A}\)</span>. From equation <a href="introduction-to-matrix-algebra-and-linear-models.html#eq:solution-to-matrix-inversion">(8.16)</a>, division by the determinant is required for inversion, therefore the determinant of a matrix must be nonzero if that matrix can be inverted. Thus, a matrix is singular if its determinant is zero. This occurs whenever a matrix contains a row (or column) that can be written as a weighted sum of any other rows (or columns). In the context of our linear model, <a href="introduction-to-matrix-algebra-and-linear-models.html#eq:multiple-regression-matrix-form">(8.2)</a>, this happens if one of the <span class="math inline">\(n\)</span> equations can be written as a combination of the others, a situation that is equivalent to there being <span class="math inline">\(n\)</span> unknowns but less than <span class="math inline">\(n\)</span> independent equations.</p>
 
 </div>
 </div>
