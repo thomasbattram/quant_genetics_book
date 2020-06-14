@@ -399,4 +399,50 @@ The general solution of a matrix inverse is
 
 where $A^{-1}_{ij}$ denotes the $ij$th element of $\mx{A}^{-1}$ and $\mx{A}_{ij}$ denotes the $ij$th minor of $\mx{A}$. From equation \@ref(eq:solution-to-matrix-inversion), division by the determinant is required for inversion, therefore the determinant of a matrix must be nonzero if that matrix can be inverted. Thus, a matrix is singular if its determinant is zero. This occurs whenever a matrix contains a row (or column) that can be written as a weighted sum of any other rows (or columns). In the context of our linear model, \@ref(eq:multiple-regression-matrix-form), this happens if one of the $n$ equations can be written as a combination of the others, a situation that is equivalent to there being $n$ unknowns but less than $n$ independent equations.
 
+## Expectations of random vectors and matrices
+
+Matrix algebra provides a powerful approach for analysing linear combinations of random variables. Let $\mx{x}$ be a column vector containing $n$ random variables, $\mx{x} = (x_1, x_2, \dots, x_n)^T$. We may want to construct a new univariate (scalar) random variable $y$ by taking some linear combination of the elements of $x$,
+
+\begin{equation}
+	y = \sum^n_{i=1} {a_ix_i} = \mx{a}^T \mx{x}
+	\notag
+\end{equation}
+
+where $\mx{a} = (a_1, a_2, \dots, a_n)^T$ is a column vector of constants. Good example of this is when we want to make a weighted genetic score. Likewise, we can construct a new $k$-dimensional vector $\mx{y}$ by premultiplying $\mx{x}$ by a $k \times n$ matrix $\mx{A}$ of constants, $\mx{y} = \mx{A}\mx{x}$. More generally, an ($n \times k$) matrix $\mx{X}$ of random variables can be transformed into a new $m \times l$ dimensional matrix $\mx{Y}$ of elements consisting of linear combinations of the elements of $\mx{X}$ by
+
+\begin{equation}
+	\mx{Y}_{m \times l} = \mx{A}_{m \times n} \mx{X}_{n \times k} \mx{B}_{k \times l}
+	(\#eq:transforming-matrix-of-random-variables)
+\end{equation}
+
+where the matrices $\mx{A}$ and $\mx{B}$ are constants with dimensions as subscripted.
+
+If $\mx{X}$ is full of random variables, the expected value of $\mx{X}$ is $E(\mx{X})$ containing the expected value of each element of $\mx{X}$. If $\mx{X}$ and $\mx{Z}$ are matrices of the same dimension, then
+
+\begin{equation}
+	E(\mx{X} + \mx{Z}) = E(\mx{X}) + E(\mx{Z})
+	(\#eq:matrices-addition-expectations)
+\end{equation}
+
+Similarly, just remember other rules of expectations to obtain an expression for the expectation of $\mx{Y}$ from \@ref(eq:transforming-matrix-of-random-variables). The important point is of course that the dimensions of matrices need to match up! 
+
+## Covariance matrices of transformed vectors
+
+If we have an $n \times n$ square matrix $\mx{A}$ and an $n \times 1$ column vector $\mx{x}$, then:
+
+I think it's worth writing this all out verbatim. Just because the logic used here is harder to condense and is complicated/abstract so any changes may prove to be false.
+
+\begin{equation}
+	\mx{x}^T\mx{Ax} = \sum
+\end{equation}
+
+
+
+
+
+
+
+
+
+
 
