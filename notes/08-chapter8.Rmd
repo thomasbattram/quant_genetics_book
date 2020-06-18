@@ -430,19 +430,210 @@ Similarly, just remember other rules of expectations to obtain an expression for
 
 If we have an $n \times n$ square matrix $\mx{A}$ and an $n \times 1$ column vector $\mx{x}$, then:
 
-I think it's worth writing this all out verbatim. Just because the logic used here is harder to condense and is complicated/abstract so any changes may prove to be false.
-
 \begin{equation}
-	\mx{x}^T\mx{Ax} = \sum
+	\mx{x}^T\mx{Ax} = \sum^n_{i=1} \sum^n_{j=1} {a_{ij}}x_ix_j
+	(\#eq:matrix-columnvec-multiplication)
 \end{equation}
 
+This expression is called a quadratic form (or quadratic product) and yield a scalar. A generalisation of a quadratic form is the bilinear form, $\mx{b^TAa}$, where $\mx{b}$ and $\mx{a}$ are, respectively $n \times 1$ and $m \times 1$ column vectors and $\mx{A}$ is an $n \times m$ matrix. Index the matrices and you can tell what the resulting product is! Hint: it's a scaler, figure out why! As scalars, bilinear forms equal their transposes, giving the useful identity:
 
+\begin{equation}
+	\mx{b^TAa} = (\mx{b^TAa})^T = \mx{a^TA^Tb}
+	(\#eq:bilinear-form)
+\end{equation}
 
+If $\mx{x}$ is a vector of $n$ random variables, then you can express the $n$ variances and $n(n-1)/2$ covariances associated with the elements of $x$ as the matrix $\mx{V}$, where $V_{ij} = \sigma(x_i, x_j)$ is the covariance between the random variables $x_i$ and $x_j$. This is a covariance matrix (or variance-covariance matrix)! Remember: diagonals = variances and off-diagonals = covariances! The $\mx{V}$ matrix is symmetric such that:
 
+\begin{equation}
+	V_{ij} = \sigma(x_i, x_j) = \sigma(x_j, x_i) = V_{ji}
+	\notag
+\end{equation}
 
+If we have a univariate random variable $y = \sum{c_{k}x_{k}}$ generated from a linear combination of the elements of $\mx{x}$, in matrix notation we have $y = \mx{c}^T\mx{x}$, where $\mx{c}$ is a column vector of constants. The variance of $y$ can be expressed as a quadratic form involving the covariance matrix $\mx{V}$ for the elements of $\mx{x}$, 
 
+\begin{equation}
+	\mx{c}^T\mx{V}\mx{c}
+	(\#eq:variance-of-univariate-random-variable-y)
+\end{equation}
 
+(See book for derivation, \@ref(eq:variance-of-univariate-random-variable-y) is the final result)
 
+Likewise, the covariance between two univariate random variables created from different linear combinations of $\mx{x}$ is given by the bilinear form
 
+\begin{equation}
+	\sigma(\mx{a^Tx}, \mx{b^Tx}) = \mx{a^TVb}
+	(\#eq:covariance-of-univariate-random-variables-created-from-x)
+\end{equation}
 
+If we transform $\mx{x}$ to two new vectors $\mx{y}_{x \times 1} = \mx{A}_{l \times n}\mx{x}_{n \times 1}$ and $\mx{z}_{m \times 1} = \mx{B}_{m \times n}\mx{x}_{n \times 1}$, then instead of a single covariance we have an $l \times m$ dimensional covariance matrix, denoted $\mx{\sigma(y, z)}$. Letting $\mx{\mu_{y}} = \mx{A_\mu}$ and $\mx{\mu_{z}} = \mx{B_\mu}$, with $E(\mx{x}) = \mu$, then $\mx{\sigma(y, z)}$ can be expressed in terms of $\mx{V}$, the covariance matrix of $\mx{x}$, 
+
+\begin{equation}
+\begin{split}
+	\mx{\sigma(y, z)} &= \mx{\sigma(Ax, Bx)} \notag \\
+	&= E\left[(\mx{y} - \mx{\mu_{y}})(\mx{z} - \mx{\mu_{z}})^T \right] \notag \\
+	&= E\left[\mx{A}(\mx{x} - \mx{\mu})(\mx{x} - \mx{\mu})^T \mx{B}^T \right] \notag \\
+	&= \mx{AVB}^T 
+\end{split}
+	(\#eq:covariance-of-two-vectors)
+\end{equation}
+
+In particular, the covariance matrix for $\mx{y} = \mx{Ax}$ is 
+
+\begin{equation}
+	\mx{\sigma(y, y)} = \mx{AVA}^T
+	(\#eq:covariance-matrix-of-y-equals-Ax)
+\end{equation}
+
+so that the covariance between $y_i$ and $y_$ is given by the $ij$th element of the matrix product $\mx{AVA}^T$. Finally, note that if $\mx{x}$ is a vector of random variables with expected value $\mu$, then the expected value of the scalar quadratic product $\mx{x}^T\mx{Ax}$ is 
+
+\begin{equation}
+	\mx{x}^T\mx{Ax} = tr(\mx{AV}) + \mx{\mu}^T\mx{A\mu}
+	(\#eq:no-idea-what-to-call-this-eq)
+\end{equation}
+
+where $\mx{V}$ is the covariance matrix for the elements of $\mx{x}$, and the trace of a square matrix, $tr(\mx{M}) = \sum{M_{ii}}$ is the sum of its diagonal values.
+
+## The multivariate normal distribution
+
+Multivariate normal distribution = MVN. 
+
+Consider the probability density function for $n$ independent normal random variables, where $x_i$ is normally distributed with mean $\mu_i$ and variance $\sigma^2_i$. In this case, because the variables are independent, the joint probability density function is simply the product of each univariate density, 
+
+\begin{equation}
+	TO-DO
+	(\#eq:joint-prob-density-function-independent-vars)
+\end{equation}
+
+Let's express this in matrix form, because we're cool! (also it compacts things a lot). To do this, we need to defin these matrices
+
+\begin{equation}
+	\mx{V} = 
+	\begin{pmatrix}
+		\sigma^2_1 & 0 & \dots & 0 \\
+		0 & \sigma^2_2 & \dots & 0 \\
+		\vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \sigma^2_n
+	\end{pmatrix}
+	\ \ \ \mathrm{and}\ \ \
+	\mx{\mu} = 
+	\begin{pmatrix}
+		\mu_1 \\
+		\mu_2 \\
+		\vdots \\
+		\mu_n
+	\end{pmatrix}
+	\notag
+\end{equation}
+
+Since $\mx{V}$ is diagonal, its determinant is simply the product of the diagonal elements
+
+\begin{equation}
+	|\mx{V}| = \prod^n_{i=1}\sigma^2_i
+	\notag
+\end{equation}
+
+Likewise, using quadratic products, note that
+
+\begin{equation}
+	\sum^n_{i=1} \frac{(x_i - \mu_i)^2} {\sigma^2_i} = (\mx{x} - \mx{\mu}^T)\mx{V}^{-1} (\mx{x} - \mx{\mu})
+	\notag
+\end{equation}
+
+putting these together, equation \@ref(eq:joint-prob-density-function-independent-vars) can be written as
+
+\begin{equation}
+	TO-DO
+	(\#eq:joint-prob-density-function-independent-vars-as-matrices)
+\end{equation}
+
+This can also be written as $p(\mx{x}, \mx{\mu}, \mx{V}$ to stress that it is a function of the mean vector $\mx{\mu}$ and the covariance matrix $\mx{V}$.
+
+More generally, when the elements of $\mx{x}$ are correlated, equation \@ref(eq:joint-prob-density-function-independent-vars-as-matrices) gives the probability density function for a vector of multivariate normally distributed random variables, with mean vector $\mx{\mu}$ and covariance matrix $\mx{V}$. We denote this by 
+
+\begin{equation}
+	\mx{x} \sim \mathrm{MVN_n}(\mx{\mu, V})
+	\notag
+\end{equation}
+
+where the subscript indicating the dimensionality of $\mx{x}$ is usually omitted. MVN also called Gaussian distribution.
+
+### Properties of the MVN
+
+Like the univariate normal distribution, the MVN is expected to arise naturally when the trait of interest result from a large number of underlying variables, so fits many human traits! Prepare your butts for some useful properties of MVN, because here they come!!! 
+
+1. If $\mx{x} \sim \mathrm{MVN}$, then the distribution of any subset of the variables in $\mx{x}$ is also MVN. For example, each $x_i$ is normally distributed and each pair $(x_i, x_j)$ is bivariate normally distributed.
+
+2. If $\mx{x} \sim \mathrm{MVN}$, then any linear combination of the elements of $\mx{x}$ is also MVN. Specifically, if $\mx{x} \sim \mathrm{MVN_n}(\mx{\mu}, \mx{V})$, $\mx{a}$ is a vector of constants, and $\mx{A}$ is a matrix of constants, then
+
+\begin{equation}
+	\mathrm{for}\ \ \ \mx{y} = \mx{x} + \mx{a}, \ \ \ \ \ \mx{y} \sim \mathrm{MVN_n}(\mx{\mu} + \mx{a}, \mx{V}) \\
+	\mathrm{for}\ \ \ \mx{y} = \mx{a}^T \mx{x} = \sum^n_{k=1} {a_ix_i}, \ \ \ \ \ y \sim \mathrm{N}(\mx{a}^{T}\mx{\mu}, \mx{a}^{T}\mx{V}\mx{a}) \\
+	\mathrm{for}\ \ \ \mx{y} = \mx{A}\mx{x}, \ \ \ \ \ \mx{y} \sim \mathrm{MVN_m}(\mx{A\mu}, \mx{A^{T}VA})
+\end{equation}
+
+3. Conditional distributions associated with MVN are also multivariate normal. __ADD IN BOOK PART HERE!!__
+
+4. If $\mx{x} \sim \mathrm{MVN}$, the regression of any subset of $\mx{x}$ on another subset is linear and homoscedastic. __ADD IN BOOK PART HERE!!__
+
+## Overview of linear models
+
+Consider a multivariate linear model where all the covariates are binary. For example, consider the half-sib design wherein each of $p$ unrelated sires is mated at random to a number of unrelated dams and a single offspring is measured from each cross. The simplest model for this design is 
+
+\begin{equation}
+	y_{ij} = \mu + s_i + e_{ij}
+	\notag
+\end{equation}
+
+where $y_{ij}$ is the phenotype of the $j$th offspring from sire $i$, $\mu$ is the population mean, $s_i$ is the sire effect, and $e_{ij}$ is the residual error. __DON'T UNDERSTAND THIS SENTENCE__ Although this is clearly a linear model, it differs significantly from the regression model described above in that while there are parameters to estimate (the sire effects, $s_i$), the only measured values are the $y_{ij}$. Nevertheless, we can express this model in a form that is essentially identical to the standard regression model by using $p$ binary variables to classify the sires of the offspring. The resulting linear model becomes
+
+\begin{equation}
+	y_{ij} = \mu + \sum^p_{k=1}s_{k}x_{ik} + e_{ij} 
+	\notag
+\end{equation}
+where
+\begin{equation}
+	x_{ik} = 
+	\begin{cases}
+		0, & \text{ if k = i } \\
+		1, & \text{ otherwise }
+	\end{cases}
+\end{equation}
+
+By using binary variables, an wide class of problems can be handled by linear models. Models containing only binary variables are usually called ANOVA (analysis of variance) models! Whether predictor variables are a continuous (as in regression) or not (as in ANOVA), the procedures are special cases of the general linear model (GLM), wherein each observation ($\mx{y}$) is assumed to be a linear function of $p$ observed and / or binary variables plus a residual error ($e$), 
+
+\begin{equation}
+	y_i = \sum^p_{k=1} \beta_{k}x_{ik} + e_{i}
+	(\#eq:general-linear-model)
+\end{equation}
+
+where $x_{i1}, \dots, x_{ip}$ are the values of the $p$ predictor variables for the $i$th individual. For a vector of $n$ observations, the GLM can be written in matrix form as 
+
+\begin{equation}
+	\mx{y} = \mx{X\beta} + \mx{e}
+	(\#eq:general-linear-model-matrix-form)	
+\end{equation}
+
+where the design or incidence matrix $\mx{X}$ is $n \times p$, and $\mx{e}$ is the vector of residual errors. $\mx{\beta}$ is to be estimated obvs.
+
+### Ordinary least squares
+
+Estimates of $\mx{\beta}$ are usually obtained using least-squares that make assumptions about the residuals. Ordinary least squares assumes that the residual errors are homoscedastic and uncorrelated, i.e., $\sigma^2(e_i) = \sigma^2_e$ for all $i$ and $\sigma(e_i, e_j) = 0$ for $i \neq j$.
+
+SOME MATHS HERE
+
+\begin{equation}
+	\mx{b} = (\mx{X}^T\mx{X})^{-1}\mx{X}^T\mx{y}
+	(\#eq:estimate-for-beta)
+\end{equation}
+
+where $\mx{b}$ is an estimate of $\mx{\beta}$. Under the assumption the residual errors are uncorrelated and homoscedastic, the covariance matrix of the elements of $\mx{b}$ is 
+
+\begin{equation}
+	\mx{V_b} = (\mx{X}^T\mx{X})^{-1}\sigma^{2}_{e}
+	(\#eq:estimate-for-beta-covariance-matrix)
+\end{equation}
+
+If the residuals follow a multivariate distribution with $\mx{e} \sim \mathrm{MVN}(0, \sigma^{2}_{e} \dot \mx{I}$, the OLS estimate is also the maximum-likelihood estimate. 
+
+## Generalised least squares
 

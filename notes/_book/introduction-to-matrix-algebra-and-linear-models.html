@@ -24,7 +24,7 @@
 <meta name="author" content="Thomas Battram" />
 
 
-<meta name="date" content="2020-06-12" />
+<meta name="date" content="2020-06-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -173,6 +173,17 @@
 <li class="chapter" data-level="8.2.7" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#determinants-and-minors"><i class="fa fa-check"></i><b>8.2.7</b> Determinants and minors</a></li>
 <li class="chapter" data-level="8.2.8" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#computing-inverses"><i class="fa fa-check"></i><b>8.2.8</b> Computing inverses</a></li>
 </ul></li>
+<li class="chapter" data-level="8.3" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#expectations-of-random-vectors-and-matrices"><i class="fa fa-check"></i><b>8.3</b> Expectations of random vectors and matrices</a></li>
+<li class="chapter" data-level="8.4" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#covariance-matrices-of-transformed-vectors"><i class="fa fa-check"></i><b>8.4</b> Covariance matrices of transformed vectors</a></li>
+<li class="chapter" data-level="8.5" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#the-multivariate-normal-distribution"><i class="fa fa-check"></i><b>8.5</b> The multivariate normal distribution</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#properties-of-the-mvn"><i class="fa fa-check"></i><b>8.5.1</b> Properties of the MVN</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#overview-of-linear-models"><i class="fa fa-check"></i><b>8.6</b> Overview of linear models</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#ordinary-least-squares"><i class="fa fa-check"></i><b>8.6.1</b> Ordinary least squares</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html#generalised-least-squares"><i class="fa fa-check"></i><b>8.7</b> Generalised least squares</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="questions.html"><a href="questions.html"><i class="fa fa-check"></i>Questions</a>
 <ul>
@@ -532,8 +543,195 @@
     \tag{8.16}
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(A^{-1}_{ij}\)</span> denotes the <span class="math inline">\(ij\)</span>th element of <span class="math inline">\(\mx{A}^{-1}\)</span> and <span class="math inline">\(\mx{A}_{ij}\)</span> denotes the <span class="math inline">\(ij\)</span>th minor of <span class="math inline">\(\mx{A}\)</span>. From equation <a href="introduction-to-matrix-algebra-and-linear-models.html#eq:solution-to-matrix-inversion">(8.16)</a>, division by the determinant is required for inversion, therefore the determinant of a matrix must be nonzero if that matrix can be inverted. Thus, a matrix is singular if its determinant is zero. This occurs whenever a matrix contains a row (or column) that can be written as a weighted sum of any other rows (or columns). In the context of our linear model, <a href="introduction-to-matrix-algebra-and-linear-models.html#eq:multiple-regression-matrix-form">(8.2)</a>, this happens if one of the <span class="math inline">\(n\)</span> equations can be written as a combination of the others, a situation that is equivalent to there being <span class="math inline">\(n\)</span> unknowns but less than <span class="math inline">\(n\)</span> independent equations.</p>
-
 </div>
+</div>
+<div id="expectations-of-random-vectors-and-matrices" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Expectations of random vectors and matrices</h2>
+<p>Matrix algebra provides a powerful approach for analysing linear combinations of random variables. Let <span class="math inline">\(\mx{x}\)</span> be a column vector containing <span class="math inline">\(n\)</span> random variables, <span class="math inline">\(\mx{x} = (x_1, x_2, \dots, x_n)^T\)</span>. We may want to construct a new univariate (scalar) random variable <span class="math inline">\(y\)</span> by taking some linear combination of the elements of <span class="math inline">\(x\)</span>,</p>
+<p><span class="math display">\[\begin{equation}
+    y = \sum^n_{i=1} {a_ix_i} = \mx{a}^T \mx{x}
+    \notag
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\mx{a} = (a_1, a_2, \dots, a_n)^T\)</span> is a column vector of constants. Good example of this is when we want to make a weighted genetic score. Likewise, we can construct a new <span class="math inline">\(k\)</span>-dimensional vector <span class="math inline">\(\mx{y}\)</span> by premultiplying <span class="math inline">\(\mx{x}\)</span> by a <span class="math inline">\(k \times n\)</span> matrix <span class="math inline">\(\mx{A}\)</span> of constants, <span class="math inline">\(\mx{y} = \mx{A}\mx{x}\)</span>. More generally, an (<span class="math inline">\(n \times k\)</span>) matrix <span class="math inline">\(\mx{X}\)</span> of random variables can be transformed into a new <span class="math inline">\(m \times l\)</span> dimensional matrix <span class="math inline">\(\mx{Y}\)</span> of elements consisting of linear combinations of the elements of <span class="math inline">\(\mx{X}\)</span> by</p>
+<p><span class="math display" id="eq:transforming-matrix-of-random-variables">\[\begin{equation}
+    \mx{Y}_{m \times l} = \mx{A}_{m \times n} \mx{X}_{n \times k} \mx{B}_{k \times l}
+    \tag{8.17}
+\end{equation}\]</span></p>
+<p>where the matrices <span class="math inline">\(\mx{A}\)</span> and <span class="math inline">\(\mx{B}\)</span> are constants with dimensions as subscripted.</p>
+<p>If <span class="math inline">\(\mx{X}\)</span> is full of random variables, the expected value of <span class="math inline">\(\mx{X}\)</span> is <span class="math inline">\(E(\mx{X})\)</span> containing the expected value of each element of <span class="math inline">\(\mx{X}\)</span>. If <span class="math inline">\(\mx{X}\)</span> and <span class="math inline">\(\mx{Z}\)</span> are matrices of the same dimension, then</p>
+<p><span class="math display" id="eq:matrices-addition-expectations">\[\begin{equation}
+    E(\mx{X} + \mx{Z}) = E(\mx{X}) + E(\mx{Z})
+    \tag{8.18}
+\end{equation}\]</span></p>
+<p>Similarly, just remember other rules of expectations to obtain an expression for the expectation of <span class="math inline">\(\mx{Y}\)</span> from <a href="introduction-to-matrix-algebra-and-linear-models.html#eq:transforming-matrix-of-random-variables">(8.17)</a>. The important point is of course that the dimensions of matrices need to match up!</p>
+</div>
+<div id="covariance-matrices-of-transformed-vectors" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Covariance matrices of transformed vectors</h2>
+<p>If we have an <span class="math inline">\(n \times n\)</span> square matrix <span class="math inline">\(\mx{A}\)</span> and an <span class="math inline">\(n \times 1\)</span> column vector <span class="math inline">\(\mx{x}\)</span>, then:</p>
+<p><span class="math display" id="eq:matrix-columnvec-multiplication">\[\begin{equation}
+    \mx{x}^T\mx{Ax} = \sum^n_{i=1} \sum^n_{j=1} {a_{ij}}x_ix_j
+    \tag{8.19}
+\end{equation}\]</span></p>
+<p>This expression is called a quadratic form (or quadratic product) and yield a scalar. A generalisation of a quadratic form is the bilinear form, <span class="math inline">\(\mx{b^TAa}\)</span>, where <span class="math inline">\(\mx{b}\)</span> and <span class="math inline">\(\mx{a}\)</span> are, respectively <span class="math inline">\(n \times 1\)</span> and <span class="math inline">\(m \times 1\)</span> column vectors and <span class="math inline">\(\mx{A}\)</span> is an <span class="math inline">\(n \times m\)</span> matrix. Index the matrices and you can tell what the resulting product is! Hint: it’s a scaler, figure out why! As scalars, bilinear forms equal their transposes, giving the useful identity:</p>
+<p><span class="math display" id="eq:bilinear-form">\[\begin{equation}
+    \mx{b^TAa} = (\mx{b^TAa})^T = \mx{a^TA^Tb}
+    \tag{8.20}
+\end{equation}\]</span></p>
+<p>If <span class="math inline">\(\mx{x}\)</span> is a vector of <span class="math inline">\(n\)</span> random variables, then you can express the <span class="math inline">\(n\)</span> variances and <span class="math inline">\(n(n-1)/2\)</span> covariances associated with the elements of <span class="math inline">\(x\)</span> as the matrix <span class="math inline">\(\mx{V}\)</span>, where <span class="math inline">\(V_{ij} = \sigma(x_i, x_j)\)</span> is the covariance between the random variables <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_j\)</span>. This is a covariance matrix (or variance-covariance matrix)! Remember: diagonals = variances and off-diagonals = covariances! The <span class="math inline">\(\mx{V}\)</span> matrix is symmetric such that:</p>
+<p><span class="math display">\[\begin{equation}
+    V_{ij} = \sigma(x_i, x_j) = \sigma(x_j, x_i) = V_{ji}
+    \notag
+\end{equation}\]</span></p>
+<p>If we have a univariate random variable <span class="math inline">\(y = \sum{c_{k}x_{k}}\)</span> generated from a linear combination of the elements of <span class="math inline">\(\mx{x}\)</span>, in matrix notation we have <span class="math inline">\(y = \mx{c}^T\mx{x}\)</span>, where <span class="math inline">\(\mx{c}\)</span> is a column vector of constants. The variance of <span class="math inline">\(y\)</span> can be expressed as a quadratic form involving the covariance matrix <span class="math inline">\(\mx{V}\)</span> for the elements of <span class="math inline">\(\mx{x}\)</span>,</p>
+<p><span class="math display" id="eq:variance-of-univariate-random-variable-y">\[\begin{equation}
+    \mx{c}^T\mx{V}\mx{c}
+    \tag{8.21}
+\end{equation}\]</span></p>
+<p>(See book for derivation, <a href="introduction-to-matrix-algebra-and-linear-models.html#eq:variance-of-univariate-random-variable-y">(8.21)</a> is the final result)</p>
+<p>Likewise, the covariance between two univariate random variables created from different linear combinations of <span class="math inline">\(\mx{x}\)</span> is given by the bilinear form</p>
+<p><span class="math display" id="eq:covariance-of-univariate-random-variables-created-from-x">\[\begin{equation}
+    \sigma(\mx{a^Tx}, \mx{b^Tx}) = \mx{a^TVb}
+    \tag{8.22}
+\end{equation}\]</span></p>
+<p>If we transform <span class="math inline">\(\mx{x}\)</span> to two new vectors <span class="math inline">\(\mx{y}_{x \times 1} = \mx{A}_{l \times n}\mx{x}_{n \times 1}\)</span> and <span class="math inline">\(\mx{z}_{m \times 1} = \mx{B}_{m \times n}\mx{x}_{n \times 1}\)</span>, then instead of a single covariance we have an <span class="math inline">\(l \times m\)</span> dimensional covariance matrix, denoted <span class="math inline">\(\mx{\sigma(y, z)}\)</span>. Letting <span class="math inline">\(\mx{\mu_{y}} = \mx{A_\mu}\)</span> and <span class="math inline">\(\mx{\mu_{z}} = \mx{B_\mu}\)</span>, with <span class="math inline">\(E(\mx{x}) = \mu\)</span>, then <span class="math inline">\(\mx{\sigma(y, z)}\)</span> can be expressed in terms of <span class="math inline">\(\mx{V}\)</span>, the covariance matrix of <span class="math inline">\(\mx{x}\)</span>,</p>
+<p><span class="math display" id="eq:covariance-of-two-vectors">\[\begin{equation}
+\begin{split}
+    \mx{\sigma(y, z)} &amp;= \mx{\sigma(Ax, Bx)} \notag \\
+    &amp;= E\left[(\mx{y} - \mx{\mu_{y}})(\mx{z} - \mx{\mu_{z}})^T \right] \notag \\
+    &amp;= E\left[\mx{A}(\mx{x} - \mx{\mu})(\mx{x} - \mx{\mu})^T \mx{B}^T \right] \notag \\
+    &amp;= \mx{AVB}^T 
+\end{split}
+    \tag{8.23}
+\end{equation}\]</span></p>
+<p>In particular, the covariance matrix for <span class="math inline">\(\mx{y} = \mx{Ax}\)</span> is</p>
+<p><span class="math display" id="eq:covariance-matrix-of-y-equals-Ax">\[\begin{equation}
+    \mx{\sigma(y, y)} = \mx{AVA}^T
+    \tag{8.24}
+\end{equation}\]</span></p>
+<p>so that the covariance between <span class="math inline">\(y_i\)</span> and <span class="math inline">\(y_\)</span> is given by the <span class="math inline">\(ij\)</span>th element of the matrix product <span class="math inline">\(\mx{AVA}^T\)</span>. Finally, note that if <span class="math inline">\(\mx{x}\)</span> is a vector of random variables with expected value <span class="math inline">\(\mu\)</span>, then the expected value of the scalar quadratic product <span class="math inline">\(\mx{x}^T\mx{Ax}\)</span> is</p>
+<p><span class="math display" id="eq:no-idea-what-to-call-this-eq">\[\begin{equation}
+    \mx{x}^T\mx{Ax} = tr(\mx{AV}) + \mx{\mu}^T\mx{A\mu}
+    \tag{8.25}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\mx{V}\)</span> is the covariance matrix for the elements of <span class="math inline">\(\mx{x}\)</span>, and the trace of a square matrix, <span class="math inline">\(tr(\mx{M}) = \sum{M_{ii}}\)</span> is the sum of its diagonal values.</p>
+</div>
+<div id="the-multivariate-normal-distribution" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> The multivariate normal distribution</h2>
+<p>Multivariate normal distribution = MVN.</p>
+<p>Consider the probability density function for <span class="math inline">\(n\)</span> independent normal random variables, where <span class="math inline">\(x_i\)</span> is normally distributed with mean <span class="math inline">\(\mu_i\)</span> and variance <span class="math inline">\(\sigma^2_i\)</span>. In this case, because the variables are independent, the joint probability density function is simply the product of each univariate density,</p>
+<p><span class="math display" id="eq:joint-prob-density-function-independent-vars">\[\begin{equation}
+    TO-DO
+    \tag{8.26}
+\end{equation}\]</span></p>
+<p>Let’s express this in matrix form, because we’re cool! (also it compacts things a lot). To do this, we need to defin these matrices</p>
+<p><span class="math display">\[\begin{equation}
+    \mx{V} = 
+    \begin{pmatrix}
+        \sigma^2_1 &amp; 0 &amp; \dots &amp; 0 \\
+        0 &amp; \sigma^2_2 &amp; \dots &amp; 0 \\
+        \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        0 &amp; 0 &amp; 0 &amp; \sigma^2_n
+    \end{pmatrix}
+    \ \ \ \mathrm{and}\ \ \
+    \mx{\mu} = 
+    \begin{pmatrix}
+        \mu_1 \\
+        \mu_2 \\
+        \vdots \\
+        \mu_n
+    \end{pmatrix}
+    \notag
+\end{equation}\]</span></p>
+<p>Since <span class="math inline">\(\mx{V}\)</span> is diagonal, its determinant is simply the product of the diagonal elements</p>
+<p><span class="math display">\[\begin{equation}
+    |\mx{V}| = \prod^n_{i=1}\sigma^2_i
+    \notag
+\end{equation}\]</span></p>
+<p>Likewise, using quadratic products, note that</p>
+<p><span class="math display">\[\begin{equation}
+    \sum^n_{i=1} \frac{(x_i - \mu_i)^2} {\sigma^2_i} = (\mx{x} - \mx{\mu}^T)\mx{V}^{-1} (\mx{x} - \mx{\mu})
+    \notag
+\end{equation}\]</span></p>
+<p>putting these together, equation <a href="introduction-to-matrix-algebra-and-linear-models.html#eq:joint-prob-density-function-independent-vars">(8.26)</a> can be written as</p>
+<p><span class="math display" id="eq:joint-prob-density-function-independent-vars-as-matrices">\[\begin{equation}
+    TO-DO
+    \tag{8.27}
+\end{equation}\]</span></p>
+<p>This can also be written as <span class="math inline">\(p(\mx{x}, \mx{\mu}, \mx{V}\)</span> to stress that it is a function of the mean vector <span class="math inline">\(\mx{\mu}\)</span> and the covariance matrix <span class="math inline">\(\mx{V}\)</span>.</p>
+<p>More generally, when the elements of <span class="math inline">\(\mx{x}\)</span> are correlated, equation <a href="introduction-to-matrix-algebra-and-linear-models.html#eq:joint-prob-density-function-independent-vars-as-matrices">(8.27)</a> gives the probability density function for a vector of multivariate normally distributed random variables, with mean vector <span class="math inline">\(\mx{\mu}\)</span> and covariance matrix <span class="math inline">\(\mx{V}\)</span>. We denote this by</p>
+<p><span class="math display">\[\begin{equation}
+    \mx{x} \sim \mathrm{MVN_n}(\mx{\mu, V})
+    \notag
+\end{equation}\]</span></p>
+<p>where the subscript indicating the dimensionality of <span class="math inline">\(\mx{x}\)</span> is usually omitted. MVN also called Gaussian distribution.</p>
+<div id="properties-of-the-mvn" class="section level3" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Properties of the MVN</h3>
+<p>Like the univariate normal distribution, the MVN is expected to arise naturally when the trait of interest result from a large number of underlying variables, so fits many human traits! Prepare your butts for some useful properties of MVN, because here they come!!!</p>
+<ol style="list-style-type: decimal">
+<li><p>If <span class="math inline">\(\mx{x} \sim \mathrm{MVN}\)</span>, then the distribution of any subset of the variables in <span class="math inline">\(\mx{x}\)</span> is also MVN. For example, each <span class="math inline">\(x_i\)</span> is normally distributed and each pair <span class="math inline">\((x_i, x_j)\)</span> is bivariate normally distributed.</p></li>
+<li><p>If <span class="math inline">\(\mx{x} \sim \mathrm{MVN}\)</span>, then any linear combination of the elements of <span class="math inline">\(\mx{x}\)</span> is also MVN. Specifically, if <span class="math inline">\(\mx{x} \sim \mathrm{MVN_n}(\mx{\mu}, \mx{V})\)</span>, <span class="math inline">\(\mx{a}\)</span> is a vector of constants, and <span class="math inline">\(\mx{A}\)</span> is a matrix of constants, then</p></li>
+</ol>
+<p><span class="math display">\[\begin{equation}
+    \mathrm{for}\ \ \ \mx{y} = \mx{x} + \mx{a}, \ \ \ \ \ \mx{y} \sim \mathrm{MVN_n}(\mx{\mu} + \mx{a}, \mx{V}) \\
+    \mathrm{for}\ \ \ \mx{y} = \mx{a}^T \mx{x} = \sum^n_{k=1} {a_ix_i}, \ \ \ \ \ y \sim \mathrm{N}(\mx{a}^{T}\mx{\mu}, \mx{a}^{T}\mx{V}\mx{a}) \\
+    \mathrm{for}\ \ \ \mx{y} = \mx{A}\mx{x}, \ \ \ \ \ \mx{y} \sim \mathrm{MVN_m}(\mx{A\mu}, \mx{A^{T}VA})
+\end{equation}\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Conditional distributions associated with MVN are also multivariate normal. <strong>ADD IN BOOK PART HERE!!</strong></p></li>
+<li><p>If <span class="math inline">\(\mx{x} \sim \mathrm{MVN}\)</span>, the regression of any subset of <span class="math inline">\(\mx{x}\)</span> on another subset is linear and homoscedastic. <strong>ADD IN BOOK PART HERE!!</strong></p></li>
+</ol>
+</div>
+</div>
+<div id="overview-of-linear-models" class="section level2" number="8.6">
+<h2><span class="header-section-number">8.6</span> Overview of linear models</h2>
+<p>Consider a multivariate linear model where all the covariates are binary. For example, consider the half-sib design wherein each of <span class="math inline">\(p\)</span> unrelated sires is mated at random to a number of unrelated dams and a single offspring is measured from each cross. The simplest model for this design is</p>
+<p><span class="math display">\[\begin{equation}
+    y_{ij} = \mu + s_i + e_{ij}
+    \notag
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(y_{ij}\)</span> is the phenotype of the <span class="math inline">\(j\)</span>th offspring from sire <span class="math inline">\(i\)</span>, <span class="math inline">\(\mu\)</span> is the population mean, <span class="math inline">\(s_i\)</span> is the sire effect, and <span class="math inline">\(e_{ij}\)</span> is the residual error. <strong>DON’T UNDERSTAND THIS SENTENCE</strong> Although this is clearly a linear model, it differs significantly from the regression model described above in that while there are parameters to estimate (the sire effects, <span class="math inline">\(s_i\)</span>), the only measured values are the <span class="math inline">\(y_{ij}\)</span>. Nevertheless, we can express this model in a form that is essentially identical to the standard regression model by using <span class="math inline">\(p\)</span> binary variables to classify the sires of the offspring. The resulting linear model becomes</p>
+<p><span class="math display">\[\begin{equation}
+    y_{ij} = \mu + \sum^p_{k=1}s_{k}x_{ik} + e_{ij} 
+    \notag
+\end{equation}\]</span>
+where
+<span class="math display">\[\begin{equation}
+    x_{ik} = 
+    \begin{cases}
+        0, &amp; \text{ if k = i } \\
+        1, &amp; \text{ otherwise }
+    \end{cases}
+\end{equation}\]</span></p>
+<p>By using binary variables, an wide class of problems can be handled by linear models. Models containing only binary variables are usually called ANOVA (analysis of variance) models! Whether predictor variables are a continuous (as in regression) or not (as in ANOVA), the procedures are special cases of the general linear model (GLM), wherein each observation (<span class="math inline">\(\mx{y}\)</span>) is assumed to be a linear function of <span class="math inline">\(p\)</span> observed and / or binary variables plus a residual error (<span class="math inline">\(e\)</span>),</p>
+<p><span class="math display" id="eq:general-linear-model">\[\begin{equation}
+    y_i = \sum^p_{k=1} \beta_{k}x_{ik} + e_{i}
+    \tag{8.28}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(x_{i1}, \dots, x_{ip}\)</span> are the values of the <span class="math inline">\(p\)</span> predictor variables for the <span class="math inline">\(i\)</span>th individual. For a vector of <span class="math inline">\(n\)</span> observations, the GLM can be written in matrix form as</p>
+<p><span class="math display" id="eq:general-linear-model-matrix-form">\[\begin{equation}
+    \mx{y} = \mx{X\beta} + \mx{e}
+    \tag{8.29} 
+\end{equation}\]</span></p>
+<p>where the design or incidence matrix <span class="math inline">\(\mx{X}\)</span> is <span class="math inline">\(n \times p\)</span>, and <span class="math inline">\(\mx{e}\)</span> is the vector of residual errors. <span class="math inline">\(\mx{\beta}\)</span> is to be estimated obvs.</p>
+<div id="ordinary-least-squares" class="section level3" number="8.6.1">
+<h3><span class="header-section-number">8.6.1</span> Ordinary least squares</h3>
+<p>Estimates of <span class="math inline">\(\mx{\beta}\)</span> are usually obtained using least-squares that make assumptions about the residuals. Ordinary least squares assumes that the residual errors are homoscedastic and uncorrelated, i.e., <span class="math inline">\(\sigma^2(e_i) = \sigma^2_e\)</span> for all <span class="math inline">\(i\)</span> and <span class="math inline">\(\sigma(e_i, e_j) = 0\)</span> for <span class="math inline">\(i \neq j\)</span>.</p>
+<p>SOME MATHS HERE</p>
+<p><span class="math display" id="eq:estimate-for-beta">\[\begin{equation}
+    \mx{b} = (\mx{X}^T\mx{X})^{-1}\mx{X}^T\mx{y}
+    \tag{8.30}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\mx{b}\)</span> is an estimate of <span class="math inline">\(\mx{\beta}\)</span>. Under the assumption the residual errors are uncorrelated and homoscedastic, the covariance matrix of the elements of <span class="math inline">\(\mx{b}\)</span> is</p>
+<p><span class="math display" id="eq:estimate-for-beta-covariance-matrix">\[\begin{equation}
+    \mx{V_b} = (\mx{X}^T\mx{X})^{-1}\sigma^{2}_{e}
+    \tag{8.31}
+\end{equation}\]</span></p>
+<p>If the residuals follow a multivariate distribution with <span class="math inline">\(\mx{e} \sim \mathrm{MVN}(0, \sigma^{2}_{e} \dot \mx{I}\)</span>, the OLS estimate is also the maximum-likelihood estimate.</p>
+</div>
+</div>
+<div id="generalised-least-squares" class="section level2" number="8.7">
+<h2><span class="header-section-number">8.7</span> Generalised least squares</h2>
+
 </div>
 </div>
             </section>
