@@ -4,6 +4,12 @@ cd notes/
 
 chapters=$1
 
+if [[ -z "$chapters" ]]; then
+	echo "\$chapters is empty, making whole book"
+	chapters="all"
+fi
+
+
 if [[ $chapters == "all" ]]; then
 	# Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::pdf_book')"
 	Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
