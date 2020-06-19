@@ -24,7 +24,7 @@
 <meta name="author" content="Thomas Battram" />
 
 
-<meta name="date" content="2020-06-18" />
+<meta name="date" content="2020-06-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -620,7 +620,10 @@
 <p>Multivariate normal distribution = MVN.</p>
 <p>Consider the probability density function for <span class="math inline">\(n\)</span> independent normal random variables, where <span class="math inline">\(x_i\)</span> is normally distributed with mean <span class="math inline">\(\mu_i\)</span> and variance <span class="math inline">\(\sigma^2_i\)</span>. In this case, because the variables are independent, the joint probability density function is simply the product of each univariate density,</p>
 <p><span class="math display" id="eq:joint-prob-density-function-independent-vars">\[\begin{equation}
-    TO-DO
+\begin{split}
+    p(\mx{x}) &amp;= \prod^{n}_{i=1} {(2\pi)^{-1/2} \sigma^{-1}_{i} \mathrm{exp} \left(-\frac{(x_i - \mu_i)^2} {2\sigma^2_i}\right)}
+    &amp;= (2\pi)^{-n/2} \left(\prod^{n}_{i=1} {\sigma_i}\right)^{-1} \mathrm{exp} \left(- \sum^n_{i=1} \frac{(x_i - \mu_i)^2} {2\sigma^2_i}\right)
+\end{split}
     \tag{8.26}
 \end{equation}\]</span></p>
 <p>Let’s express this in matrix form, because we’re cool! (also it compacts things a lot). To do this, we need to defin these matrices</p>
@@ -654,7 +657,7 @@
 \end{equation}\]</span></p>
 <p>putting these together, equation <a href="introduction-to-matrix-algebra-and-linear-models.html#eq:joint-prob-density-function-independent-vars">(8.26)</a> can be written as</p>
 <p><span class="math display" id="eq:joint-prob-density-function-independent-vars-as-matrices">\[\begin{equation}
-    TO-DO
+    p(\mx{x}) = (2\pi)^{-n/2} |\mx{V}|^{-1/2} \mathrm{exp} \left[-\frac{1}{2} (\mx{x} - \mx{\mu})^{T}\mx{V}^{-1}(\mx{x} - \mx{\mu})\right]
     \tag{8.27}
 \end{equation}\]</span></p>
 <p>This can also be written as <span class="math inline">\(p(\mx{x}, \mx{\mu}, \mx{V}\)</span> to stress that it is a function of the mean vector <span class="math inline">\(\mx{\mu}\)</span> and the covariance matrix <span class="math inline">\(\mx{V}\)</span>.</p>
@@ -726,11 +729,28 @@ where
     \mx{V_b} = (\mx{X}^T\mx{X})^{-1}\sigma^{2}_{e}
     \tag{8.31}
 \end{equation}\]</span></p>
-<p>If the residuals follow a multivariate distribution with <span class="math inline">\(\mx{e} \sim \mathrm{MVN}(0, \sigma^{2}_{e} \dot \mx{I}\)</span>, the OLS estimate is also the maximum-likelihood estimate.</p>
+<p>If the residuals follow a multivariate distribution with <span class="math inline">\(\mx{e} \sim \mathrm{MVN}(0, \sigma^{2}_{e} \cdot \mx{I})\)</span>, the OLS estimate is also the maximum-likelihood estimate.</p>
 </div>
 </div>
 <div id="generalised-least-squares" class="section level2" number="8.7">
 <h2><span class="header-section-number">8.7</span> Generalised least squares</h2>
+<p>Under OLS, the unweighted sum of squared residuals is minimized. However, if some residuals are inherently more variable than others (have a higher variance), less weight should be assigned to the more variable data. Correlations between residuals can also influence the weight that should be assigned to each individual, as the data are not independent. Thus, if the residual errors are heteroscedastic and/or correlated, OLS estimates of regression parameters and standard errors of these estimates are potentially biased.</p>
+<p>A more general approach to regression analysis expressesthe covariance matrix of the vector of residuals as <span class="math inline">\(\sigma^2_{e}\mx{R}\)</span>, with <span class="math inline">\(\sigma(e_{i}e_{j}) = R_{ij}\sigma^2_{e}\)</span>. Lack of independence between residuals is indicated by the presence of nonzero diagonal elements in <span class="math inline">\(\mx{R}\)</span>, while heteroscedasticity is indicated by differences in the diagonal elements of <span class="math inline">\(\mx{R}\)</span>. Generalised (or weighted) least squares (GLS) takes the complications into account. If the linear model is</p>
+<p><span class="math display">\[\begin{equation}
+    \mx{y} = \mx{X\beta} + e\ \ \ \mathrm{with} \ \mx{e} \sim (0, \mx{R}\sigma^2_{e})
+    \notag
+\end{equation}\]</span></p>
+<p>the GLS estimate of <span class="math inline">\(\mx{\beta}\)</span> is</p>
+<p><span class="math display" id="eq:gls-estimate-of-beta">\[\begin{equation}
+    \mx{b} = \left(\mx{X}^T\mx{R}^{-1}\mx{X}\right)^{-1}\mx{X}^T\mx{R}^{-1}\mx{y}
+    \tag{8.32}
+\end{equation}\]</span></p>
+<p>The covariance matrix for the GLS estimates is</p>
+<p><span class="math display" id="eq:covariance-matrix-for-gls-estimates">\[\begin{equation}
+    \mx{V_{b}} = \left(\mx{X}^T\mx{R}^{-1}\mx{X}\right)^{-1}\sigma^2_{e}
+    \tag{8.33}
+\end{equation}\]</span></p>
+<p>If residuals are independent and homoscedastic, <span class="math inline">\(\mx{R} = \mx{I}\)</span>, and GLS estimates are the same as OLS estimates. If <span class="math inline">\(\mx{e} \sim \mathrm{MVN}(0, \mx{R}\sigma^2_e\)</span>, the GLS estimate of <span class="math inline">\(\mx{\beta}\)</span> is also the maximum likelihood estimate.</p>
 
 </div>
 </div>

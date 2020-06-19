@@ -500,7 +500,10 @@ Multivariate normal distribution = MVN.
 Consider the probability density function for $n$ independent normal random variables, where $x_i$ is normally distributed with mean $\mu_i$ and variance $\sigma^2_i$. In this case, because the variables are independent, the joint probability density function is simply the product of each univariate density, 
 
 \begin{equation}
-	TO-DO
+\begin{split}
+	p(\mx{x}) &= \prod^{n}_{i=1} {(2\pi)^{-1/2} \sigma^{-1}_{i} \mathrm{exp} \left(-\frac{(x_i - \mu_i)^2} {2\sigma^2_i}\right)}
+	&= (2\pi)^{-n/2} \left(\prod^{n}_{i=1} {\sigma_i}\right)^{-1} \mathrm{exp} \left(- \sum^n_{i=1} \frac{(x_i - \mu_i)^2} {2\sigma^2_i}\right)
+\end{split}
 	(\#eq:joint-prob-density-function-independent-vars)
 \end{equation}
 
@@ -542,7 +545,7 @@ Likewise, using quadratic products, note that
 putting these together, equation \@ref(eq:joint-prob-density-function-independent-vars) can be written as
 
 \begin{equation}
-	TO-DO
+	p(\mx{x}) = (2\pi)^{-n/2} |\mx{V}|^{-1/2} \mathrm{exp} \left[-\frac{1}{2} (\mx{x} - \mx{\mu})^{T}\mx{V}^{-1}(\mx{x} - \mx{\mu})\right]
 	(\#eq:joint-prob-density-function-independent-vars-as-matrices)
 \end{equation}
 
@@ -633,7 +636,31 @@ where $\mx{b}$ is an estimate of $\mx{\beta}$. Under the assumption the residual
 	(\#eq:estimate-for-beta-covariance-matrix)
 \end{equation}
 
-If the residuals follow a multivariate distribution with $\mx{e} \sim \mathrm{MVN}(0, \sigma^{2}_{e} \dot \mx{I}$, the OLS estimate is also the maximum-likelihood estimate. 
+If the residuals follow a multivariate distribution with $\mx{e} \sim \mathrm{MVN}(0, \sigma^{2}_{e} \cdot \mx{I})$, the OLS estimate is also the maximum-likelihood estimate. 
 
 ## Generalised least squares
 
+Under OLS, the unweighted sum of squared residuals is minimized. However, if some residuals are inherently more variable than others (have a higher variance), less weight should be assigned to the more variable data. Correlations between residuals can also influence the weight that should be assigned to each individual, as the data are not independent. Thus, if the residual errors are heteroscedastic and/or correlated, OLS estimates of regression parameters and standard errors of these estimates are potentially biased.
+
+A more general approach to regression analysis expressesthe covariance matrix of the vector of residuals as $\sigma^2_{e}\mx{R}$, with $\sigma(e_{i}e_{j}) = R_{ij}\sigma^2_{e}$. Lack of independence between residuals is indicated by the presence of nonzero diagonal elements in $\mx{R}$, while heteroscedasticity is indicated by differences in the diagonal elements of $\mx{R}$. Generalised (or weighted) least squares (GLS) takes the complications into account. If the linear model is 
+
+\begin{equation}
+	\mx{y} = \mx{X\beta} + e\ \ \ \mathrm{with} \ \mx{e} \sim (0, \mx{R}\sigma^2_{e})
+	\notag
+\end{equation}
+
+the GLS estimate of $\mx{\beta}$ is 
+
+\begin{equation}
+	\mx{b} = \left(\mx{X}^T\mx{R}^{-1}\mx{X}\right)^{-1}\mx{X}^T\mx{R}^{-1}\mx{y}
+	(\#eq:gls-estimate-of-beta)
+\end{equation}
+
+The covariance matrix for the GLS estimates is 
+
+\begin{equation}
+	\mx{V_{b}} = \left(\mx{X}^T\mx{R}^{-1}\mx{X}\right)^{-1}\sigma^2_{e}
+	(\#eq:covariance-matrix-for-gls-estimates)
+\end{equation}
+
+If residuals are independent and homoscedastic, $\mx{R} = \mx{I}$, and GLS estimates are the same as OLS estimates. If $\mx{e} \sim \mathrm{MVN}(0, \mx{R}\sigma^2_e$, the GLS estimate of $\mx{\beta}$ is also the maximum likelihood estimate.
