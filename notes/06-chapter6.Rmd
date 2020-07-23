@@ -32,7 +32,7 @@ $I$ and $e$ are uncorrelated with other variables (by construction). Remembering
   (\#eq:total-phenotypic-variance)
 \end{equation}
 
-$\sigma^2_{I}$ is the GxE variance and $\sigma_{G.E}$ is the genotype-environment covariance. These terms are quite different. GxE is concerned variation in phenotypic response of specific genotypes within specific environments. Genotype-environment covariance is simply a measure of association between particular environments and genotypes. So, if individuals were randomly distributed across all environments, $\sigma_{G.E} = 0$, but $\sigma^2_{I}$ will be non-zero if genotypic and environmental effects are non-additive.
+$\sigma^2_{I}$ is the GxE variance and $\sigma_{G.E}$ is the genotype-environment covariance. These terms are quite different. GxE is concerned variation in phenotypic response of specific genotypes within specific environments. Genotype-environment covariance is simply a measure of association between particular environments and genotypes. So, if individuals were randomly distributed across all environments, $\sigma_{G.E} = 0$, but $\sigma^2_{I}$ will be non-zero if genotypic and environmental effects are non-additive. Another way to think about this (in terms of GWAS) is that $\sigma_{G.E}$ is pretty much just association between SNP and phenotype, whereas $\sigma^2_{I}$ is the variance of GxE effects.
 
 Maternal or paternal effects can cause genotype-environment covariance if there is correlation between parental genotype and ability to provision the young.
 
@@ -64,7 +64,7 @@ Unbiased estimate of the within-individual variance for a trait:
   (\#eq:within-individual-variance)
 \end{equation}
 
-$N$ is the number of individuals sampled, $r_i$ and $l_i$ are the right and left measures for the $i$th individual, and $\sigma^2{em}$ is variance due to measurement error.
+$N$ is the number of individuals sampled, $r_i$ and $l_i$ are the right and left measures for the $i$th individual, and $\sigma^2_{em}$ is variance due to measurement error.
 
 The effects of environmental stress on fluctuating asymmetry are fairly predictable - $\sigma^2_{ew}$ tends to increase in extreme or novel environments. A study suggested humans suffering from malnutrition show increases in fluctuating asymmetry.
 
@@ -85,7 +85,7 @@ $\sigma^2_{z}$ is an estimate for the total phenotypic variance for the trait.
 
 Measurement error always inflates estimates of within-individual variance. As it contributes to total phenotypic variance, this cancels out in the equation above, but it's a pain because often we want to know the contribution of genetic variance to the total phenotypic variance. Repeated measures can help correct for measurement error where the measure won't change over time - e.g. adult limb length. This is less tractable for measures that vary over time as you can't distinguish variation due natural organismal changes over time and those due to measurement error.
 
-Expected value of $\sigma^2_{G(max)}$ is greater than the total genetic variance for the trait because it includes the among-individual component of variance due to the special environmental effects ($\sigma^2_{ea}$) and variance due to general environmental effects ($\sigma^2_{E}$). Letting var(e) denote the variance associated with measurement error, the repeatablitity is:
+Expected value of $\sigma^2_{G(max)}$ is greater than the total genetic variance for the trait because it includes the among-individual component of variance due to the special environmental effects ($\sigma^2_{ea}$) and variance due to general environmental effects ($\sigma^2_{E}$). The repeatablitity is:
 
 \begin{equation}
   r = \frac{\sigma^2_{z} - \sigma^2_{ew}} {\sigma^2_{z} - \sigma^2_{em}}
@@ -105,7 +105,7 @@ and as measurement error is contained in the denominator, it downwardly biases $
 
 Before thinking of maternal effects on offspring, remember there is little evidence for intrauterine effects on complex traits in humans, quote from GDS's twitter: "virtually all disease mother-offspring and father-offspring risk concordance the same, except maternal small excess for epilepsy (intrauterine valproate?) and type 2 diabetes" ([Link to tweet](https://twitter.com/mendel_random/status/1261221722344357889)). [Example MR paper](https://www.medrxiv.org/content/10.1101/2020.05.04.20091173v1.full).
 
-Unless one runs an experiment where the environment of the past generation is the same as the current generation, one runs the risk that observed phenotypes are largely due to past generation. Similar thinking applies to estimates of heritability when there is assortative mating! 
+Unless one runs an experiment where the environment of the past generation is the same as the current generation, one runs the risk that observed phenotypes are largely due to past generation. Similar thinking applies to estimates of heritability when there is assortative mating and dynastic effects! 
 
 There are some striking examples of maternal effects in the wild and there are plenty of associations that have been drawn between maternal age and various human traits too, for example the chances of Down's syndrome increases with maternal age. 
 
@@ -114,3 +114,15 @@ Lack of data for multigenerational transmission of environmental effects -- stil
 ## Genotype x environment interaction
 
 This part gives examples of experiments done to detect GxE. In the examples, it was possible to make some inference as to the existence of GxE because members of the same genetic groups were evaluated under well-defined treatments. Of course, for natural populations, assigning individuals to discrete environmental groups is often impossible, so GxE becomes unmeasurable because any GxE will be confounded with the environmental source of variance. Interestingly, I think for [Wes's GxE MR paper](https://academic.oup.com/ije/article/48/3/702/5193695), they're able to apply the method in cases without clear discrete environments. 
+
+## End of chapter questions
+
+1. What is the difference between a general and a special environmental effect?
+2. Give a general equation that can be used to estimate the phenotypic value for the $k$th individual of the $i$th genotype exposed to the $j$th general environmental effect.
+3. Desctibe and explain a common way of estimating within-individual variation
+4. What are the effects of environmental stress on fluctuating asymmetry and why?
+5. Is there a relationship between heterozygosity and developmental stability?
+6. What is repeatability and why can estimating it be useful?
+7. What is required to estimate GxE?
+
+
