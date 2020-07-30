@@ -23,7 +23,7 @@ Complications of estimating these coefficients include, non-random mating, LD, a
 
 ## Measures of relatedness
 
-Relatedness can only be defined with respect to a specified frame of reference as all individuals are related (DUH). From here on the reference population is the base of the observed pedigree. So if the observed data is just trios, then the base population is the parents in those trios. If, data on grandparents is observed then they're the base population and so-on. Members of the base population are assumed to be unrelated. Also when discussing relatedness we refer to identity by descent (IBD), not identity by state (IBS).
+Relatedness can only be defined with respect to a specified frame of reference as all individuals are related (DUH). From here on the reference population is the base of the observed pedigree. So if the observed data is just trios, then the base population is the parents in those trios. If data on grandparents is observed then they're the base population and so-on. Members of the base population are assumed to be unrelated. Also when discussing relatedness we refer to identity by descent (IBD), not identity by state (IBS).
 
 ***
 __Identity by descent and identity by state__
@@ -51,7 +51,7 @@ To derive $\Theta_{xy}$, we first need to derive $\Theta_{xx}$ (may seem weird, 
   (\#eq:coef-coan-itself)
 \end{equation}
 
-Something to note, the fact this coefficient increases with inbreeding is used (kind of) in current SNP-heritability estimations. After creating a kinship matrix, the diagonal of the matrix represents $2\Theta_{xx}$. Due to the software, it will always be centred on one (mean of one) and without inbreeding expect a normal distribution with small variation around the mean, and with inbreeding this distribution would be right-skewed and you can identify inbred individuals by assessing which individuals diagonal elements are significantly larger than one.
+Something to note, the fact this coefficient increases with inbreeding is used (kind of) in current SNP-heritability estimations. After creating a kinship matrix, the diagonal of the matrix represents $2\Theta_{xx}$. Due to the software, it will always be centred on one (mean of one) and without inbreeding one would expect a normal distribution with small variation around the mean. With inbreeding, this distribution would be right-skewed and you can identify inbred individuals by assessing which individuals diagonal elements are significantly larger than one.
 
 Parent ($p$) and offspring ($o$) scenario now!! If neither are inbred ($p$'s parents unrelated and they are unrelated to their mate), then that makes things simple. When drawing one of the two alleles from the mother and then one of the two alleles from the offspring, there is only one scenario in which they are the same. As each scenario has an equal probability of occurring, $\Theta_{po} = \frac{1}{4}$. If $p$ is inbred, probability of their alleles being identical by descent is $f_p$. This is the same as the probability of the offspring allele being identical by descent to the maternal allele the offspring did not inherit. Probability of drawing inherited allele from offspring and allele not passed on from parent is (like the others) 1/4. Therfore, inbreeding inflates the coefficient of coancestry to $\Theta_{po} = \frac{f_p}{4} + \frac{1}{4} = \frac{1 + f_p}{4}$. Complete inbreeding means $f_p = 1$ so $\Theta_{po} = \frac{1}{2}$. By thinking about probability of picking paternally derived allele and stuff you can add in $f_o$ (see book page 136) and the general expression is given in equation \@ref(eq:coef-coan-parent-offspring) below.
 
@@ -151,7 +151,7 @@ Using values from Table 7.1 in the book you can then derive explicit expressions
 These values show some interesting things: 
 
 * Gene action involving dominance only rarely contributes to the covariance between relatives. It requires that each parent of $x$ be related to a different parent of $y$. Such relationships (full sibs, double first cousins, and monozygotic twins) are said to be collateral.
-* The coefficient for \sigma^2_{AA} declines more rapidly with the distance of the relationship than does that for \sigma^2_{A}. 
+* The coefficient for $\sigma^2_{AA}$ declines more rapidly with the distance of the relationship than does that for $\sigma^2_{A}$. 
 
 In the same way that the lack of variance that dominance and epistatic effects contribute to total genetic variance, doesn't tell us anything about how the genes being measured function, the lack of variance dominance and epistatic effects contribute to the genetic covariance between relatives tells us nothing about how the function of the measured genes contributes to resemblance between relatives.
 
@@ -294,3 +294,15 @@ There are several ways to measure evolvability, each of which has its own merits
 
 where $\sigma^2_A(W)$ and $\sigma^2_A(w)$ are the additive genetic variances of absolute and relative fitness. Thus, the proportional rate of evolution in mean fitness is equal to the squared coefficient of additive genetic variation of absolute fitness, or equivalently, to the additive genetic variance of relative fitness.
 
+## End of chapter questions
+
+1. Derive a simple expression for the covariance of phenotypic values between two individuals (hint: use equation \@ref(eq:phenotype-linear-model))
+2. Define identity by decent (IBD) and identity by state (IBS)
+3. What are coefficients of identity?
+4. Explain the possible coefficients of identity between two sibs for a single gene (2 alleles)
+5. What is the coefficient of co-ancestry?
+6. What is the coefficient of co-ancestry of an individual with itself?
+7. Describe the coefficient of co-ancestry in a parent-offspring relationship
+8. What is the coefficient of fraternity?
+9. Briefly describe how genetic covariance can be calculated (make some big assumptions here)
+10. 
