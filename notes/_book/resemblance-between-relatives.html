@@ -24,7 +24,7 @@
 <meta name="author" content="Thomas Battram" />
 
 
-<meta name="date" content="2020-07-24" />
+<meta name="date" content="2020-07-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -156,6 +156,7 @@
 <ul>
 <li class="chapter" data-level="7.7.1" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#evolvability"><i class="fa fa-check"></i><b>7.7.1</b> Evolvability</a></li>
 </ul></li>
+<li class="chapter" data-level="7.8" data-path="resemblance-between-relatives.html"><a href="resemblance-between-relatives.html#end-of-chapter-questions-4"><i class="fa fa-check"></i><b>7.8</b> End of chapter questions</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="introduction-to-matrix-algebra-and-linear-models.html"><a href="introduction-to-matrix-algebra-and-linear-models.html"><i class="fa fa-check"></i><b>8</b> Introduction to Matrix Algebra and Linear Models</a>
 <ul>
@@ -227,7 +228,7 @@
 <p>Complications of estimating these coefficients include, non-random mating, LD, assortative mating, sex-linkage, maternal genetic effects and inbreeding.</p>
 <div id="measures-of-relatedness" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Measures of relatedness</h2>
-<p>Relatedness can only be defined with respect to a specified frame of reference as all individuals are related (DUH). From here on the reference population is the base of the observed pedigree. So if the observed data is just trios, then the base population is the parents in those trios. If, data on grandparents is observed then they’re the base population and so-on. Members of the base population are assumed to be unrelated. Also when discussing relatedness we refer to identity by descent (IBD), not identity by state (IBS).</p>
+<p>Relatedness can only be defined with respect to a specified frame of reference as all individuals are related (DUH). From here on the reference population is the base of the observed pedigree. So if the observed data is just trios, then the base population is the parents in those trios. If data on grandparents is observed then they’re the base population and so-on. Members of the base population are assumed to be unrelated. Also when discussing relatedness we refer to identity by descent (IBD), not identity by state (IBS).</p>
 <hr />
 <p><strong>Identity by descent and identity by state</strong></p>
 <p>Genes that are identical by descent are those that have been passed down by a common ancestor. The same gene from two individuals may share the same genetic sequence, making them identical by state, but if they do not derive from the same common ancestor they are not identical by descent.</p>
@@ -246,7 +247,7 @@
   \Theta_{xx} = \frac{1}{4}(1 + f_x + f_x + 1) = \frac{1}{2}(1 + f_x)
   \tag{7.3}
 \end{equation}\]</span></p>
-<p>Something to note, the fact this coefficient increases with inbreeding is used (kind of) in current SNP-heritability estimations. After creating a kinship matrix, the diagonal of the matrix represents <span class="math inline">\(2\Theta_{xx}\)</span>. Due to the software, it will always be centred on one (mean of one) and without inbreeding expect a normal distribution with small variation around the mean, and with inbreeding this distribution would be right-skewed and you can identify inbred individuals by assessing which individuals diagonal elements are significantly larger than one.</p>
+<p>Something to note, the fact this coefficient increases with inbreeding is used (kind of) in current SNP-heritability estimations. After creating a kinship matrix, the diagonal of the matrix represents <span class="math inline">\(2\Theta_{xx}\)</span>. Due to the software, it will always be centred on one (mean of one) and without inbreeding one would expect a normal distribution with small variation around the mean. With inbreeding, this distribution would be right-skewed and you can identify inbred individuals by assessing which individuals diagonal elements are significantly larger than one.</p>
 <p>Parent (<span class="math inline">\(p\)</span>) and offspring (<span class="math inline">\(o\)</span>) scenario now!! If neither are inbred (<span class="math inline">\(p\)</span>’s parents unrelated and they are unrelated to their mate), then that makes things simple. When drawing one of the two alleles from the mother and then one of the two alleles from the offspring, there is only one scenario in which they are the same. As each scenario has an equal probability of occurring, <span class="math inline">\(\Theta_{po} = \frac{1}{4}\)</span>. If <span class="math inline">\(p\)</span> is inbred, probability of their alleles being identical by descent is <span class="math inline">\(f_p\)</span>. This is the same as the probability of the offspring allele being identical by descent to the maternal allele the offspring did not inherit. Probability of drawing inherited allele from offspring and allele not passed on from parent is (like the others) 1/4. Therfore, inbreeding inflates the coefficient of coancestry to <span class="math inline">\(\Theta_{po} = \frac{f_p}{4} + \frac{1}{4} = \frac{1 + f_p}{4}\)</span>. Complete inbreeding means <span class="math inline">\(f_p = 1\)</span> so <span class="math inline">\(\Theta_{po} = \frac{1}{2}\)</span>. By thinking about probability of picking paternally derived allele and stuff you can add in <span class="math inline">\(f_o\)</span> (see book page 136) and the general expression is given in equation <a href="resemblance-between-relatives.html#eq:coef-coan-parent-offspring">(7.4)</a> below.</p>
 <p><span class="math display" id="eq:coef-coan-parent-offspring">\[\begin{equation}
   \Theta_{po} = \frac{1}{4}(1 + f_p + 2f_o)
@@ -322,7 +323,7 @@
 <p>These values show some interesting things:</p>
 <ul>
 <li>Gene action involving dominance only rarely contributes to the covariance between relatives. It requires that each parent of <span class="math inline">\(x\)</span> be related to a different parent of <span class="math inline">\(y\)</span>. Such relationships (full sibs, double first cousins, and monozygotic twins) are said to be collateral.</li>
-<li>The coefficient for ^2_{AA} declines more rapidly with the distance of the relationship than does that for ^2_{A}.</li>
+<li>The coefficient for <span class="math inline">\(\sigma^2_{AA}\)</span> declines more rapidly with the distance of the relationship than does that for <span class="math inline">\(\sigma^2_{A}\)</span>.</li>
 </ul>
 <p>In the same way that the lack of variance that dominance and epistatic effects contribute to total genetic variance, doesn’t tell us anything about how the genes being measured function, the lack of variance dominance and epistatic effects contribute to the genetic covariance between relatives tells us nothing about how the function of the measured genes contributes to resemblance between relatives.</p>
 <p>WRITE THESE DOWN!</p>
@@ -339,7 +340,7 @@
     \tag{7.12}
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(\sigma_{A,A}\)</span> is the contribution due to covariance of additive effects of nonalleles within gametes (the additive disequilibrium covariance), and <span class="math inline">\(\sigma_{D,D}\)</span> is the contribution of covariance due to dominance effects of different loci within individuals (the dominance disequilibrium covariance).</p>
-<p>For situations in which the study population is being maintained in a steady state of disequilibrium from generation to generation (by processes such as natural selection, migration, and/or non-random mating), the modifications needed to estimate genetic covariance between relatives is simple - just reokace <span class="math inline">\(\sigma^2_{A}\)</span> with <span class="math inline">\(\sigma^2_{A} + \sigma_{A,A}\)</span> and <span class="math inline">\(\sigma^2_{D}\)</span> with <span class="math inline">\(\sigma^2_{D} + \sigma_{D,D}\)</span>. However, when mating is random and forces acting on the maintenance of disequilibria are dampened, then covariance between relatives changes with time as the recombination frequency (REMEMBER THAT BAD BOY FROM CHAPTER 5) causes a gradual decay of disequilibrium.</p>
+<p>For situations in which the study population is being maintained in a steady state of disequilibrium from generation to generation (by processes such as natural selection, migration, and/or non-random mating), the modifications needed to estimate genetic covariance between relatives is simple - just replace <span class="math inline">\(\sigma^2_{A}\)</span> with <span class="math inline">\(\sigma^2_{A} + \sigma_{A,A}\)</span> and <span class="math inline">\(\sigma^2_{D}\)</span> with <span class="math inline">\(\sigma^2_{D} + \sigma_{D,D}\)</span>. However, when mating is random and forces acting on the maintenance of disequilibria are dampened, then covariance between relatives changes with time as the recombination frequency (REMEMBER THAT BAD BOY FROM CHAPTER 5) causes a gradual decay of disequilibrium.</p>
 <p>Now we consider two loci, remember the pair of alleles (here <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> or <span class="math inline">\(k\)</span> and <span class="math inline">\(l\)</span>) are inherited from different gametes. The additive genetic variance is simply:</p>
 <p><span class="math display" id="eq:additive-genetic-variance-as-expectations">\[\begin{equation}
     \sigma^2_{A} = E(\alpha^2_i) + E(\alpha^2_j) + E(\alpha^2_k) + E(\alpha^2_l)
@@ -381,11 +382,19 @@
     \tag{7.17}
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(\hat{\rho_g} = \rho_{z}\hat{\sigma}^2_A/\hat{\sigma}^2_z\)</span> is the equilibrium genetic correlation between mates. This can be re-written as:</p>
-<p><span class="math display">\[\begin{equation}
-    TO-DO!!!
+<p><span class="math display" id="eq:inflation-of-genvar-AM">\[\begin{equation}
+    \frac{\hat{\sigma}^2_A} {\sigma^2_A} = 
+    \frac{2 + \left[\sqrt{1 - 4\gamma\rho_{z}h^{2}(1-h^2)} - 1] / h^2} {2(1 - \gamma\rho_{z})}
+    \tag{7.18}
 \end{equation}\]</span></p>
 <p>which gives the inflation of the additive equilibrium genetic variance relative to that in the random-mating base population (RECREATE FIGURE 7.7!).</p>
-<p>The difference <span class="math inline">\(\hat{\sigma}^2_A - \sigma^2_A\)</span> is the additive disequilibrium covariance, _{A,A}, maintained by assortative mating. (UNCLEAR AS TO WHY!)</p>
+<div class="figure"><span id="fig:correlation-between-mates"></span>
+<img src="quant_genetics_book_notes_files/figure-html/correlation-between-mates-1.png" alt="NOT QUITE RIGHT" width="672" />
+<p class="caption">
+Figure 7.1: NOT QUITE RIGHT
+</p>
+</div>
+<p>The difference <span class="math inline">\(\hat{\sigma}^2_A - \sigma^2_A\)</span> is the additive disequilibrium covariance, <span class="math inline">\(\sigma_{A,A}\)</span>, maintained by assortative mating. But why??</p>
 <p>You can see from the figure, assortative mating must be fairly strong (<span class="math inline">\(\hat{\rho_g} \ge 0.2\)</span>) and combined with high <span class="math inline">\(h^2\)</span> to induce much change in the variance. Also, the effective number of loci has a negligible effect unless it is very small.</p>
 <p>When only two loci contribute to the trait, <span class="math inline">\(\sigma^2_D\)</span> can change with assortative mating, but if the number of loci is even “moderate” the effect will be negligible so can be ignored for all complex human phenotypes for sure!</p>
 <p>In addition to creating LD, assortative mating causes genotype frequencies for the selected trait to deviate from the Hardy-Weinberg expectations. Positive assortative mating leads to an increase in homozygosity and negative assortative mating has the opposite effect. However, <span class="math inline">\(\rho_z\)</span> and <span class="math inline">\(h^2\)</span> need to be very large to cause any major deviations from HWE. This implies the vast majority of genetic variance change induced by assortative mating comes in the form of increased LD, not changes in HWE, i.e. allelic association within rather than between gametes.</p>
@@ -404,7 +413,7 @@
 <p>Recalling that the first term in any genetic covariance expression is <span class="math inline">\(2\Theta_{xy}\sigma^2_{A}\)</span>. Thus, under the assumption that additive genetic variance is the dominant source of phenotypic covariance,</p>
 <p><span class="math display" id="eq:approximate-narrow-sense-heritability">\[\begin{equation}
     h^2 = \frac{\sigma(z_x, z_y)} {2\Theta_{xy} \sigma^2_z}
-    \tag{7.18}
+    \tag{7.19}
 \end{equation}\]</span></p>
 <p>should provide a good approximation to the heritability. Violations of assumptions usually cause <span class="math inline">\(\sigma(z_x, z_y) / 2\Theta_{xy}\)</span> to be an upwardly biased estimator of <span class="math inline">\(\sigma^2_A\)</span>. A simple means of evaluating the likelihood of bias in heritability estimates arises when estimates of the phenotypic covariance are available for more than one type of relative (the book provides a couple of examples). The book also discusses lab vs. natural population estimates of heritability and gives examples. Conclusion: heritabilities respond to environmental change, and that substantial care should be taken in extrapolating results beyond the environment in which they are obtained!</p>
 <p>EVERY TRAIT IS HERITABLE INIT! (pretty much)</p>
@@ -414,17 +423,37 @@
 <p>Useful to have a dimensionless parameter to compare evolvability of traits/species, and one such measure is the heriability. Remember equation <a href="covariance-regression-and-correlation.html#eq:breeders-equation-with-h2">(3.14)</a>. The change in the mean relative to the phenotypic standard deviation provides another useful descriptor of evolvability,</p>
 <p><span class="math display" id="eq:breeders-divided-by-phenotypic-sd">\[\begin{equation}
     \frac{\Delta\mu} {\sigma_z} = h^2i
-    \tag{7.19}
-\end{equation}\]</span></p>
-<p>where <span class="math inline">\(i = S / \sigma_z\)</span> is the standardised selection differential, i.e. the change in the mean caused by selection in units of phenotypic standard deviations. Like in equation <a href="covariance-regression-and-correlation.html#eq:breeders-equation-with-h2">(3.14)</a>, the heritability here provides a measure of the efficiency of response to selection.</p>
-<p>There are several ways to measure evolvability, each of which has its own merits in particular contexts. All are interchangable given phenotypic variance, additive genetic variance, and mean phenotype. Here, Fisher’s fundamental theorem of natural selection is derived by dividing both sides of equation <a href="covariance-regression-and-correlation.html#eq:breeders-equation-with-h2">(3.14)</a> by <span class="math inline">\(\mu\)</span> and substituting in <span class="math inline">\(i\)</span>, and considering the case in which the trait of interest is fitness (<span class="math inline">\(W\)</span>). Remember, the selection differential is equivalent to the phenotypic covariance between the character and relative fitness ($w = W/{W}), i.e. <a href="covariance-regression-and-correlation.html#eq:selection-differential2">(3.10)</a>, where <span class="math inline">\(\bar{W}\)</span> is mean fitness on an absolute scale. If <span class="math inline">\(z\)</span> is fitness then <span class="math inline">\(S = \sigma^2_z(W)\)</span>, where <span class="math inline">\(\sigma^2_z(W)\)</span> is the phenotypic variance of fitness and we can say:</p>
-<p><span class="math display" id="eq:fishers-fundamental-theorem-of-natural-selection">\[\begin{equation}
-    \frac{\Delta\bar{W}} {\bar{W}} = \frac{\sigma^2_A(W)} {\bar{W}^2} = \sigma^2_A(w)
     \tag{7.20}
 \end{equation}\]</span></p>
+<p>where <span class="math inline">\(i = S / \sigma_z\)</span> is the standardised selection differential, i.e. the change in the mean caused by selection in units of phenotypic standard deviations. Like in equation <a href="covariance-regression-and-correlation.html#eq:breeders-equation-with-h2">(3.14)</a>, the heritability here provides a measure of the efficiency of response to selection.</p>
+<p>There are several ways to measure evolvability, each of which has its own merits in particular contexts. All are interchangable given phenotypic variance, additive genetic variance, and mean phenotype. Here, Fisher’s fundamental theorem of natural selection is derived by dividing both sides of equation <a href="covariance-regression-and-correlation.html#eq:breeders-equation-with-h2">(3.14)</a> by <span class="math inline">\(\mu\)</span> and substituting in <span class="math inline">\(i\)</span>, and considering the case in which the trait of interest is fitness (<span class="math inline">\(W\)</span>). Remember, the selection differential is equivalent to the phenotypic covariance between the character and relative fitness (<span class="math inline">\(w = W/\bar{W}\)</span>), i.e. <a href="covariance-regression-and-correlation.html#eq:selection-differential2">(3.10)</a>, where <span class="math inline">\(\bar{W}\)</span> is mean fitness on an absolute scale. If <span class="math inline">\(z\)</span> is fitness then <span class="math inline">\(S = \sigma^2_z(W)\)</span>, where <span class="math inline">\(\sigma^2_z(W)\)</span> is the phenotypic variance of fitness and we can say:</p>
+<p><span class="math display" id="eq:fishers-fundamental-theorem-of-natural-selection">\[\begin{equation}
+    \frac{\Delta\bar{W}} {\bar{W}} = \frac{\sigma^2_A(W)} {\bar{W}^2} = \sigma^2_A(w)
+    \tag{7.21}
+\end{equation}\]</span></p>
 <p>where <span class="math inline">\(\sigma^2_A(W)\)</span> and <span class="math inline">\(\sigma^2_A(w)\)</span> are the additive genetic variances of absolute and relative fitness. Thus, the proportional rate of evolution in mean fitness is equal to the squared coefficient of additive genetic variation of absolute fitness, or equivalently, to the additive genetic variance of relative fitness.</p>
-
 </div>
+</div>
+<div id="end-of-chapter-questions-4" class="section level2" number="7.8">
+<h2><span class="header-section-number">7.8</span> End of chapter questions</h2>
+<ol style="list-style-type: decimal">
+<li>Derive a simple expression for the covariance of phenotypic values between two individuals (hint: use equation <a href="sources-of-environmental-variation.html#eq:phenotype-linear-model">(6.1)</a>)</li>
+<li>Define identity by decent (IBD) and identity by state (IBS)</li>
+<li>What are coefficients of identity?</li>
+<li>Explain the possible coefficients of identity between two sibs for a single gene (2 alleles)</li>
+<li>What is the coefficient of co-ancestry?</li>
+<li>What is the coefficient of co-ancestry of an individual with itself?</li>
+<li>Describe the coefficient of co-ancestry in a parent-offspring relationship</li>
+<li>What is the coefficient of fraternity?</li>
+<li>Briefly describe how genetic covariance can be calculated (make some big assumptions here)</li>
+<li>Explain how LD influences genetic covariance between relatives?</li>
+<li>How does assortative mating influence genetic covariance between relatives? Compare this to inbreeding</li>
+<li>Explain how assortative mating impacts additive genetic variance</li>
+<li>Does assortative mating impact dominance genetic variance?</li>
+<li>Define heritability in terms of the coefficient of coancestry</li>
+<li>What is Fisher’s fundamental theorem of natural selection? AND WHY SHOULD I CARE?!?</li>
+</ol>
+
 </div>
 </div>
             </section>

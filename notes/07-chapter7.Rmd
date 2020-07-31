@@ -175,7 +175,7 @@ Somehow (work this out later), the book extrapolates from equations \@ref(eq:add
 
 where $\sigma_{A,A}$ is the contribution due to covariance of additive effects of nonalleles within gametes (the additive disequilibrium covariance), and $\sigma_{D,D}$ is the contribution of covariance due to dominance effects of different loci within individuals (the dominance disequilibrium covariance).
 
-For situations in which the study population is being maintained in a steady state of disequilibrium from generation to generation (by processes such as natural selection, migration, and/or non-random mating), the modifications needed to estimate genetic covariance between relatives is simple - just reokace $\sigma^2_{A}$ with $\sigma^2_{A} + \sigma_{A,A}$ and $\sigma^2_{D}$ with $\sigma^2_{D} + \sigma_{D,D}$. However, when mating is random and forces acting on the maintenance of disequilibria are dampened, then covariance between relatives changes with time as the recombination frequency (REMEMBER THAT BAD BOY FROM CHAPTER 5) causes a gradual decay of disequilibrium. 
+For situations in which the study population is being maintained in a steady state of disequilibrium from generation to generation (by processes such as natural selection, migration, and/or non-random mating), the modifications needed to estimate genetic covariance between relatives is simple - just replace $\sigma^2_{A}$ with $\sigma^2_{A} + \sigma_{A,A}$ and $\sigma^2_{D}$ with $\sigma^2_{D} + \sigma_{D,D}$. However, when mating is random and forces acting on the maintenance of disequilibria are dampened, then covariance between relatives changes with time as the recombination frequency (REMEMBER THAT BAD BOY FROM CHAPTER 5) causes a gradual decay of disequilibrium. 
 
 Now we consider two loci, remember the pair of alleles (here $i$ and $j$ or $k$ and $l$) are inherited from different gametes. The additive genetic variance is simply:
 
@@ -236,12 +236,48 @@ where $h^2 = \frac{\sigma^2_A} {\sigma^2_z}$. With continued assortative mating 
 where $\hat{\rho_g} = \rho_{z}\hat{\sigma}^2_A/\hat{\sigma}^2_z$ is the equilibrium genetic correlation between mates. This can be re-written as:
 
 \begin{equation}
-    TO-DO!!!
+    \frac{\hat{\sigma}^2_A} {\sigma^2_A} = 
+    \frac{2 + \left[\sqrt{1 - 4\gamma\rho_{z}h^{2}(1-h^2)} - 1] / h^2} {2(1 - \gamma\rho_{z})}
+    (\#eq:inflation-of-genvar-AM)
 \end{equation}
 
 which gives the inflation of the additive equilibrium genetic variance relative to that in the random-mating base population (RECREATE FIGURE 7.7!).
 
-The difference $\hat{\sigma}^2_A - \sigma^2_A$ is the additive disequilibrium covariance, \sigma_{A,A}, maintained by assortative mating. (UNCLEAR AS TO WHY!)
+``` {r correlation-between-mates, message=FALSE, echo=FALSE, warning=FALSE, results="asis", fig.cap="NOT QUITE RIGHT"}
+library(tidyverse)
+n_loci <- c(10, 20)
+h2_vals <- c(0.25, 0.75, 1)
+rhoz_vals <- seq(-1, 1, length.out=100)
+calc_gamma <- function(nl) 1 - (1 / (2*nl))
+calc_inflation <- function(nl, h2, rhoz) 
+{
+    gamma <- calc_gamma(nl)
+    frac1 <- 2 + (sqrt(1 - 4*gamma*rhoz*h2*(1 - h2)) - 1) / h2
+    frac2 <- 2 * (1 - gamma * rhoz)
+    return(frac1 / frac2)
+}
+
+params <- expand.grid(n_loci = n_loci, 
+                      h2_vals = h2_vals, 
+                      rhoz_vals = rhoz_vals)
+
+p_dat <- params %>%
+    mutate(inflation = calc_inflation(n_loci, h2_vals, rhoz_vals)) %>%
+    as_tibble
+
+x_lab <- bquote("Phenotypic correlation between mates, " ~ rho[z])
+# y_lab <- bquote(\hat{\sigma}^{2}_{A} / \sigma^{2}_{A})
+
+p <- ggplot(p_dat, aes(x = rhoz_vals, y = inflation, colour = as.factor(h2_vals))) +
+    geom_line(aes(linetype = as.factor(n_loci))) + 
+    ylim(0,4) +
+    labs(x = x_lab, y = "alab") +
+    theme_bw()
+
+print(p)
+```
+
+The difference $\hat{\sigma}^2_A - \sigma^2_A$ is the additive disequilibrium covariance, $\sigma_{A,A}$, maintained by assortative mating. But why??
 
 You can see from the figure, assortative mating must be fairly strong ($\hat{\rho_g} \ge 0.2$) and combined with high $h^2$ to induce much change in the variance. Also, the effective number of loci has a negligible effect unless it is very small.
 
@@ -285,7 +321,7 @@ Useful to have a dimensionless parameter to compare evolvability of traits/speci
 
 where $i = S / \sigma_z$ is the standardised selection differential, i.e. the change in the mean caused by selection in units of phenotypic standard deviations. Like in equation \@ref(eq:breeders-equation-with-h2), the heritability here provides a measure of the efficiency of response to selection.
 
-There are several ways to measure evolvability, each of which has its own merits in particular contexts. All are interchangable given phenotypic variance, additive genetic variance, and mean phenotype. Here, Fisher's fundamental theorem of natural selection is derived by dividing both sides of equation \@ref(eq:breeders-equation-with-h2) by $\mu$ and substituting in $i$, and considering the case in which the trait of interest is fitness ($W$). Remember, the selection differential is equivalent to the phenotypic covariance between the character and relative fitness ($w = W/\bar{W}), i.e. \@ref(eq:selection-differential2), where $\bar{W}$ is mean fitness on an absolute scale. If $z$ is fitness then $S = \sigma^2_z(W)$, where $\sigma^2_z(W)$ is the phenotypic variance of fitness and we can say: 
+There are several ways to measure evolvability, each of which has its own merits in particular contexts. All are interchangable given phenotypic variance, additive genetic variance, and mean phenotype. Here, Fisher's fundamental theorem of natural selection is derived by dividing both sides of equation \@ref(eq:breeders-equation-with-h2) by $\mu$ and substituting in $i$, and considering the case in which the trait of interest is fitness ($W$). Remember, the selection differential is equivalent to the phenotypic covariance between the character and relative fitness ($w = W/\bar{W}$), i.e. \@ref(eq:selection-differential2), where $\bar{W}$ is mean fitness on an absolute scale. If $z$ is fitness then $S = \sigma^2_z(W)$, where $\sigma^2_z(W)$ is the phenotypic variance of fitness and we can say: 
 
 \begin{equation}
     \frac{\Delta\bar{W}} {\bar{W}} = \frac{\sigma^2_A(W)} {\bar{W}^2} = \sigma^2_A(w)
@@ -305,4 +341,9 @@ where $\sigma^2_A(W)$ and $\sigma^2_A(w)$ are the additive genetic variances of 
 7. Describe the coefficient of co-ancestry in a parent-offspring relationship
 8. What is the coefficient of fraternity?
 9. Briefly describe how genetic covariance can be calculated (make some big assumptions here)
-10. 
+10. Explain how LD influences genetic covariance between relatives?
+11. How does assortative mating influence genetic covariance between relatives? Compare this to inbreeding
+12. Explain how assortative mating impacts additive genetic  variance
+13. Does assortative mating impact dominance genetic variance?
+14. Define heritability in terms of the coefficient of coancestry
+15. What is Fisher's fundamental theorem of natural selection? AND WHY SHOULD I CARE?!?
